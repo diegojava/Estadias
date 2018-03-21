@@ -19,7 +19,7 @@ $matricula = mysqli_real_escape_string($link, $_POST['matricula']);
 $contrasena = mysqli_real_escape_string($link, $_POST['contrasena']);
 
 // attempt insert query execution
-$sql = "INSERT INTO alumnos VALUES ('$matricula', '$nombreAlumno', '$apellidoPaterno', '$apellidoMaterno', sha1('$contrasena'), '$grado', '$grupo','$escuela', 1)";
+$sql = "INSERT INTO alumnos VALUES ('$matricula', '$nombreAlumno', '$apellidoPaterno', '$apellidoMaterno', sha1('$contrasena'), '$grado', '$grupo','$escuela', 1, 1)";
 if(mysqli_query($link, $sql)){
     echo "Records added successfully. $sql";
 } else{
