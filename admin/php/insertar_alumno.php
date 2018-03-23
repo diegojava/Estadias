@@ -21,7 +21,8 @@ $contrasena = mysqli_real_escape_string($link, $_POST['contrasena']);
 // attempt insert query execution
 $sql = "INSERT INTO alumnos VALUES ('$matricula', '$nombreAlumno', '$apellidoPaterno', '$apellidoMaterno', sha1('$contrasena'), '$grado', '$grupo','$escuela', 1, 1)";
 if(mysqli_query($link, $sql)){
-    echo "<div class='alert alert-success'>Los datos del alumno se guardaron exitosamente. $sql </div>";
+    //echo "<div class='alert alert-success'>Los datos del alumno se guardaron exitosamente. $sql </div>";
+    echo "<script>alert('Los datos del alumno se guardaron exitosamente.');</script>";
 } else{
     echo "<div class='alert alert-danger'> Hubo un error al guardar los datos. Vuelve a intentarlo. $sql. </div>";
 }
