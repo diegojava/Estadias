@@ -306,25 +306,31 @@ desired effect
         | Your Page Content Here |
         -------------------------->
 
-        <form method="post" action="php/insertar_alumno.php" NAME="Formulario" enctype="multipart/form-data" style="margin:0px;">
-          <div class="form-group has-success">
+
+        <!--------------------------
+        | INICIA FORMULARIO DE REGISTRO |
+        -------------------------->
+
+
+        <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>" NAME="Formulario" enctype="multipart/form-data">
+
+              
+          <div class="form-group">
                   <label class="control-label" for="inputSuccess">Nombre</label>
-                  <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Ingresa Nombre" onkeyup="poner(this.form)">
+                  <input type="text" class="form-control" id="nombre" name="nombre" required placeholder="Ingresa Nombre" onkeyup="poner(this.form)">
            </div>
 
-            <div class="form-group has-success">
+            <div class="form-group">
                 <label class="control-label" for="inputSuccess">Apellido Paterno</label>
-               <input type="text" class="form-control" id="apaterno" name="apaterno" placeholder="Ingresa Apellido Paterno" onkeyup="poner(this.form)">
+               <input type="text" class="form-control" id="apaterno" name="apaterno" required placeholder="Ingresa Apellido Paterno" onkeyup="poner(this.form)">
             </div>
 
-            <div class="form-group has-success">
+            <div class="form-group">
                 <label class="control-label" for="inputSuccess">Apellido Materno</label>
-               <input type="text" class="form-control" id="amaterno" name="amaterno" placeholder="Ingresa Apellido Materno" onkeyup="poner(this.form)">
+               <input type="text" class="form-control" id="amaterno" name="amaterno" required placeholder="Ingresa Apellido Materno" onkeyup="poner(this.form)">
             </div>
 
-
-
-            <div class="form-group has-success">
+            <div class="form-group">
                 <label class="control-label" for="inputSuccess">Escuela</label>
 								<br>
 								<select id="escuela" name="escuela" onclick="poner(this.form)">
@@ -335,16 +341,17 @@ desired effect
 								</select>
                 </div>
 
-            <div class="form-group has-success">
+                <div class="form-group">
                 <label class="control-label" for="inputSuccess">Grado</label>
-               <input type="text" class="form-control" id="grado" name="grado" placeholder="Ingresa Grado" onkeyup="poner(this.form)">
-            </div>
-
-            <div class="form-group has-success">
+               <input type="text" class="form-control" id="grado" required name="grado" placeholder="Ingresa Grado" onkeyup="poner(this.form)">
+                </div>
+                
+            <div class="form-group">
                 <label class="control-label" for="inputSuccess">Grupo</label>
-               <input type="text" class="form-control" id="grupo" name="grupo" placeholder="Ingresa Grupo" onkeyup="poner(this.form)">
+               <input type="text" class="form-control" id="grupo" required name="grupo" placeholder="Ingresa Grupo" onkeyup="poner(this.form)">
             </div>
             <p>Datos del login</p>
+
             <div class="form-group has-success">
                 <label class="control-label" for="inputSuccess">Matricula</label>
                <input type="text" id="matricula" name="matricula" readonly style="text-transform:uppercase">
@@ -352,13 +359,16 @@ desired effect
 
             <div class="form-group has-success">
                 <label class="control-label" for="inputSuccess">Contraseña</label>
-               <input type="text" id="contrasena" name="contrasena">
+               <input type="text" id="contrasena" required name="contrasena">
             </div>
               <br>
-               <input type="submit" class="btn btn-success" align="right" value="Registrar" />
+               <input type="submit" class="btn btn-success" align="right" value="Registrar" name="RegistroAlumno" id="RegistroAlumno" />
               </form>
-
-
+        
+        <p><?php if (isset($_POST['RegistroAlumno'])){
+          include("php/insertar_alumno.php");
+        } //revisa que se haya llenado el formulario
+        ?></p>
 
 
     </section>
