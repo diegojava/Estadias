@@ -1,7 +1,17 @@
 <?php
 	session_start();
 	if($_SESSION["id_usuario"] == TRUE && $_SESSION["rol"] == 2) {
- $con = mysqli_connect('localhost','root','root','prueba');
+
+   include('../conexion.php');
+
+    
+    $stmt = "SELECT * FROM clientes ORDER BY id";
+    $stmt_general=$mysqli->query($stmt);
+    
+    
+    $categoria = "SELECT * FROM categorias ORDER BY id_cat";
+    $categoria_general=$mysqli->query($categoria); 
+
 ?>
 
 <!DOCTYPE html>
@@ -11,6 +21,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
 -->
 <html>
 <head>
+
+  <!-- filtro de busqueda -->
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script src="funciones.js"></script>
+
+  
 	<link rel="stylesheet" href="/Estadias/admin/graphs/lib/js/chartphp.css">
   <script src="/Estadias/admin/graphs/lib/js/jquery.min.js"></script>
   <script src="/Estadias/admin/graphs/lib/js/chartphp.js"></script>
@@ -47,38 +63,51 @@ scratch. This page gets rid of all links and provides the needed markup only.
 	 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
 <script type="text/javascript">
-google.load("visualization", "1", {packages:["corechart"]});
-google.setOnLoadCallback(drawChart);
-function drawChart() {
-var data = google.visualization.arrayToDataTable([
+$(document).ready(function()
+{   
+  // MOSTRAR TODOS LOS PRODUCTOS
+  
+  function getAll(){
+    
+    $.ajax
+    ({
+      url: 'consulta_alumnos.php',
+      data: 'action=showAll',
+      cache: false,
+      success: function(r)
+      { 
+        $("#display").html(r);
+      }
+    });     
+  }
+  
+  getAll();
+  
+  // CÓDIGO PARA SEPARAR POR CATEGORIAS
+  
+  $("#getClientes").change(function()
+  {       
+    var id = $(this).find(":selected").val();
 
-['escuela','cantidad'],
-<?php
-		 $query = "SELECT escuela, count(escuela) as cantidad from alumnos
-group by escuela";
+    var dataString = 'action='+ id;
+        
+    $.ajax
+    ({
+      url: 'consulta_alumnos.php',
+      data: dataString,
+      cache: false,
+      success: function(r)
+      {
+        $("#display").html(r);
+      } 
+    });
+  })
 
-			$exec = mysqli_query($con,$query);
-			while($row = mysqli_fetch_array($exec)){
+});
+</script>
 
-			echo "['".$row['escuela']."',".$row['cantidad']."],";
-			}
-			?>
-
-]);
-var options = {
-title: 'Número de estudiantes por escuela',
- pieHole: 0.5,
-				 pieSliceTextStyle: {
-					 color: 'black',
-				 },
-				 legend: 'none'
-};
-var chart = new google.visualization.PieChart(document.getElementById("columnchart12"));
-chart.draw(data,options);
-}
-
-	 </script>
 
 </head>
 <!--
@@ -353,73 +382,28 @@ desired effect
 
       <!-- QUERYS PARA LOS SELECTS -->
 
-      <?php $sqlnombre="SELECT * FROM alumnos";
-      $consultanombre = mysqli_query($con,$sqlnombre); ?>   
+        <div class="container">
 
-
-
-        <table width="615" border="0" cellpadding="0" cellspacing="0">
-          <tr>
-          <td width="137"><strong>Nombre</strong></td>
-          <td width="147"><strong>Escuela</strong></td>
-          <td width="331"><strong>Grado</strong></td>
-          </tr>
-          <tr>
-          <td>
-             <select name="vehiculo">
-             <option>Seleccionar</option>
-             <?php while($filatipo = mysqli_fetch_array($consultanombre)){ ?>
-             <option value="<?php echo $filatipo['matricula'] ?>"><?php echo $filatipo['nombreA'] ?></option>
-             <?php } ?>
-             </select>
-          </td>
-          <td>
-             <select name="marca">
-             <option>Seleccionar</option>
-             </select>
-          </td>
-          <td>
-             <select name="modelo">
-             <option>Seleccionar</option>
-             </select>
-          </td>
-          </tr>
-        </table>
-
-        <div id="listado">
-        <table width="615" border=1 cellpadding="3" cellspacing="0" >
-        <tr><td width="90"><b>Vehiculo</b></td>
-        <td width="71"><b>Marca</b></td>
-        <td width="159"><b>Modelo</b></td>
-        <td width="150"><b>Foto</b></td>
-        <td colspan="2">
-        <div align="center">
-        <b>Acciones</b>
-        </div></td>
-        </tr>
-         
-        <?php $sql="SELECT *
-        FROM alumnos";
-        $consulta = mysqli_query($con,$sql); ?>
-         
-        <?php while($fila = mysqli_fetch_array($consulta)){
-        foreach($fila AS $key => $value) { $fila[$key] = stripslashes($value); } ?>
-         
-        <tr>
-        <td><?php echo $fila['nombreA'] ?></td>
-        <td><?php echo $fila['apellidoP'] . " " . $fila['apellidoM']?></td>
-        <td><?php echo $fila['escuela'] ?></td>
-        <td><?php echo $fila['grado'] . " " . $fila['grupo']?></td>
-        <td width="103"><div align="center"><a href=edit.php?id=<?php echo $fila['matricula'] ?>>Modificar</a></div></td>
-        </tr>
-        <?php } ?>
-        </table>
+    <div class="grid_12">
+        <h1>Alumnos <strong>por escuela</strong></h1>
+        <div class="cuerpo">
+            <p>Selecciona una escuela de la siguiente lista desplegable para mostrar todos los alumnos de la misma.</p>
+            <select id="getClientes">
+                <option value="showAll" selected="selected">Todos nuestros clientes</option>
+                <option value="UT">Universidad Tecnológica</option>
+                <option value="BA">Benémerito de las Américas</option>
+                <option value="PI">ESPI</option>
+                <option value="NH">Niños Héroes</option>
+                  
+            </select>
         </div>
-        <br />
-        <label>
-        <input type="submit" name="nuevo" id=”nuevo” value="Nuevo Vehiculo" />
-        </label>
+    </div>
+    <div class="" id="display" style="">
+    <!-- AQUÍ SE IMPRIMIRA TODO LOS DATOS -->
+    </div>
+    
 
+    </div>
 
 
 

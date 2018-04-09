@@ -267,7 +267,11 @@ desired effect
         <li class="header">MENÚ</li>
         <!-- Optionally, you can add icons to the links -->
         <li class="active"><a href="/Estadias/"><i class="fa fa-link"></i> <span>Página principal</span></a></li>
-        <li><a href="/Estadias/admin/graphs.php"><i class="fa fa-link"></i> <span>Gráficas</span></a></li>
+        <li><a href="/Estadias/admin/graphs.php"><i class="fa fa-book"></i> <span>Materias</span></a></li>
+        <li><a href="/Estadias/admin/graphs.php"><i class="fa fa-sticky-note"></i> <span>Examenes</span></a></li>
+
+          <li><a href="/Estadias/admin/graphs.php"><i class="fa fa-bar-chart"></i> <span>Gráficos</span></a></li>
+     
         <li class="treeview">
           <a href="#"><i class="fa fa-link"></i> <span>Multilevel</span>
             <span class="pull-right-container">
