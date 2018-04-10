@@ -1,9 +1,8 @@
 <?php
 	session_start();
-	if($_SESSION["id_usuario"] == TRUE && $_SESSION["rol"] == 2) {
- $con = mysqli_connect('localhost','root','root','prueba');
+	if($_SESSION["id_usuario"] == TRUE && $_SESSION["rol"] == 2)
+	{
 ?>
-
 <!DOCTYPE html>
 <!--
 This is a starter template page. Use this page to start your new project from
@@ -11,9 +10,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
 -->
 <html>
 <head>
-	<link rel="stylesheet" href="/Estadias/admin/graphs/lib/js/chartphp.css">
-  <script src="/Estadias/admin/graphs/lib/js/jquery.min.js"></script>
-  <script src="/Estadias/admin/graphs/lib/js/chartphp.js"></script>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>AdminLTE 2 | Starter</title>
@@ -41,45 +37,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <!-- Google Font -->
   <link rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
-
-				<script type="text/javascript" src="https://www.google.com/jsapi"></script>
- <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-	 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<script type="text/javascript">
-google.load("visualization", "1", {packages:["corechart"]});
-google.setOnLoadCallback(drawChart);
-function drawChart() {
-var data = google.visualization.arrayToDataTable([
-
-['escuela','cantidad'],
-<?php
-		 $query = "SELECT escuela, count(escuela) as cantidad from alumnos
-group by escuela";
-
-			$exec = mysqli_query($con,$query);
-			while($row = mysqli_fetch_array($exec)){
-
-			echo "['".$row['escuela']."',".$row['cantidad']."],";
-			}
-			?>
-
-]);
-var options = {
-title: 'Número de estudiantes por escuela',
- pieHole: 0.5,
-				 pieSliceTextStyle: {
-					 color: 'black',
-				 },
-				 legend: 'none'
-};
-var chart = new google.visualization.PieChart(document.getElementById("columnchart12"));
-chart.draw(data,options);
-}
-
-	 </script>
-
 </head>
 <!--
 BODY TAG OPTIONS:
@@ -293,27 +250,28 @@ desired effect
         </div>
       </div>
 
-			<!-- search form
-			<form action="#" method="get" class="sidebar-form">
-				<div class="input-group">
-					<input type="text" name="q" class="form-control" placeholder="Search...">
-					<span class="input-group-btn">
-								<button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
-								</button>
-							</span>
-				</div>
-			</form>
-			/.search form -->
+      <!-- search form (Optional)
+      <form action="#" method="get" class="sidebar-form">
+        <div class="input-group">
+          <input type="text" name="q" class="form-control" placeholder="Search...">
+          <span class="input-group-btn">
+              <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
+              </button>
+            </span>
+        </div>
+      </form>
+      /.search form -->
+
 			<!-- Sidebar Menu -->
 			<ul class="sidebar-menu" data-widget="tree">
 				<li class="header">MENÚ</li>
 				<!-- Optionally, you can add icons to the links -->
 				<li><a href="/Estadias/admin"><i class="fa fa-dashboard"></i> <span>Página principal</span></a></li>
-				<li><a href="/Estadias/admin/alumnos.php"><i class="fa fa-user"></i> <span>Alumnos</span></a></li>
-				<li class="active"><a href="/Estadias/admin/graphs.php"><i class="fa fa-book"></i> <span>Materias</span></a></li>
-				<li class="active"><a href="/Estadias/admin/graphs.php"><i class="fa fa-sticky-note"></i> <span>Examenes</span></a></li>
+				<li class="active"><a href="/Estadias/admin/alumnos.php"><i class="fa fa-user"></i> <span>Alumnos</span></a></li>
+				<li><a href="/Estadias/admin/graphs.php"><i class="fa fa-book"></i> <span>Materias</span></a></li>
+				<li><a href="/Estadias/admin/graphs.php"><i class="fa fa-sticky-note"></i> <span>Examenes</span></a></li>
 
-					<li class="active"><a href="/Estadias/admin/graphs.php"><i class="fa fa-bar-chart"></i> <span>Gráficos</span></a></li>
+					<li><a href="/Estadias/admin/graphs.php"><i class="fa fa-bar-chart"></i> <span>Gráficos</span></a></li>
 
 				<li class="treeview">
 					<a href="#"><i class="fa fa-link"></i> <span>Multilevel</span>
@@ -353,32 +311,34 @@ desired effect
         | Your Page Content Here |
         -------------------------->
 
-				<div class="container-fluid">
-	 <div id="columnchart12" style="width: 100%; height: 500px;"></div>
-	 </div>
 
-        <form method="post" action="php/insertar_alumno.php" NAME="Formulario" enctype="multipart/form-data" style="margin:0px;">
-          <div class="form-group has-success">
+        <!--------------------------
+        | INICIA FORMULARIO DE REGISTRO |
+        -------------------------->
+
+
+        <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>" NAME="Formulario" enctype="multipart/form-data">
+
+
+          <div class="form-group">
                   <label class="control-label" for="inputSuccess">Nombre</label>
-                  <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Ingresa Nombre" onkeyup="poner(this.form)">
+                  <input type="text" class="form-control" id="nombre" name="nombre" required placeholder="Ingresa Nombre" onkeyup="poner(this.form)">
            </div>
 
-            <div class="form-group has-success">
+            <div class="form-group">
                 <label class="control-label" for="inputSuccess">Apellido Paterno</label>
-               <input type="text" class="form-control" id="apaterno" name="apaterno" placeholder="Ingresa Apellido Paterno" onkeyup="poner(this.form)">
+               <input type="text" class="form-control" id="apaterno" name="apaterno" required placeholder="Ingresa Apellido Paterno" onkeyup="poner(this.form)">
             </div>
 
-            <div class="form-group has-success">
+            <div class="form-group">
                 <label class="control-label" for="inputSuccess">Apellido Materno</label>
-               <input type="text" class="form-control" id="amaterno" name="amaterno" placeholder="Ingresa Apellido Materno" onkeyup="poner(this.form)">
+               <input type="text" class="form-control" id="amaterno" name="amaterno" required placeholder="Ingresa Apellido Materno" onkeyup="poner(this.form)">
             </div>
 
-
-
-            <div class="form-group has-success">
+            <div class="form-group">
                 <label class="control-label" for="inputSuccess">Escuela</label>
 								<br>
-								<select id="escuela" name="escuela" onclick="poner(this.form)">
+								<select class="form-control" id="escuela" name="escuela" onclick="poner(this.form)">
 									<option value="UT">Universidad Tecnológica</option>
 								  <option value="NH">Esc. Niños Héroes</option>
 								  <option value="BA">Benémerito de las Américas</option>
@@ -386,30 +346,37 @@ desired effect
 								</select>
                 </div>
 
-            <div class="form-group has-success">
+                <div class="form-group">
                 <label class="control-label" for="inputSuccess">Grado</label>
-               <input type="text" class="form-control" id="grado" name="grado" placeholder="Ingresa Grado" onkeyup="poner(this.form)">
-            </div>
+               <input type="text" class="form-control" id="grado" required name="grado" placeholder="Ingresa Grado" onkeyup="poner(this.form)">
+                </div>
 
-            <div class="form-group has-success">
+            <div class="form-group">
                 <label class="control-label" for="inputSuccess">Grupo</label>
-               <input type="text" class="form-control" id="grupo" name="grupo" placeholder="Ingresa Grupo" onkeyup="poner(this.form)">
+               <input type="text" class="form-control" id="grupo" required name="grupo" placeholder="Ingresa Grupo" onkeyup="poner(this.form)">
             </div>
-            <p>Datos del login</p>
-            <div class="form-group has-success">
+						<h3>
+			       Datos del login
+			        <small>Con los siguientes datos, los niños podrán ingresar al sistema.</small>
+			      </h3>
+
+            <div class="form-group">
                 <label class="control-label" for="inputSuccess">Matricula</label>
-               <input type="text" id="matricula" name="matricula" readonly style="text-transform:uppercase">
+               <input class="form-control" type="text" id="matricula" name="matricula" readonly style="text-transform:uppercase">
             </div>
 
-            <div class="form-group has-success">
+            <div class="form-group">
                 <label class="control-label" for="inputSuccess">Contraseña</label>
-               <input type="text" id="contrasena" name="contrasena">
+               <input class="form-control" type="text" id="contrasena" required name="contrasena">
             </div>
               <br>
-               <input type="submit" class="btn btn-success" align="right" value="Registrar" />
+               <input type="submit" class="btn btn-success" align="right" value="Registrar" name="RegistroAlumno" id="RegistroAlumno" />
               </form>
 
-
+        <p><?php if (isset($_POST['RegistroAlumno'])){
+          include("php/insertar_alumno.php");
+        } //revisa que se haya llenado el formulario
+        ?></p>
 
 
     </section>
