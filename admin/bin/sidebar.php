@@ -32,8 +32,8 @@
             <li<?php if ($_SERVER['PHP_SELF'] == '/Estadias/admin/alumnos.php') echo ' class="active"';?>>
               <a href="/Estadias/admin/alumnos.php"><i class="fa fa-user"></i> Listado de alumnos</a></li>            
 
-            <li<?php if ($_SERVER['PHP_SELF'] == '/Estadias/admin/registrar-alumnos.php') echo ' class="active"';?>>
-              <a href="/Estadias/admin/registrar-alumnos.php"><i class="fa fa-user-plus"></i> Registrar alumnos</a></li>
+            <li<?php if ($_SERVER['PHP_SELF'] == '/Estadias/admin/alumnos-registrar.php') echo ' class="active"';?>>
+              <a href="/Estadias/admin/alumnos-registrar.php"><i class="fa fa-user-plus"></i> Registrar alumnos</a></li>
 
           </ul>
 
