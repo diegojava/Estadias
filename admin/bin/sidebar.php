@@ -19,7 +19,7 @@
         
         <li <?php if ($_SERVER['PHP_SELF'] == '/Estadias/admin/index.php') echo ' class="active"';?>><a href="/Estadias/admin/index.php"><i class="fa fa-dashboard"></i> <span>Inicio</span></a></li>
 
-        <li class="treeview <?php if($_SERVER['PHP_SELF'] == '/Estadias/admin/alumnos.php' || $_SERVER['PHP_SELF'] == '/Estadias/admin/registrar-alumnos.php') echo 'active';?>">
+        <li class="treeview <?php if($_SERVER['PHP_SELF'] == '/Estadias/admin/alumnos.php' || $_SERVER['PHP_SELF'] == '/Estadias/admin/alumnos-registrar.php') echo 'active';?>">
           
           <a href="#">
             <i class="fa fa-users"></i> <span>Alumnos</span>

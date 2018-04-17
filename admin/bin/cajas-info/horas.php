@@ -15,7 +15,7 @@
                     die("Connection failed: " . $conn->connect_error);
                 }
 
-                $sql = "SELECT sum(tiempo) as total FROM alumnos;";
+                $sql = "SELECT sum(horas) as total FROM alumnos;";
                 $result = $conn->query($sql);
 
                 if ($result->num_rows > 0) {

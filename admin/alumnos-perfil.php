@@ -2,14 +2,21 @@
   include("bin/conexion.php");
   session_start();
   if($_SESSION["id_usuario"] == TRUE && $_SESSION["rol"] == 2)
+
+    
   {
 ?>
 <!DOCTYPE html>
 <html>
 <head>
-
   <!-- LLAMAMOS A TRAER EL HEADER -->
   <?php include_once(__DIR__."/bin/header.php"); ?>
+          
+          <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+          <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+
+ 
   <title>Inicio | Administración</title>
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
@@ -25,10 +32,7 @@
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
-      <h1>
-        Panel de administración
-        <small>sección: alumnos</small>
-      </h1>
+      
       <ol class="breadcrumb">
         <li><a href="/Estadias/admin/"><i class="fa fa-dashboard"></i> Inicio</a></li>
         <li class="active">Alumnos</li>
@@ -38,7 +42,7 @@
     <!-- Main content -->
     <section class="content">
  
-      <h2>Datos del empleados &raquo; Perfil</h2>
+      <h2>Datos del alumno &raquo; Perfil</h2>
       <hr />
       
       <?php
@@ -65,19 +69,11 @@
       <table class="table table-striped table-condensed">
         <tr>
           <th width="20%">Matricula</th>
-          <td><?php echo $row['matricula']; ?></td>
+          <td><?php echo strtoupper($row['matricula']); ?></td>
         </tr>
         <tr>
-          <th>Nombre</th>
-          <td><?php echo $row['nombreA']; ?></td>
-        </tr>
-        <tr>
-          <th>Apellido P.</th>
-          <td><?php echo $row['apellidoP']; ?></td>
-        </tr>
-        <tr>
-          <th>Apellido M.</th>
-          <td><?php echo $row['apellidoM']; ?></td>
+          <th>Nombre  Completo</th>
+          <td><?php echo $row['nombreA'] . " " . $row['apellidoP'] . " " . $row['apellidoM']; ?></td>
         </tr>
         <tr>
           <th>Escuela</th>
@@ -89,12 +85,8 @@
 
         </tr>
         <tr>
-          <th>Grado</th>
-          <td><?php echo $row['grado']; ?></td>
-        </tr>
-        <tr>
-          <th>Grupo</th>
-          <td><?php echo $row['grupo']; ?></td>
+          <th>Grado y grupo</th>
+          <td><?php echo $row['grado'] . " " . $row['grupo']; ?></td>
         </tr>
         <tr>
           <th>Estado</th>
@@ -104,8 +96,7 @@
                 echo "Bloqueado";
               } else if ($row['isActivo']==1){
                 echo "Activo";
-              } else if ($row['estado']==3){
-                echo "Outsourcing";
+              
               }
             ?>
           </td>
@@ -113,13 +104,51 @@
         
       </table>
       
-      <a href="alumnos.php" class="btn btn-sm btn-info"><span class="glyphicon glyphicon-refresh" aria-hidden="true"></span> Regresar</a>
+      <p style="float:right"><a href="alumnos.php" class="btn btn-sm btn-info"><span class="glyphicon glyphicon-refresh" aria-hidden="true"></span> Regresar</a>
       <a href="alumnos-edit.php?nik=<?php echo $row['matricula']; ?>" class="btn btn-sm btn-success"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Editar datos</a>
-      <a href="alumnos-perfil.php?aksi=delete&nik=<?php echo $row['matricula']; ?>" class="btn btn-sm btn-danger" onclick="return confirm('Esta seguro de borrar los datos <?php echo $row['nombreA']; ?>')"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span> Eliminar</a>
+      <a href="alumnos-perfil.php?aksi=delete&nik=<?php echo $row['matricula']; ?>" class="btn btn-sm btn-danger" onclick="return confirm('Esta seguro de borrar los datos <?php echo $row['nombreA']; ?>')"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span> Eliminar</a></p>
+      <br><br>
 
+                <script type="text/javascript">
+                 google.load("visualization", "1", {packages:["corechart"]});
+                 google.setOnLoadCallback(drawChart);
+                 function drawChart() {
+                 var data = google.visualization.arrayToDataTable([
+           
+                ['Escuela','Numero'],
+                <?php 
+                $query = "SELECT nombreA, sum(horas) as suma FROM alumnos Where matricula = '".$row['matricula']."'";
+           
+                 $exec = mysqli_query($mysqli,$query);
+                 while($row = mysqli_fetch_array($exec)){
+           
+                 echo "['".$row['nombreA']."',".$row['suma']."],";
+                 }
+                 ?> 
+           
+                  ]);
+ 
+                 var options = {
+                 title: 'Horas empleadas por el alumno en cada módulo',
+                  pieHole: 0.5,
+                          pieSliceTextStyle: {
+                            color: 'black',
+                          },
+                          legend: 'none'
+                 };
+                 var chart = new google.visualization.ColumnChart(document.getElementById("columnchart"));
+                 chart.draw(data,options);
+                 }
+                 </script>
+
+      <div class="container-fluid">
+      <div id="columnchart" style="width: 100%; height: 500px;"></div>
+      </div>
+      
 
       <!-- Main row -->
       <div class="row">
+
         <!-- Left col -->
       
         <!-- /.Left col -->

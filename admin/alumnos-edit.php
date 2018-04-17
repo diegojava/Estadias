@@ -77,6 +77,7 @@ ob_start();
 						<input type="text" name="matricula" value="<?php echo $row ['matricula']; ?>" class="form-control" placeholder="NIK" required readonly>
 					</div>
 				</div>
+				<hr />
 				<div class="form-group">
 					<label class="col-sm-3 control-label">Nombres</label>
 					<div class="col-sm-4">

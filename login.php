@@ -9,7 +9,7 @@
 
 	if(!empty($_POST))
 	{
-		$usuario = mysqli_real_escape_string($mysqli,$_POST['matricula']);
+		$usuario = strtoupper(mysqli_real_escape_string($mysqli,$_POST['matricula']));
 		$password = mysqli_real_escape_string($mysqli,$_POST['clave']);
 		$error = '';
 
@@ -28,11 +28,11 @@
 
 			header("location: /Estadias/admin");
 			} else {
-			$error = "El nombre o contraseña son incorrectos";
+			$error = "El nombre o contrase&ntildea son incorrectos";
 		}
 	}
 ?>
-<title>Contacto - Aprende Jugando</title>
+<title>Login - Aprende Jugando</title>
 	</div>
 	<!-- .bg-level-1 -->
 	<div id="kids_middle_container">
@@ -68,7 +68,7 @@
 
 													<?php
 														if(isset($_GET["error"])) {
-															echo "<p class='error'>Usuario y / o Contrasea erroneos. Intentelo de nuevo.</p>";
+															echo "<p class='error'>Usuario y / o Contraseña erroneos. Intentelo de nuevo.</p>";
 														}
 		 											?>
 

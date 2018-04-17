@@ -59,15 +59,16 @@
       <form class="form-inline" method="get">
         <div class="form-group">
           <select name="filter" class="form-control" onchange="form.submit()">
-            <option value="0">Filtros de datos de alumnos</option>
+            <!--<option value="0">Filtros de datos de alumnos</option>-->
             <?php $filter = (isset($_GET['filter']) ? strtolower($_GET['filter']) : NULL);  ?>
-            <option value="UT" <?php if($filter == 'UT'){ echo 'selected'; } ?>>UTRNG</option>
-            <option value="BA" <?php if($filter == 'Kontrak'){ echo 'selected'; } ?>>Benémerito de las Américas</option>
-            <option value="PI" <?php if($filter == 'Outsourcing'){ echo 'selected'; } ?>>ESPI</option>
-            <option value="NH" <?php if($filter == 'Outsourcing'){ echo 'selected'; } ?>>Niños Héroes</option>
+            <option value="">Todos</option>
+            <option value="UT" <?php if($filter == 'ut'){ echo 'selected'; } ?>>UTRNG</option>
+            <option value="BA" <?php if($filter == 'ba'){ echo 'selected'; } ?>>Benémerito de las Américas</option>
+            <option value="PI" <?php if($filter == 'pi'){ echo 'selected'; } ?>>ESPI</option>
+            <option value="NH" <?php if($filter == 'nh'){ echo 'selected'; } ?>>Niños Héroes</option>
           </select>
         </div>
-      </form>
+      </form><br>
       <br />
       <div class="table-responsive">
       <table class="table table-striped table-hover">
@@ -97,7 +98,7 @@
             echo '
             <tr>
               <td>'.$no.'</td>
-              <td>'.$row['matricula'].'</td>
+              <b><td>'.strtoupper($row['matricula']).'</td></b>
               <td><a href="alumnos-perfil.php?nik='.$row['matricula'].'"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> '.$row['nombreA'].'</a></td>
                             <td>'.$row['apellidoP'].'</td>
                             <td>'.$row['apellidoM'].'</td>

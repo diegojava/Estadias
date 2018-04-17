@@ -5,6 +5,7 @@
 
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
@@ -17,7 +18,7 @@
 	<link rel="stylesheet" type="text/css" href="/Estadias/css/flexnav.css" />
 	<link rel="stylesheet" type="text/css" href="/Estadias/css/prettyPhoto.css" />
 	<link rel="stylesheet" type="text/css" href="/Estadias/revslider/styles.css" />
-  <link rel="stylesheet" href="/Estadias/css/bootstrap.min.css">
+  	<link rel="stylesheet" href="/Estadias/css/bootstrap.min.css">
 </head>
 
 
