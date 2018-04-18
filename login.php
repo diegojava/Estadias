@@ -9,22 +9,23 @@
 
 	if(!empty($_POST))
 	{
-		$usuario = strtoupper(mysqli_real_escape_string($mysqli,$_POST['matricula']));
+		$usuario = mysqli_real_escape_string($mysqli,$_POST['matricula']);
 		$password = mysqli_real_escape_string($mysqli,$_POST['clave']);
 		$error = '';
 
 		$sha1_pass = sha1($password);
 
-		$sql = "SELECT * FROM alumnos WHERE matricula = '$usuario' AND contrasena = '$sha1_pass'";
+		$sql = "SELECT * FROM administrador WHERE usuario = '$usuario' AND contrasena = '$sha1_pass'";
 		$result=$mysqli->query($sql);
 		$rows = $result->num_rows;
 
 		if($rows > 0) {
 			$row = $result->fetch_assoc();
-			$_SESSION['id_usuario'] = $row['matricula'];
-			$_SESSION['nombre'] = $row['nombreA'];
+			$_SESSION['id_usuario'] = $row['usuario'];
+			$_SESSION['nombre'] = $row['nombre'];
 			$_SESSION['apellidoP'] = $row['apellidoP'];
-			$_SESSION['rol'] = $row['rol'];
+			$_SESSION['correo'] = $row['correo'];
+			$_SESSION['cargo'] = $row['cargo'];
 
 			header("location: /Estadias/admin");
 			} else {

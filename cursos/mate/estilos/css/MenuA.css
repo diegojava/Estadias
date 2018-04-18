@@ -1,0 +1,138 @@
+.menun {
+    position: relative;
+}
+.menun nav {
+    display: block;
+    background: #3380FF;
+    overflow: hidden;
+}
+.menun nav > a {
+    float: left;
+    color: #fff;
+    padding: 2em;
+    border-right: 1px solid rgba(0, 0, 0, 0.35);
+    transition: background .2s;
+    display: block;
+}
+.menun nav > a:hover {
+    background: #E74714;
+}
+
+/*botón*/
+.menun .drop {
+    color: #fff;
+    padding: 2em;
+    background: rgba(0,0,0,0.5);
+    cursor: pointer;
+    display: none; /*ocultamos el botón*/
+}
+.menun .drop svg {
+    fill: #fff;
+    vertical-align: middle;
+}
+
+@media only screen and (max-width: 768px) {
+    .menun {background: rgba(0,0,0,0.3);}
+    .menun .drop {display: inline-block;}/*volvemos a mostrar el botón*/
+    .menun nav {/*ahora nuestro menú es una lista flotante*/
+        position: absolute;
+        z-index: 600;
+        background: #121212;
+        min-width: 20rem;
+        display: none;
+        top: 100%;left: 0;
+    }
+    .menun nav > a {/*y los ítems se alinean verticalmente*/
+        float: none;
+        border: 0 none;
+    }
+}
+
+/*pure css*/
+.menun input {display: none}/*ocultamos el input*/
+#toggle:checked ~ nav{
+    display: block;
+}
+#toggle:checked ~ label{
+    background: rgba(0,0,0,0.65);
+}
+
+
+
+
+
+
+
+
+  .square { 
+    margin: auto;
+   
+    position: relative;
+    text-align: center;
+    width: 69%;    
+     background-color: #FFF9DD;
+  }
+
+  .square:after {
+    content: "";
+    display: block;
+
+    padding-bottom: 100%;
+  }
+
+  .content {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    
+    font-size: 2em;
+    padding-top: 20%;
+  }
+
+
+
+
+
+
+
+
+
+
+
+.boton{
+    /* estilos para la tipografia del botón*/
+ 
+    color: #fff;
+    font-family: sans-serif;
+    font-size: 24px;
+    font-weight: bold;
+    padding: 15px 25px;
+    margin-right: 30px;
+    cursor: pointer;
+    border: 0;
+    border-radius: 30px;
+ 
+    /* propiedades para la animacion del boton */
+ 
+    transition: all 0.20s linear;
+    -webkit-transition: all 0.20s linear;
+    -moz-transition: all 0.20s linear;
+    position: relative;
+    bottom: 0;
+}
+ 
+.rojo{
+    /* Estilos para el fondo del boton */
+    background: #bf1b04;
+    box-shadow: 0px 5px 0 #8F1502;            
+}
+.boton:active{
+    /* Posicion del boton al clickearlo */
+    bottom: -5px;
+}
+ 
+.rojo:active{
+    /* Sombra del boton al clickearlo */
+    box-shadow:0 0 0 #9a1604, inset 0 0 5px #000000;            
+ 
+}

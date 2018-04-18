@@ -1,7 +1,7 @@
 <?php
   include("bin/conexion.php");
   session_start();
-  if($_SESSION["id_usuario"] == TRUE && $_SESSION["rol"] == 2)
+  if($_SESSION["id_usuario"] == TRUE && $_SESSION["cargo"] == "admin")
   {
 ?>
 <!DOCTYPE html>
@@ -35,15 +35,17 @@
         $grado       = mysqli_real_escape_string($mysqli,(strip_tags($_POST["grado"],ENT_QUOTES)));//Escanpando caracteres 
         $grupo    = mysqli_real_escape_string($mysqli,(strip_tags($_POST["grupo"],ENT_QUOTES)));//Escanpando caracteres 
         $contrasena = mysqli_real_escape_string($mysqli,(strip_tags($_POST["contrasena"],ENT_QUOTES)));//Escanpando caracteres 
-        $escuela    = mysqli_real_escape_string($con,(strip_tags($_POST["escuela"],ENT_QUOTES)));//Escanpando caracteres 
+        //$escuela    = mysqli_real_escape_string($mysqli,(strip_tags($_POST["escuela"],ENT_QUOTES)));//Escanpando caracteres 
+        $idEscuela    = mysqli_real_escape_string($mysqli,(strip_tags($_POST["escuela"],ENT_QUOTES)));//Escanpando caracteres 
+        
         //$rol      = mysqli_real_escape_string($con,(strip_tags($_POST["estado"],ENT_QUOTES)));//Escanpando caracteres 
         
       
  
-        $cek = mysqli_query($mysqli, "SELECT * FROM alumnos WHERE matricula='$matricula'");
+        $cek = mysqli_query($mysqli, "SELECT * FROM alumno WHERE matricula='$matricula'");
         if(mysqli_num_rows($cek) == 0){
-            $insert = mysqli_query($mysqli, "INSERT INTO alumnos(matricula, nombreA, apellidoP, apellidoM, grado, grupo, contrasena, isActivo, rol)
-                              VALUES('$matricula','$nombreA', '$apellidoP', '$apellidoM', '$grado', '$grupo', sha1('$contrasena'), 1,1)") or die(mysqli_error());
+            $insert = mysqli_query($mysqli, "INSERT INTO alumno(matricula, nombre, apellidoP, apellidoM, grado, grupo, contrasena, idEscuela, estatus)
+                              VALUES('$matricula','$nombreA', '$apellidoP', '$apellidoM', '$grado', '$grupo', sha1('$contrasena'),$idEscuela ,1)") or die(mysqli_error($mysqli));
             if($insert){
               echo '<div class="alert alert-success alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>Bien hecho! Los datos han sido guardados con éxito.</div>';
             }else{
@@ -74,7 +76,27 @@
                <input type="text" class="form-control" id="apellidoM" name="apellidoM" required placeholder="Ingresa Apellido Materno" onkeyup="poner(this.form)">
             </div>
 
+
+            <?php  
+
+            $sql="SELECT id, nombre FROM escuela"; 
+            $consulta=mysqli_query($mysqli,$sql); 
+
+            ?> 
             <div class="form-group">
+            <label class="control-label" for="inputSuccess">Escuela</label>
+            <select class="form-control" id="escuela" name="escuela" onclick="poner(this.form)"> 
+            <?php 
+            while($row=mysqli_fetch_array($consulta)) 
+            { 
+            echo "<option value='" . $row['id'] . "'>" . $row['nombre'] . "</option>"; 
+            } 
+            mysqli_close($mysqli); 
+
+            ?>
+            </select> 
+            </div>
+            <!--<div class="form-group">
                 <label class="control-label" for="inputSuccess">Escuela</label>
                 <br>
                 <select class="form-control" id="escuela" name="escuela" onclick="poner(this.form)">
@@ -84,7 +106,7 @@
                   <option value="BA">Benémerito de las Américas</option>
                   <option value="PI">ESPI</option>
                 </select>
-                </div>
+                </div>-->
 
                 <div class="form-group">
                 <label class="control-label" for="inputSuccess">Grado</label>
@@ -140,7 +162,7 @@
 <?php include_once(__DIR__."/bin/scripts.php") ?>
    <script type="text/javascript">
       function poner(frm) {
-         frm.matricula.value = frm.nombre.value.substr(0,1) + frm.apaterno.value.substr(0,1) + frm.amaterno.value.substr(0,1) + frm.escuela.value.substr()+ frm.grado.value.substr()+ frm.grupo.value.substr();
+         frm.matricula.value = frm.nombreA.value.substr(0,1) + frm.apellidoP.value.substr(0,1) + frm.apellidoM.value.substr(0,1) + frm.escuela.value.substr()+ frm.grado.value.substr()+ frm.grupo.value.substr();
       }
     </script>
 </body>

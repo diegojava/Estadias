@@ -6,7 +6,7 @@
                 $servername = "localhost";
                 $username = "root";
                 $password = "root";
-                $dbname = "prueba";
+                $dbname = "dbaprende";
 
                 // Create connection
                 $conn = new mysqli($servername, $username, $password, $dbname);
@@ -15,7 +15,7 @@
                     die("Connection failed: " . $conn->connect_error);
                 }
 
-                $sql = "SELECT count(distinct(escuela)) as total FROM alumnos;";
+                $sql = "SELECT count(*) as total FROM escuela;";
                 $result = $conn->query($sql);
 
                 if ($result->num_rows > 0) {

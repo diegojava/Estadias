@@ -108,21 +108,21 @@
 								<div class="cws-widget-content benefits_widget">
 									<h3 class="widget-title">Español</h3>
 									<section class="text_part">Diviertete realizando ejercicios de tu materia de español.</section>
-									<a href='?page_id=169' class='cws_button '>Entrar al curso</a> </div>
+									<a href='cursos/Espanol' class='cws_button '>Entrar al curso</a> </div>
 							</div>
 							<div id="cws_benefits-2" class="widget widget_cws_benefits">
 								<div class="widget-icon pic"><img src="images/icon-1.png" alt /></div>
 								<div class="cws-widget-content benefits_widget">
 									<h3 class="widget-title">Matemáticas</h3>
 									<section class="text_part">Entrena tu mente resolviendo estos divertidos desafíos matemáticos.</section>
-									<a href='?page_id=226' class='cws_button '>Entrar al curso</a> </div>
+									<a href='cursos/mate' class='cws_button '>Entrar al curso</a> </div>
 							</div>
 							<div id="cws_benefits-3" class="widget widget_cws_benefits">
 								<div class="widget-icon pic"><img src="images/icon-3.png" alt /></div>
 								<div class="cws-widget-content benefits_widget">
 									<h3 class="widget-title">Ciencias Naturales</h3>
 									<section class="text_part">Descubre qué tanto sabes de tu cuerpo con estos ejercicios.</section>
-									<a href='cursos/ciencias-n.html' class='cws_button '>Entrar al curso</a> </div>
+									<a href='cursos/cienciasnaturales' class='cws_button '>Entrar al curso</a> </div>
 							</div>
 						</div>
 					</section>

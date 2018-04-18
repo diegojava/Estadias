@@ -1,7 +1,7 @@
 <?php
   include("bin/conexion.php");
   session_start();
-  if($_SESSION["id_usuario"] == TRUE && $_SESSION["rol"] == 2)
+  if($_SESSION["id_usuario"] == TRUE && $_SESSION["cargo"] == "admin")
 
     
   {
@@ -49,15 +49,20 @@
       // escaping, additionally removing everything that could be (html/javascript-) code
       $nik = mysqli_real_escape_string($mysqli,(strip_tags($_GET["nik"],ENT_QUOTES)));
       
-      $sql = mysqli_query($mysqli, "SELECT * FROM alumnos WHERE matricula='$nik'");
+      $sql = mysqli_query($mysqli, "
+        SELECT alumno.matricula as matricula, alumno.nombre as nombreA, alumno.apellidoP as apellidoP, alumno.apellidoM as apellidoM, alumno.grado as grado, alumno.grupo as grupo, alumno.estatus as estatus, 
+        (select escuela.nombre from alumno,escuela where alumno.matricula = '$nik'  and escuela.id = alumno.idescuela) as nombreescuela
+        FROM alumno,escuela 
+        WHERE alumno.matricula='$nik'");
+      //echo $sql;
       if(mysqli_num_rows($sql) == 0){
-        header("Location: index.php");
+        //header("Location: index.php");
       }else{
         $row = mysqli_fetch_assoc($sql);
       }
       
       if(isset($_GET['aksi']) == 'delete'){
-        $delete = mysqli_query($mysqli, "DELETE FROM alumnos WHERE matricula='$nik'");
+        $delete = mysqli_query($mysqli, "DELETE FROM alumno WHERE matricula='$nik'");
         if($delete){
           echo '<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>Registro eliminado con éxito.</div>';
         }else{
@@ -73,17 +78,13 @@
         </tr>
         <tr>
           <th>Nombre  Completo</th>
-          <td><?php echo $row['nombreA'] . " " . $row['apellidoP'] . " " . $row['apellidoM']; ?></td>
+          <td><?php echo strtoupper($row['nombreA']) . " " . strtoupper($row['apellidoP']) . " " . strtoupper($row['apellidoM']); ?></td>
         </tr>
         <tr>
-          <th>Escuela</th>
-          <td><?php if ($row['escuela']=='NH')echo "Niños Héroes";
-          else if ($row['escuela']=='BA')echo "Benémerito de las Américas";
-          else if ($row['escuela']=='UT')echo "Universidad Tecnológica";
-          else if ($row['escuela']=='PI')echo "ESPI";
-           ?></td>
-
+          <th width="20%">Matricula</th>
+          <td><?php echo strtoupper($row['nombreescuela']); ?></td>
         </tr>
+        <tr>
         <tr>
           <th>Grado y grupo</th>
           <td><?php echo $row['grado'] . " " . $row['grupo']; ?></td>
@@ -92,9 +93,9 @@
           <th>Estado</th>
           <td>
             <?php 
-              if ($row['isActivo']==0) {
+              if ($row['estatus']==0) {
                 echo "Bloqueado";
-              } else if ($row['isActivo']==1){
+              } else if ($row['estatus']==1){
                 echo "Activo";
               
               }

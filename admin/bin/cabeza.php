@@ -26,8 +26,8 @@
                 <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
 
                 <p>
-                  <?php echo $_SESSION['nombre'] ?> <?php echo $_SESSION['apellidoP'] ?> - <?php if($_SESSION['rol'] == 2) { echo 'Administrador';}?>
-                  <small>Matricula:<?php echo $_SESSION['id_usuario'] ?></small>
+                  <?php echo $_SESSION['nombre'] ?> <?php echo $_SESSION['apellidoP'] ?> - <?php if($_SESSION['cargo'] == "admin") { echo 'Administrador';}?>
+                  <small>Usuario: <?php echo $_SESSION['id_usuario'] ?></small>
                 </p>
               </li>
               <!-- Menu Body -->

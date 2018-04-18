@@ -1,7 +1,7 @@
 <?php
   include("bin/conexion.php");
   session_start();
-  if($_SESSION["id_usuario"] == TRUE && $_SESSION["rol"] == 2)
+  if($_SESSION["id_usuario"] == TRUE && $_SESSION["cargo"] == "admin")
   {
 ?>
 <!DOCTYPE html>
@@ -86,30 +86,43 @@
         </tr>
         <?php
         if($filter){
-          $sql = mysqli_query($mysqli, "SELECT * FROM alumnos WHERE escuela='$filter' ORDER BY matricula ASC");
+          $sql = mysqli_query($mysqli, "SELECT * FROM alumno WHERE escuela='$filter' ORDER BY matricula ASC");
         }else{
-          $sql = mysqli_query($mysqli, "SELECT * FROM alumnos ORDER BY matricula ASC");
+          //$sql = mysqli_query($mysqli, "SELECT * FROM alumno ORDER BY matricula ASC");
+          $sql = mysqli_query($mysqli, "
+            SELECT alumno.matricula as matricula, alumno.nombre as nombre, alumno.apellidoP as apellidoP, alumno.apellidoM as apellidoM, escuela.nombre as escuela, alumno.grado as grado, alumno.grupo as grupo, alumno.estatus as estatus
+            FROM alumno,escuela
+            Where alumno.idescuela = escuela.id
+            order by ApellidoP ASC");
         }
         if(mysqli_num_rows($sql) == 0){
           echo '<tr><td colspan="8">No hay datos.</td></tr>';
         }else{
           $no = 1;
           while($row = mysqli_fetch_assoc($sql)){
+            
+           
+
+
+
+            //$sqlnombre = mysqli_query($mysqli, "SELECT escuela.nombre FROM alumno,escuela WHERE escuela.id = $nombreEscuela and escuela.id = alumno.idescuela) as nombreescuela");
+            //mysqli_result($sqlnombre);
+
             echo '
             <tr>
               <td>'.$no.'</td>
               <b><td>'.strtoupper($row['matricula']).'</td></b>
-              <td><a href="alumnos-perfil.php?nik='.$row['matricula'].'"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> '.$row['nombreA'].'</a></td>
+              <td><a href="alumnos-perfil.php?nik='.$row['matricula'].'"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> '.$row['nombre'].'</a></td>
                             <td>'.$row['apellidoP'].'</td>
                             <td>'.$row['apellidoM'].'</td>
                             <td>'.$row['escuela'].'</td>
                             <td>'.$row['grado'].'</td>
                             <td>'.$row['grupo'].'</td>
               <td>';
-              if($row['isActivo'] == '1'){
+              if($row['estatus'] == '1'){
                 echo '<span class="label label-success">Activo</span>';
               }
-                            else if ($row['isActivo'] == '0' ){
+                            else if ($row['estatus'] == '0' ){
                 echo '<span class="label label-danger">Bloqueado</span>';
               }
                      
@@ -118,7 +131,7 @@
               <td>
  
                 <a href="alumnos-edit.php?nik='.$row['matricula'].'" title="Editar datos" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a>
-                <a href="alumnos.php?aksi=delete&nik='.$row['matricula'].'" title="Eliminar" onclick="return confirm(\'Esta seguro de borrar los datos '.$row['nombreA'].'?\')" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
+                <a href="alumnos.php?aksi=delete&nik='.$row['matricula'].'" title="Eliminar" onclick="return confirm(\'Esta seguro de borrar los datos '.$row['nombre'].'?\')" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
               </td>
             </tr>
             ';

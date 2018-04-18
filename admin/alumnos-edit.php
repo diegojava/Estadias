@@ -2,7 +2,7 @@
 ob_start();
   include("bin/conexion.php");
   session_start();
-  if($_SESSION["id_usuario"] == TRUE && $_SESSION["rol"] == 2)
+  if($_SESSION["id_usuario"] == TRUE && $_SESSION["cargo"] == "admin")
   {
 ?>
 <!DOCTYPE html>
@@ -41,7 +41,7 @@ ob_start();
  <?php
 			// escaping, additionally removing everything that could be (html/javascript-) code
 			$nik = mysqli_real_escape_string($mysqli,(strip_tags($_GET["nik"],ENT_QUOTES)));
-			$sql = mysqli_query($mysqli, "SELECT * FROM alumnos WHERE matricula='$nik'");
+			$sql = mysqli_query($mysqli, "SELECT * FROM alumno WHERE matricula='$nik'");
 			if(mysqli_num_rows($sql) == 0){
 				//header("Location: index.php");
 			}else{
@@ -49,16 +49,16 @@ ob_start();
 			}
 			if(isset($_POST['save'])){
 				$codigo		     = mysqli_real_escape_string($mysqli,(strip_tags($_POST["matricula"],ENT_QUOTES)));//Escanpando caracteres 
-				$nombres		     = mysqli_real_escape_string($mysqli,(strip_tags($_POST["nombreA"],ENT_QUOTES)));//Escanpando caracteres 
-				$lugar_nacimiento	 = mysqli_real_escape_string($mysqli,(strip_tags($_POST["apellidoP"],ENT_QUOTES)));//Escanpando caracteres 
-				$fecha_nacimiento	 = mysqli_real_escape_string($mysqli,(strip_tags($_POST["apellidoM"],ENT_QUOTES)));//Escanpando caracteres 
-				$direccion	     = mysqli_real_escape_string($mysqli,(strip_tags($_POST["grado"],ENT_QUOTES)));//Escanpando caracteres 
-				$telefono		 = mysqli_real_escape_string($mysqli,(strip_tags($_POST["grupo"],ENT_QUOTES)));//Escanpando caracteres 
-				$puesto		 = mysqli_real_escape_string($mysqli,(strip_tags($_POST["isActivo"],ENT_QUOTES)));//Escanpando caracteres 
-				$estado			 = mysqli_real_escape_string($mysqli,(strip_tags($_POST["rol"],ENT_QUOTES)));//Escanpando caracteres  
+				$nombre		     = mysqli_real_escape_string($mysqli,(strip_tags($_POST["nombreA"],ENT_QUOTES)));//Escanpando caracteres 
+				$apellidoP	 = mysqli_real_escape_string($mysqli,(strip_tags($_POST["apellidoP"],ENT_QUOTES)));//Escanpando caracteres 
+				$apellidoM	 = mysqli_real_escape_string($mysqli,(strip_tags($_POST["apellidoM"],ENT_QUOTES)));//Escanpando caracteres 
+				$grado	     = mysqli_real_escape_string($mysqli,(strip_tags($_POST["grado"],ENT_QUOTES)));//Escanpando caracteres 
+				$grupo		 = mysqli_real_escape_string($mysqli,(strip_tags($_POST["grupo"],ENT_QUOTES)));//Escanpando caracteres 
+				//$puesto		 = mysqli_real_escape_string($mysqli,(strip_tags($_POST["isActivo"],ENT_QUOTES)));//Escanpando caracteres 
+				$estado			 = mysqli_real_escape_string($mysqli,(strip_tags($_POST["estado"],ENT_QUOTES)));//Escanpando caracteres  
 				$escuela			 = mysqli_real_escape_string($mysqli,(strip_tags($_POST["escuela"],ENT_QUOTES)));//Escanpando caracteres
 
-				$update = mysqli_query($mysqli, "UPDATE alumnos SET nombreA='$nombres', apellidoP='$lugar_nacimiento', apellidoM='$fecha_nacimiento', grado='$direccion', grupo='$telefono', isActivo='$puesto', rol='$estado', escuela='$escuela' WHERE matricula='$nik'") or die(mysqli_error());
+				$update = mysqli_query($mysqli, "UPDATE alumno SET nombre='$nombre', apellidoP='$apellidoP', apellidoM='$apellidoM', grado='$grado', grupo='$grupo', estatus='$estado', idescuela='$escuela' WHERE matricula='$nik'") or die(mysqli_error($mysqli));
 				if($update){
 					header("Location: alumnos-edit.php?nik=".$nik."&pesan=sukses");
 				}else{
@@ -81,7 +81,7 @@ ob_start();
 				<div class="form-group">
 					<label class="col-sm-3 control-label">Nombres</label>
 					<div class="col-sm-4">
-						<input type="text" name="nombreA" value="<?php echo $row ['nombreA']; ?>" class="form-control" placeholder="Nombres" required>
+						<input type="text" name="nombreA" value="<?php echo $row ['nombre']; ?>" class="form-control" placeholder="Nombres" required>
 					</div>
 				</div>
 				<div class="form-group">
@@ -96,55 +96,56 @@ ob_start();
 						<input type="text" name="apellidoM" value="<?php echo $row ['apellidoM']; ?>" class="form-control" placeholder="Lugar de nacimiento" required>
 					</div>
 				</div>
-				<div class="form-group">
-					<label class="col-sm-3 control-label">Escuela</label>
-					<div class="col-sm-3">
-						<select name="escuela" class="form-control">
-							<option value="">- Selecciona escuela -</option>
-                            <option value="UT" <?php if ($row ['escuela']=="UT"){echo "selected";} ?>>Universidad Tecnólogica</option>
-							<option value="BA" <?php if ($row ['escuela']=="BA"){echo "selected";} ?>>Benémerito de las Américas</option>
-							<option value="PI" <?php if ($row ['escuela']=="PI"){echo "selected";} ?>>ESPI</option>
-							<option value="NH" <?php if ($row ['escuela']=="NH"){echo "selected";} ?>>Niños Héroes</option>
-						</select> 
-					</div>
-                   
-                </div>
-				<div class="form-group">
+			<div class="form-group">
 					<label class="col-sm-3 control-label">Grado</label>
 					<div class="col-sm-3">
-						<input type="text" name="grado" value="<?php echo $row ['grado']; ?>" class="form-control" placeholder="Grado" required>
+						<input type="text" name="grado" value="<?php echo $row['grado']; ?>" class="form-control" placeholder="Grado" required>
 				</div>
 				</div>
 				<div class="form-group">
 					<label class="col-sm-3 control-label">Grupo</label>
 					<div class="col-sm-3">
-						<input type="text" name="grupo" value="<?php echo $row ['grupo']; ?>" class="form-control" placeholder="Grupo" required>
+						<input type="text" name="grupo" value="<?php echo $row['grupo']; ?>" class="form-control" placeholder="Grupo" required>
 					</div>
 				</div>
-				<div class="form-group">
-					<label class="col-sm-3 control-label">Rol</label>
-					<div class="col-sm-3">
-						<select name="rol" class="form-control">
-							<option value="">- Selecciona rol -</option>
-                            <option value="1" <?php if ($row ['rol']==1){echo "selected";} ?>>Alumno</option>
-							<option value="2" <?php if ($row ['rol']==2){echo "selected";} ?>>Maestro</option>
-							
-						</select> 
-					</div>
-                   
-                </div>
-				<div class="form-group">
+
+					<div class="form-group">
 					<label class="col-sm-3 control-label">Estado</label>
 					<div class="col-sm-3">
-						<select name="isActivo" class="form-control">
+						<select name="estado" class="form-control">
 							<option value="">- Selecciona estado -</option>
-                            <option value="0" <?php if ($row ['isActivo']==0){echo "selected";} ?>>Bloqueado</option>
-							<option value="1" <?php if ($row ['isActivo']==1){echo "selected";} ?>>Activo</option>
+                            <option value="0" <?php if ($row ['estatus']==0){echo "selected";} ?>>Bloqueado</option>
+							<option value="1" <?php if ($row ['estatus']==1){echo "selected";} ?>>Activo</option>
 							
 						</select> 
 					</div>
                    
                 </div>
+		    <?php  
+
+            $sql="SELECT id, nombre FROM escuela"; 
+            $consulta=mysqli_query($mysqli,$sql); 
+
+            ?> 
+            <div class="form-group">
+            <label class="col-sm-3 control-label">Escuela</label>
+            <div class="col-sm-3">
+            <select class="form-control" id="escuela" name="escuela"> 
+            <?php 
+            while($row=mysqli_fetch_array($consulta)) 
+            { 
+            echo "<option selected value='" . $row['id'] . "'>" . $row['nombre'] . "</option>"; 
+            } 
+            mysqli_close($mysqli); 
+
+            ?>
+            </select> 
+            </div></div>
+
+
+				
+
+			
 			
 				<div class="form-group">
 					<label class="col-sm-3 control-label">&nbsp;</label>

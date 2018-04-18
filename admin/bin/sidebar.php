@@ -19,7 +19,27 @@
         
         <li <?php if ($_SERVER['PHP_SELF'] == '/Estadias/admin/index.php') echo ' class="active"';?>><a href="/Estadias/admin/index.php"><i class="fa fa-dashboard"></i> <span>Inicio</span></a></li>
 
-        <li class="treeview <?php if($_SERVER['PHP_SELF'] == '/Estadias/admin/alumnos.php' || $_SERVER['PHP_SELF'] == '/Estadias/admin/alumnos-registrar.php') echo 'active';?>">
+        <li class="treeview <?php if($_SERVER['PHP_SELF'] == '/Estadias/admin/escuelas.php' || $_SERVER['PHP_SELF'] == '/Estadias/admin/escuelas-registrar.php') echo 'active';?>">
+          
+          <a href="#">
+            <i class="fa fa-home"></i> <span>Escuelas</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-right pull-left"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+
+            <li<?php if ($_SERVER['PHP_SELF'] == '/Estadias/admin/escuelas.php') echo ' class="active"';?>>
+              <a href="/Estadias/admin/escuelas.php"><i class="fa fa-user"></i> Listado de escuelas</a></li>            
+
+            <li<?php if ($_SERVER['PHP_SELF'] == '/Estadias/admin/escuelas-registrar.php') echo ' class="active"';?>>
+              <a href="/Estadias/admin/escuelas-registrar.php"><i class="fa fa-user-plus"></i> Registrar escuela</a></li>
+
+          </ul>
+
+        </li>
+
+                <li class="treeview <?php if($_SERVER['PHP_SELF'] == '/Estadias/admin/alumnos.php' || $_SERVER['PHP_SELF'] == '/Estadias/admin/alumnos-registrar.php') echo 'active';?>">
           
           <a href="#">
             <i class="fa fa-users"></i> <span>Alumnos</span>

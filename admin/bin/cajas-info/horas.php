@@ -6,7 +6,7 @@
                 $servername = "localhost";
                 $username = "root";
                 $password = "root";
-                $dbname = "prueba";
+                $dbname = "dbaprende";
 
                 // Create connection
                 $conn = new mysqli($servername, $username, $password, $dbname);
@@ -15,7 +15,7 @@
                     die("Connection failed: " . $conn->connect_error);
                 }
 
-                $sql = "SELECT sum(horas) as total FROM alumnos;";
+                $sql = "SELECT sum(tiempo) as total FROM avance;";
                 $result = $conn->query($sql);
 
                 if ($result->num_rows > 0) {
