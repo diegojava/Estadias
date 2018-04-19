@@ -33,22 +33,53 @@
 										<div class='grid-col grid-col-6'>
 											<section class='cws-widget'>
 												<section class='cws_widget_content'>
-													<p>
-														<img width="400px" height="250px" src="/Estadias/images/cn/1.jpg">
-													</p>
+													
 												</section>
 											</section>
 										</div>
-										<div class='grid-col grid-col-6'>
+										<div class='grid-col grid-col-8'>
 											<section class='cws-widget'>
 												<section class='cws_widget_content'>
 													<p><b><a href="/Estadias/cursos/CienciasNaturales/Bloque1">Bloque #1 ¿Cómo mantener la salud?</a></b></p>
-													<p>Cras suscipit varius felis sed viverra. Nunc id dui sit amet augue facilisis lobortis ac sed sapien. Curabitur eu facilisis risus. Fusce purus dolor, ornare vitae scelerisque at, interdum ut odio. Fusce magna nunc, ullamcorper quis imperdiet nec, commodo in erat.</p>
-													<p>Tema #1 - Movimiento del cuerpo y prevención de lesiones</p>
+													<p>En el primer bloque del libro de Ciencias Naturales de tercer grado podremos conocer mucho más de nuestro propio cuerpo.</p><hr>
+													<h4>Tema #1 - Movimientos del cuerpo y prevención de lesiones</h4>
+													<img src="/Estadias/cursos/CienciasNaturales/img/cuerpoymovimiento.jpeg">
 													<p>¡A mover el esqueleto!
-El cuerpo humano contiene huesos y músculos que ayudan a movernos, desplazarnos y protegen otras partes del cuerpo que no se ven.
-Proponer a los niños que toquen sus brazos y piernas, de modo de sentir los huesos y músculos.
-Buscar diferentes formas de desplazamiento y reconocer las partes del cuerpo que se utilizan.</p>
+													El cuerpo humano contiene huesos y músculos que ayudan a movernos, desplazarnos y protegen otras partes del cuerpo que no se ven.
+													Proponer a los niños que toquen sus brazos y piernas, de modo de sentir los huesos y músculos.
+													Buscar diferentes formas de desplazamiento y reconocer las partes del cuerpo que se utilizan.</p>
+
+													
+													<p><center><a href='../wordfind-master/example/sopa.html' class='cws_button '>Ir a la lección completa</a>
+														<a href='../wordfind-master/example/sopa.html' class='cws_button '>Ir a las actividades</a></center>
+													
+													</p><hr>
+
+																										<h4>Tema #2 - La alimentación como parte de la nutrición</h4>
+													<img src="/Estadias/cursos/CienciasNaturales/img/nutricion.jpg" width="100%">
+													<p>¡A mover el esqueleto!
+													El cuerpo humano contiene huesos y músculos que ayudan a movernos, desplazarnos y protegen otras partes del cuerpo que no se ven.
+													Proponer a los niños que toquen sus brazos y piernas, de modo de sentir los huesos y músculos.
+													Buscar diferentes formas de desplazamiento y reconocer las partes del cuerpo que se utilizan.</p>
+
+													
+													<p><center><a href='../wordfind-master/example/sopa.html' class='cws_button '>Ir a la lección completa</a>
+														<a href='../wordfind-master/example/sopa.html' class='cws_button '>Ir a las actividades</a></center>
+													
+													</p><hr>
+
+																										<h4>Tema #3 - Dieta: los grupos de alimentos</h4>
+													<img src="/Estadias/cursos/CienciasNaturales/img/cuerpoymovimiento.jpeg" width="100%">
+													<p>¡A mover el esqueleto!
+													El cuerpo humano contiene huesos y músculos que ayudan a movernos, desplazarnos y protegen otras partes del cuerpo que no se ven.
+													Proponer a los niños que toquen sus brazos y piernas, de modo de sentir los huesos y músculos.
+													Buscar diferentes formas de desplazamiento y reconocer las partes del cuerpo que se utilizan.</p>
+
+													
+													<p><center><a href='../wordfind-master/example/sopa.html' class='cws_button '>Ir a la lección completa</a>
+														<a href='../wordfind-master/example/sopa.html' class='cws_button '>Ir a las actividades</a></center>
+													
+													</p><hr>
 												</section>
 											</section>
 										</div>

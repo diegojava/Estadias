@@ -48,7 +48,7 @@
 				<!-- .Inicio logo -->
 				<div class="kids_clear"></div>
 				<div id="kids_logo_block" class="logo-position-left">
-					<a id="kids_logo_text" href="index.php"><img src="/Estadias/images/logo-.png" alt="Aprende jugando" title="Aprende jugando" /></a>
+					<a id="kids_logo_text" href="/Estadias/index.php"><img src="/Estadias/images/logo-.png" alt="Aprende jugando" title="Aprende jugando" /></a>
 				</div>
 				<nav id="kids_main_nav" class="menu-position-right">
 					<div class="menu-button">
@@ -57,20 +57,20 @@
 						<span class="menu-button-line"></span>
 					</div>
 					<ul id="menu-main" class="clearfix flexnav " data-breakpoint="800">
-						<li class="menu-item menu-item-type-custom menu-item-object-custom "><a href="index.php">Inicio</a></li>
+						<li class="menu-item menu-item-type-custom menu-item-object-custom "><a href="/Estadias/index.php">Inicio</a></li>
 						<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children"><a href="#">Materias</a>
 							<ul class="sub-menu">
-								<li class="menu-item"><a href="blog-right-sidebar.html">Español</a></li>
-								<li class="menu-item"><a href="blog-left-sidebar.html">Desafíos matemáticos</a></li>
-								<li class="menu-item"><a href="/Estadias/cursos/CienciasNaturales">Ciencias Naturales</a></li>
+								<li class="menu-item"><a href="/Estadias/cursos/Espanol">Español</a></li>
+								<li class="menu-item"><a href="/Estadias/cursos/mate">Desafíos matemáticos</a></li>
+								<li class="menu-item"><a href="/Estadias/cursos/CienciasNaturales/Bloque1">Ciencias Naturales</a></li>
 							</ul>
 						</li>
-						<li class="menu-item"><a href="contacto.php">Contacto</a></li>
+						<li class="menu-item"><a href="/Estadias/contacto.php">Contacto</a></li>
 						<?php if (isset($_SESSION['id_usuario']))
 {
 echo '<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children"><a href="/Estadias/admin">Bienvenido, '.$_SESSION['id_usuario']. '</a>';
 echo '<ul class="sub-menu">';
-echo '<li class="menu-item"><a href="admin">Administración</a></li>';
+echo '<li class="menu-item"><a href="/Estadias/admin">Administración</a></li>';
 echo '<li class="menu-item"><a href="logout.php">Cerrar sesión</a></li>';
 echo '</ul>';
 echo '</li>';

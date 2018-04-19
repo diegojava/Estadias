@@ -1,3 +1,7 @@
+<?php
+        session_start();
+?>
+<?php include_once("$_SERVER[DOCUMENT_ROOT]/Estadias/header.php") ?>
 <!DOCTYPE html>
 <!--[if lte IE 8]><html class="ie8 no-js" lang="en"><![endif]-->
 <!--[if IE 9]><html class="ie9 no-js" lang="en"><![endif]-->
@@ -37,50 +41,7 @@
         </div>
     </div>
     <!--/ .top-panel-->
-    <div class="kids-bg-level-1">
-        <div class="bg-level-1"></div>
-        <header id="kids_header">
-            <div class="l-page-width clearfix">
-                <ul class="kids_social">
-                    <li class="openbtn">
-                        <a href="#"></a>
-                    </li>
-                    <li class='lang_bar'>
-                        <div id="lang_sel">
 
-                        </div>
-                    </li>
-
-                    </li>
-                </ul>
-                <!-- .kids_social -->
-                <div class="kids_clear"></div>
-                <div id="kids_logo_block" class="logo-position-left">
-                    <a id="kids_logo_text" href="../index.html"><img src="estilos/imagene/logo-.png" alt="HappyKids - Premium Children HTML Template" title="HappyKids - Premium Children HTML Template" /></a>
-                </div>
-                <nav id="kids_main_nav" class="menu-position-right">
-                    <div class="menu-button">
-                        <span class="menu-button-line"></span>
-                        <span class="menu-button-line"></span>
-                        <span class="menu-button-line"></span>
-                    </div>
-                    <ul id="menu-main" class="clearfix flexnav " data-breakpoint="800">
-                        <li class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item"><a href="../index.html">Inicio</a></li>
-                        <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children"><a href="#">Materias</a>
-                            <ul class="sub-menu">
-                                <li class="menu-item"><a href="../blog-right-sidebar.html">Español</a></li>
-                                <li class="menu-item"><a href="../blog-left-sidebar.html">Desafíos matemáticos</a></li>
-                                <li class="menu-item"><a href="../blog-double-sidebars.html">Ciencias Naturales</a></li>
-                            </ul>
-                        </li>
-                        <li class="menu-item"><a href="../page-contact.html">Contacto</a></li>
-                    </ul>
-                </nav>
-                <!-- #kids_main_nav -->
-            </div>
-            <!--/ .l-page-width-->
-
-        </header>
         <!--/ #kids_hea}der-->
         <!-- HEADER END -->
         
@@ -92,13 +53,13 @@
    <label for="toggle" class="drop">
       <svg width="36px" height="36px" viewBox="0 0 48 48"><path d="M6 36h36v-4H6v4zm0-10h36v-4H6v4zm0-14v4h36v-4H6z"></path></svg>
    </label >
-   <nav>
+   <center><nav>
       <a href="#">Bloque 1</a>
       <a href="#">Bloque 2</a>
       <a href="Bloque3/Actividades.html">Bloque 3</a>
       <a href="Bloque4/Actividad.html">Bloque 4</a>
       <a href="#">Bloque 5</a>
-   </nav>  
+   </nav>  </center>
 </div>
         <div class="square">
            <div class="view view-tenth">

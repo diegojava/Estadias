@@ -43,9 +43,11 @@
       
  
         $cek = mysqli_query($mysqli, "SELECT * FROM alumno WHERE matricula='$matricula'");
+
         if(mysqli_num_rows($cek) == 0){
             $insert = mysqli_query($mysqli, "INSERT INTO alumno(matricula, nombre, apellidoP, apellidoM, grado, grupo, contrasena, idEscuela, estatus)
-                              VALUES('$matricula','$nombreA', '$apellidoP', '$apellidoM', '$grado', '$grupo', sha1('$contrasena'),$idEscuela ,1)") or die(mysqli_error($mysqli));
+                              VALUES('$matricula','$nombreA', '$apellidoP', '$apellidoM', '$grado', '$grupo', sha1('$contrasena'),     (Select id from escuela where identificador = '$idEscuela') ,1)") or die(mysqli_error($mysqli));
+
             if($insert){
               echo '<div class="alert alert-success alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>Bien hecho! Los datos han sido guardados con éxito.</div>';
             }else{
@@ -76,10 +78,25 @@
                <input type="text" class="form-control" id="apellidoM" name="apellidoM" required placeholder="Ingresa Apellido Materno" onkeyup="poner(this.form)">
             </div>
 
+            <div class="form-group">
+                <label class="control-label" for="inputSuccess">Dirección</label>
+               <input type="text" class="form-control" id="direccion" name="direccion" required placeholder="Ingresa Direccion" onkeyup="poner(this.form)">
+            </div>
+
+            <div class="form-group">
+                <label class="control-label" for="inputSuccess">Teléfono</label>
+               <input type="text" class="form-control" id="telefono" name="telefono" required placeholder="Ingresa Telefono" onkeyup="poner(this.form)">
+            </div>
+
+            <div class="form-group">
+                <label class="control-label" for="inputSuccess">Profesor</label>
+               <input type="text" class="form-control" id="profesor" name="profesor" required placeholder="Ingresa Profesor" onkeyup="poner(this.form)">
+            </div>
+
 
             <?php  
 
-            $sql="SELECT id, nombre FROM escuela"; 
+            $sql="SELECT id, identificador as identi, nombre FROM escuela"; 
             $consulta=mysqli_query($mysqli,$sql); 
 
             ?> 
@@ -88,8 +105,9 @@
             <select class="form-control" id="escuela" name="escuela" onclick="poner(this.form)"> 
             <?php 
             while($row=mysqli_fetch_array($consulta)) 
-            { 
-            echo "<option value='" . $row['id'] . "'>" . $row['nombre'] . "</option>"; 
+            {
+
+            echo "<option value='" . $row['identi'] . "'>" . $row['nombre'] . "</option>"; 
             } 
             mysqli_close($mysqli); 
 
@@ -132,8 +150,9 @@
                <input class="form-control" type="text" id="contrasena" required name="contrasena">
             </div>
               <br>
-               <input type="submit" class="btn btn-success" align="right" value="Registrar" name="add" id="add" />
+               <input type="submit" class="btn btn-success form-control" align="right" value="Registrar" name="add" id="add" />
               </form>
+              <br>
       <!-- Main row -->
       <div class="row">
 

@@ -42,13 +42,9 @@
 										<div class='grid-col grid-col-6'>
 											<section class='cws-widget'>
 												<section class='cws_widget_content'>
-													<p><b><a href="/Estadias/cursos/CienciasNaturales/Bloque1">Bloque #1 ¿Cómo mantener la salud?</a></b></p>
+													<p><b><a href="/Estadias/cursos/CienciasNaturales/cn-bloque1.html">Bloque #1 ¿Cómo mantener la salud?</a></b></p>
 													<p>Cras suscipit varius felis sed viverra. Nunc id dui sit amet augue facilisis lobortis ac sed sapien. Curabitur eu facilisis risus. Fusce purus dolor, ornare vitae scelerisque at, interdum ut odio. Fusce magna nunc, ullamcorper quis imperdiet nec, commodo in erat.</p>
-													<p>Tema #1 - Movimiento del cuerpo y prevención de lesiones</p>
-													<p>¡A mover el esqueleto!
-El cuerpo humano contiene huesos y músculos que ayudan a movernos, desplazarnos y protegen otras partes del cuerpo que no se ven.
-Proponer a los niños que toquen sus brazos y piernas, de modo de sentir los huesos y músculos.
-Buscar diferentes formas de desplazamiento y reconocer las partes del cuerpo que se utilizan.</p>
+													<p><i>Vivamus consectetur ligula sed quam adipiscing adipiscing. Aliquam molestie iaculis urna, et vestibulum arcu dignissim sit amet. Praesent ultricies tellus non nisi rutrum ut eleifend turpis fermentum. Proin scelerisque ante et lectus volutpat vel vestibulum nulla adipiscing. Donec ac vehicula purus. Nulla ut nisl elit, vel fringilla eros. Quisque diam urna.</i></p>
 												</section>
 											</section>
 										</div>
