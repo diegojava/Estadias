@@ -1,7 +1,7 @@
 <?php
   include("bin/conexion.php");
   session_start();
-  if($_SESSION["id_usuario"] == TRUE && $_SESSION["cargo"] == "admin" || $_SESSION["cargo"] == "profesor")
+  if($_SESSION["id_usuario"] == TRUE && $_SESSION["cargo"] == "admin")
   {
 ?>
 <!DOCTYPE html>
@@ -42,7 +42,7 @@
       if(isset($_GET['aksi']) == 'delete'){
         // escaping, additionally removing everything that could be (html/javascript-) code
         $nik = mysqli_real_escape_string($mysqli,(strip_tags($_GET["nik"],ENT_QUOTES)));
-        $cek = mysqli_query($mysqli, "SELECT * FROM alumno WHERE matricula='$nik'");
+        $cek = mysqli_query($mysqli, "SELECT * FROM usuarios WHERE usuario='$nik'");
         if(mysqli_num_rows($cek) == 0){
           echo '<div class="alert alert-info alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button> No se encontraron datos.</div>';
         }else{
@@ -56,7 +56,6 @@
       }
       ?>
  
-      <?php if($_SESSION["id_usuario"] == TRUE && $_SESSION["cargo"] == "admin"){ ?>
       <form class="form-inline" method="get">
         <div class="form-group">
           <select name="filter" class="form-control" onchange="form.submit()">
@@ -78,53 +77,35 @@
             ?>
           </select>
         </div>
-      </form>
-      <?php } ?>
-      <br>
+      </form><br>
       <br />
       <div class="table-responsive">
       <table class="table table-striped table-hover">
         <tr>
                     <th>No</th>
-                    <th>Matricula</th>
+                    <th>Usuario</th>
                     <th>Nombre</th>
                     <th>Escuela</th>
-                    <th>Grado</th>
-                    <th>Grupo</th>
-                    <th>Estado</th>
+                    <th>Dirección</th>
+                    <th>Correo</th>
+                    <th>Teléfono</th>
                     <th>Acciones</th>
         </tr>
         <?php
-        
-        if($_SESSION["id_usuario"] == TRUE && $_SESSION["cargo"] == "admin"){
-
         if($filter){
-          $sql = mysqli_query($mysqli, "SELECT alumno.matricula as matricula, alumno.nombre as nombre, alumno.apellidoP as apellidoP, alumno.apellidoM as apellidoM, escuela.nombre as escuela, alumno.grado as grado, alumno.grupo as grupo, alumno.estatus as estatus
-            FROM alumno,escuela
-            Where alumno.idescuela = escuela.id
+          $sql = mysqli_query($mysqli, "SELECT usuarios.usuario as usuario, usuarios.nombre as nombre, usuarios.apellidoP as apellidoP, usuarios.apellidoM as apellidoM, escuela.nombre as escuela, usuarios.direccion as direccion, usuarios.correo as correo, usuarios.telefono as telefono
+            FROM usuarios,escuela
+            Where usuarios.idEscuela = escuela.id AND usuarios.cargo = 'profesor' 
             and identificador='$filter'
             order by ApellidoP ASC");
-        } else if(!$filter){
+        }else{
           //$sql = mysqli_query($mysqli, "SELECT * FROM alumno ORDER BY matricula ASC");
-
-          //if($_SESSION["id_usuario"] == TRUE && $_SESSION["cargo"] == "admin"){
           $sql = mysqli_query($mysqli, "
-            SELECT alumno.matricula as matricula, alumno.nombre as nombre, alumno.apellidoP as apellidoP, alumno.apellidoM as apellidoM, escuela.nombre as escuela, alumno.grado as grado, alumno.grupo as grupo, alumno.estatus as estatus
-            FROM alumno,escuela
-            Where alumno.idescuela = escuela.id
-            order by ApellidoP ASC"); 
-        }}
-
-          else if($_SESSION["id_usuario"] == TRUE && $_SESSION["cargo"] == "profesor"){
-            $idProf = $_SESSION['id'];
-            $sql = mysqli_query($mysqli, "
-            SELECT alumno.matricula as matricula, alumno.nombre as nombre, alumno.apellidoP as apellidoP, alumno.apellidoM as apellidoM, escuela.nombre as escuela, alumno.grado as grado, alumno.grupo as grupo, alumno.estatus as estatus
-            FROM alumno,escuela
-            Where alumno.idescuela = escuela.id AND alumno.idProfesor = $idProf
-            order by ApellidoP ASC"); 
+            SELECT usuarios.usuario as usuario, usuarios.nombre as nombre, usuarios.apellidoP as apellidoP, usuarios.apellidoM as apellidoM, escuela.nombre as escuela, usuarios.direccion as direccion, usuarios.correo as correo, usuarios.telefono as telefono
+            FROM usuarios, escuela
+            Where usuarios.cargo = 'profesor' AND usuarios.idEscuela = escuela.id
+            order by ApellidoP ASC");
         }
-
-        
         if(mysqli_num_rows($sql) == 0){
           echo '<tr><td colspan="8">No hay datos.</td></tr>';
         }else{
@@ -141,26 +122,18 @@
             echo '
             <tr>
               <td>'.$no.'</td>
-              <b><td><a href="alumnos-perfil.php?nik='.$row['matricula'].'"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> '.strtoupper($row['matricula']).'</a></td></b>
+              <b><td><a href="profesores-perfil.php?nik='.$row['usuario'].'"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> '.strtoupper($row['usuario']).'</a></td></b>
               <td> '.$row['nombre']. ' ' .$row['apellidoP']. ' ' .$row['apellidoM'].'</td>
                            
                             <td>'.$row['escuela'].'</td>
-                            <td>'.$row['grado'].'</td>
-                            <td>'.$row['grupo'].'</td>
-              <td>';
-              if($row['estatus'] == '1'){
-                echo '<span class="label label-success">Activo</span>';
-              }
-                            else if ($row['estatus'] == '0' ){
-                echo '<span class="label label-danger">Bloqueado</span>';
-              }
-                     
-            echo '
-              </td>
+                            <td>'.$row['direccion'].'</td>
+                            <td>'.$row['correo'].'</td>
+                            <td>'.$row['telefono'].'</td>
+              
               <td>
  
-                <a href="alumnos-edit.php?nik='.$row['matricula'].'" title="Editar datos" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a>
-                <a href="alumnos.php?aksi=delete&nik='.$row['matricula'].'" title="Eliminar" onclick="return confirm(\'Esta seguro de borrar los datos '.$row['nombre'].'?\')" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
+                <a href="profesores-edit.php?nik='.$row['usuario'].'" title="Editar datos" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a>
+                <a href="profesores.php?aksi=delete&nik='.$row['usuario'].'" title="Eliminar" onclick="return confirm(\'Esta seguro de borrar los datos '.$row['nombre'].'?\')" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
               </td>
             </tr>
             ';

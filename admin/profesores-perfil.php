@@ -1,7 +1,7 @@
 <?php
   include("bin/conexion.php");
   session_start();
-  if($_SESSION["id_usuario"] == TRUE && $_SESSION["cargo"] == "admin" || $_SESSION["cargo"] == "profesor")
+  if($_SESSION["id_usuario"] == TRUE && $_SESSION["cargo"] == "admin")
 
     
   {
@@ -42,7 +42,7 @@
     <!-- Main content -->
     <section class="content">
  
-      <h2>Datos del alumno &raquo; Perfil</h2>
+      <h2>Datos del profesor &raquo; Perfil</h2>
       <hr />
       
       <?php
@@ -50,10 +50,10 @@
       $nik = mysqli_real_escape_string($mysqli,(strip_tags($_GET["nik"],ENT_QUOTES)));
       
       $sql = mysqli_query($mysqli, "
-        SELECT alumno.matricula as matricula, alumno.nombre as nombreA, alumno.apellidoP as apellidoP, alumno.apellidoM as apellidoM, alumno.grado as grado, alumno.grupo as grupo, alumno.estatus as estatus, 
-        (select escuela.nombre from alumno,escuela where alumno.matricula = '$nik'  and escuela.id = alumno.idescuela) as nombreescuela
-        FROM alumno,escuela 
-        WHERE alumno.matricula='$nik'");
+        SELECT usuarios.usuario as usuario, usuarios.nombre as nombreA, usuarios.apellidoP as apellidoP, usuarios.apellidoM as apellidoM, usuarios.telefono as telefono, usuarios.correo as correo, usuarios.direccion as direccion, 
+        (select escuela.nombre from usuarios,escuela where usuarios.usuario = '$nik'  and escuela.id = usuarios.idescuela) as nombreescuela
+        FROM usuarios,escuela 
+        WHERE usuarios.usuario='$nik'");
       //echo $sql;
       if(mysqli_num_rows($sql) == 0){
         //header("Location: index.php");
@@ -62,7 +62,7 @@
       }
       
       if(isset($_GET['aksi']) == 'delete'){
-        $delete = mysqli_query($mysqli, "DELETE FROM alumno WHERE matricula='$nik'");
+        $delete = mysqli_query($mysqli, "DELETE FROM usuarios WHERE usuario='$nik'");
         if($delete){
           echo '<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>Registro eliminado con éxito.</div>';
         }else{
@@ -73,41 +73,34 @@
       
       <table class="table table-striped table-condensed">
         <tr>
-          <th width="20%">Matricula</th>
-          <td><?php echo strtoupper($row['matricula']); ?></td>
+          <th width="20%">Usuario</th>
+          <td><?php echo strtoupper($row['usuario']); ?></td>
         </tr>
         <tr>
           <th>Nombre  Completo</th>
           <td><?php echo strtoupper($row['nombreA']) . " " . strtoupper($row['apellidoP']) . " " . strtoupper($row['apellidoM']); ?></td>
         </tr>
         <tr>
-          <th width="20%">Matricula</th>
+          <th width="20%">Escuela</th>
           <td><?php echo strtoupper($row['nombreescuela']); ?></td>
         </tr>
         <tr>
-        <tr>
-          <th>Grado y grupo</th>
-          <td><?php echo $row['grado'] . " " . $row['grupo']; ?></td>
+          <th width="20%">Direccion</th>
+          <td><?php echo strtoupper($row['direccion']); ?></td>
         </tr>
         <tr>
-          <th>Estado</th>
-          <td>
-            <?php 
-              if ($row['estatus']==0) {
-                echo "Bloqueado";
-              } else if ($row['estatus']==1){
-                echo "Activo";
-              
-              }
-            ?>
-          </td>
+          <th width="20%">Teléfono</th>
+          <td><?php echo strtoupper($row['telefono']); ?></td>
         </tr>
-        
+        <tr>
+          <th width="20%">Correo</th>
+          <td><?php echo strtoupper($row['correo']); ?></td>
+        </tr>  
       </table>
       
-      <p style="float:right"><a href="alumnos.php" class="btn btn-sm btn-info"><span class="glyphicon glyphicon-refresh" aria-hidden="true"></span> Regresar</a>
-      <a href="alumnos-edit.php?nik=<?php echo $row['matricula']; ?>" class="btn btn-sm btn-success"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Editar datos</a>
-      <a href="alumnos-perfil.php?aksi=delete&nik=<?php echo $row['matricula']; ?>" class="btn btn-sm btn-danger" onclick="return confirm('Esta seguro de borrar los datos <?php echo $row['nombreA']; ?>')"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span> Eliminar</a></p>
+      <p style="float:right"><a href="profesores.php" class="btn btn-sm btn-info"><span class="glyphicon glyphicon-refresh" aria-hidden="true"></span> Regresar</a>
+      <a href="profesores-edit.php?nik=<?php echo $row['usuario']; ?>" class="btn btn-sm btn-success"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Editar datos</a>
+      <a href="profesores-perfil.php?aksi=delete&nik=<?php echo $row['usuario']; ?>" class="btn btn-sm btn-danger" onclick="return confirm('Esta seguro de borrar los datos <?php echo $row['nombreA']; ?>')"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span> Eliminar</a></p>
       <br><br>
 
                 <script type="text/javascript">

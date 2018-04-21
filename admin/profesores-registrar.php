@@ -1,7 +1,7 @@
 <?php
   include("bin/conexion.php");
   session_start();
-  if($_SESSION["id_usuario"] == TRUE && $_SESSION["cargo"] == "admin" || $_SESSION["cargo"] == "profesor")
+  if($_SESSION["id_usuario"] == TRUE && $_SESSION["cargo"] == "admin")
   {
 ?>
 <!DOCTYPE html>
@@ -28,25 +28,24 @@
       
       <?php
       if(isset($_POST['add'])){
-        $matricula        = mysqli_real_escape_string($mysqli,(strip_tags($_POST["matricula"],ENT_QUOTES)));//Escanpando caracteres 
-        $nombreA         = mysqli_real_escape_string($mysqli,(strip_tags($_POST["nombreA"],ENT_QUOTES)));//Escanpando caracteres 
+        $usuario        = mysqli_real_escape_string($mysqli,(strip_tags($_POST["usuario"],ENT_QUOTES)));//Escanpando caracteres 
+        $nombre         = mysqli_real_escape_string($mysqli,(strip_tags($_POST["nombre"],ENT_QUOTES)));//Escanpando caracteres 
         $apellidoP  = mysqli_real_escape_string($mysqli,(strip_tags($_POST["apellidoP"],ENT_QUOTES)));//Escanpando caracteres 
         $apellidoM  = mysqli_real_escape_string($mysqli,(strip_tags($_POST["apellidoM"],ENT_QUOTES)));//Escanpando caracteres 
-        $grado       = mysqli_real_escape_string($mysqli,(strip_tags($_POST["grado"],ENT_QUOTES)));//Escanpando caracteres 
-        $grupo    = mysqli_real_escape_string($mysqli,(strip_tags($_POST["grupo"],ENT_QUOTES)));//Escanpando caracteres 
+        $direccion       = mysqli_real_escape_string($mysqli,(strip_tags($_POST["direccion"],ENT_QUOTES)));//Escanpando caracteres 
+        $telefono    = mysqli_real_escape_string($mysqli,(strip_tags($_POST["telefono"],ENT_QUOTES)));//Escanpando caracteres 
+        $correo    = mysqli_real_escape_string($mysqli,(strip_tags($_POST["correo"],ENT_QUOTES)));//Escanpando caracteres 
         $contrasena = mysqli_real_escape_string($mysqli,(strip_tags($_POST["contrasena"],ENT_QUOTES)));//Escanpando caracteres 
-        //$escuela    = mysqli_real_escape_string($mysqli,(strip_tags($_POST["escuela"],ENT_QUOTES)));//Escanpando caracteres 
         $idEscuela    = mysqli_real_escape_string($mysqli,(strip_tags($_POST["escuela"],ENT_QUOTES)));//Escanpando caracteres 
         
         //$rol      = mysqli_real_escape_string($con,(strip_tags($_POST["estado"],ENT_QUOTES)));//Escanpando caracteres 
         
-      
- 
-        $cek = mysqli_query($mysqli, "SELECT * FROM alumno WHERE matricula='$matricula'");
+        $cek = mysqli_query($mysqli, "SELECT * FROM usuarios WHERE usuario='$usuario'");
 
         if(mysqli_num_rows($cek) == 0){
-            $insert = mysqli_query($mysqli, "INSERT INTO alumno(matricula, nombre, apellidoP, apellidoM, grado, grupo, contrasena, idEscuela, estatus)
-                              VALUES('$matricula','$nombreA', '$apellidoP', '$apellidoM', '$grado', '$grupo', sha1('$contrasena'),     (Select id from escuela where identificador = '$idEscuela') ,1)") or die(mysqli_error($mysqli));
+            $insert = mysqli_query($mysqli, "
+              INSERT INTO usuarios(usuario, nombre, apellidoP, apellidoM, telefono, direccion, correo, contrasena, idEscuela, cargo) 
+                          VALUES('$usuario','$nombre', '$apellidoP', '$apellidoM', '$telefono', '$direccion', '$correo', sha1('$contrasena'), (Select id from escuela where identificador = '$idEscuela'),'profesor')") or die(mysqli_error($mysqli));
 
             if($insert){
               echo '<div class="alert alert-success alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>Bien hecho! Los datos han sido guardados con éxito.</div>';
@@ -60,12 +59,11 @@
       }
       ?>
  
-             <form method="post" action="" NAME="add" enctype="multipart/form-data">
-
+          <form method="post" action="" NAME="add" enctype="multipart/form-data">
 
           <div class="form-group">
                   <label class="control-label" for="inputSuccess">Nombre</label>
-                  <input type="text" class="form-control" id="nombreA" name="nombreA" required placeholder="Ingresa Nombre" onkeyup="poner(this.form)">
+                  <input type="text" class="form-control" id="nombre" name="nombre" required placeholder="Ingresa Nombre" onkeyup="poner(this.form)">
            </div>
 
             <div class="form-group">
@@ -89,19 +87,17 @@
             </div>
 
             <div class="form-group">
-                <label class="control-label" for="inputSuccess">Profesor</label>
-               <input type="text" class="form-control" id="profesor" name="profesor" required placeholder="Ingresa Profesor" onkeyup="poner(this.form)">
+                <label class="control-label" for="inputSuccess">Correo</label>
+               <input type="text" class="form-control" id="correo" name="correo" required placeholder="Ingresa Correo" onkeyup="poner(this.form)">
             </div>
 
 
-            
-           
             <?php  
-            if($_SESSION["id_usuario"] == TRUE && $_SESSION["cargo"] == "admin"){
+
             $sql="SELECT id, identificador as identi, nombre FROM escuela"; 
             $consulta=mysqli_query($mysqli,$sql); 
-            ?> 
 
+            ?> 
             <div class="form-group">
             <label class="control-label" for="inputSuccess">Escuela</label>
             <select class="form-control" id="escuela" name="escuela" onclick="poner(this.form)"> 
@@ -116,34 +112,6 @@
             ?>
             </select> 
             </div>
-            <?php } ?>
-
-            <!-- SOLO SE MUESTRA SI ES PROFESOR -->
-
-            <?php
-            $escuela = $_SESSION["idEscuela"];
-            if($_SESSION["id_usuario"] == TRUE && $_SESSION["cargo"] == "profesor"){
-            $sql="SELECT escuela.id as id, escuela.identificador as identi, escuela.nombre 
-            FROM escuela,usuarios where usuarios.idEscuela = $escuela 
-            and escuela.id = usuarios.idEscuela"; 
-            $consulta=mysqli_query($mysqli,$sql); 
-            ?> 
-
-            <div class="form-group">
-            <label class="control-label" for="inputSuccess">Escuela</label>
-            <select class="form-control" id="escuela" name="escuela" onclick="poner(this.form)"> 
-            <?php 
-            while($row=mysqli_fetch_array($consulta)) 
-            {
-
-            echo "<option value='" . $row['identi'] . "'>" . $row['nombre'] . "</option>"; 
-            } 
-            mysqli_close($mysqli); 
-
-            ?>
-            </select> 
-            </div>
-            <?php } ?>
             <!--<div class="form-group">
                 <label class="control-label" for="inputSuccess">Escuela</label>
                 <br>
@@ -156,23 +124,15 @@
                 </select>
                 </div>-->
 
-                <div class="form-group">
-                <label class="control-label" for="inputSuccess">Grado</label>
-               <input type="text" class="form-control" id="grado" required name="grado" placeholder="Ingresa Grado" onkeyup="poner(this.form)">
-                </div>
-
-            <div class="form-group">
-                <label class="control-label" for="inputSuccess">Grupo</label>
-               <input type="text" class="form-control" id="grupo" required name="grupo" placeholder="Ingresa Grupo" onkeyup="poner(this.form)">
-            </div>
+            
             <h3>
              Datos del login
-              <small>Con los siguientes datos, los niños podrán ingresar al sistema.</small>
+              <small>Con los siguientes datos, los profesores podrán ingresar al sistema.</small>
             </h3>
 
             <div class="form-group">
-                <label class="control-label" for="inputSuccess">Matricula</label>
-               <input class="form-control" type="text" id="matricula" name="matricula" readonly style="text-transform:uppercase">
+                <label class="control-label" for="inputSuccess">Usuario</label>
+               <input class="form-control" type="text" id="usuario" name="usuario">
             </div>
 
             <div class="form-group">

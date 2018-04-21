@@ -1,6 +1,6 @@
 <?php
   session_start();
-  if($_SESSION["id_usuario"] == TRUE && $_SESSION["cargo"] == "admin")
+  if($_SESSION["id_usuario"] == TRUE && $_SESSION["cargo"] == "admin" || $_SESSION["cargo"] == "profesor")
   {
 ?>
 <!DOCTYPE html>

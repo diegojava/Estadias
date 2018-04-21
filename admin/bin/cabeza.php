@@ -26,7 +26,7 @@
                 <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
 
                 <p>
-                  <?php echo $_SESSION['nombre'] ?> <?php echo $_SESSION['apellidoP'] ?> - <?php if($_SESSION['cargo'] == "admin") { echo 'Administrador';}?>
+                  <?php echo $_SESSION['nombre'] ?> <?php echo $_SESSION['apellidoP'] ?> - <?php if($_SESSION['cargo'] == "admin") { echo 'Administrador';}?> <?php if($_SESSION['cargo'] == "profesor") { echo 'Profesor';}?>
                   <small>Usuario: <?php echo $_SESSION['id_usuario'] ?></small>
                 </p>
               </li>
@@ -38,7 +38,7 @@
                   <!--<a href="#" class="btn btn-default btn-flat">Mi Perfil</a>-->
                 </div>
                 <div class="pull-right">
-                  <a href="#" class="btn btn-default btn-flat">Cerrar sesión</a>
+                  <a href="/Estadias/logout.php" class="btn btn-default btn-flat">Cerrar sesión</a>
                 </div>
               </li>
             </ul>
