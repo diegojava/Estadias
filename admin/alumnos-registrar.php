@@ -60,38 +60,89 @@
       }
       ?>
  
-             <form method="post" action="" NAME="add" enctype="multipart/form-data">
+          <form method="post" action="" NAME="add" enctype="multipart/form-data">
 
 
-          <div class="form-group">
+          <div class="form-group col-xs-8">
                   <label class="control-label" for="inputSuccess">Nombre</label>
                   <input type="text" class="form-control" id="nombreA" name="nombreA" required placeholder="Ingresa Nombre" onkeyup="poner(this.form)">
            </div>
 
-            <div class="form-group">
+            <div class="form-group col-xs-8">
                 <label class="control-label" for="inputSuccess">Apellido Paterno</label>
                <input type="text" class="form-control" id="apellidoP" name="apellidoP" required placeholder="Ingresa Apellido Paterno" onkeyup="poner(this.form)">
             </div>
 
-            <div class="form-group">
+            <div class="form-group col-xs-8">
                 <label class="control-label" for="inputSuccess">Apellido Materno</label>
                <input type="text" class="form-control" id="apellidoM" name="apellidoM" required placeholder="Ingresa Apellido Materno" onkeyup="poner(this.form)">
             </div>
 
-            <div class="form-group">
+            <div class="form-group col-xs-8">
                 <label class="control-label" for="inputSuccess">Dirección</label>
                <input type="text" class="form-control" id="direccion" name="direccion" required placeholder="Ingresa Direccion" onkeyup="poner(this.form)">
             </div>
 
-            <div class="form-group">
+            <div class="form-group col-xs-8">
                 <label class="control-label" for="inputSuccess">Teléfono</label>
                <input type="text" class="form-control" id="telefono" name="telefono" required placeholder="Ingresa Telefono" onkeyup="poner(this.form)">
             </div>
 
-            <div class="form-group">
-                <label class="control-label" for="inputSuccess">Profesor</label>
-               <input type="text" class="form-control" id="profesor" name="profesor" required placeholder="Ingresa Profesor" onkeyup="poner(this.form)">
+            <!-- INICIO SELECT DE PROFESOR, CAMBIA SI ES ADMIN O PROFESOR -->
+             <?php  
+            if($_SESSION["id_usuario"] == TRUE && $_SESSION["cargo"] == "admin"){
+            $sql="SELECT id, nombre, apellidoP, apellidoM, idEscuela FROM usuarios WHERE cargo ='profesor'"; 
+            $consulta=mysqli_query($mysqli,$sql); 
+            ?> 
+
+            <div class="form-group col-xs-8">
+            <label class="control-label" for="inputSuccess">Profesor</label>
+            <select class="form-control" id="profesor" name="profesor" onclick="poner(this.form)"> 
+            <?php 
+            while($row=mysqli_fetch_array($consulta)) 
+            {
+
+            echo "<option value='" . $row['identi'] . "'>" . $row['nombre'] . ' ' . $row['apellidoP'] . ' ' . $row['apellidoM'] ."</option>"; 
+            } 
+            //mysqli_close($mysqli); 
+
+            ?>
+            </select> 
             </div>
+            <?php } ?>
+
+            <!-- SOLO SE MUESTRA SI ES PROFESOR -->
+
+            <?php
+            $idProf = $_SESSION["id"];
+            if($_SESSION["id_usuario"] == TRUE && $_SESSION["cargo"] == "profesor"){
+            $sql="SELECT usuarios.id as id, usuarios.nombre, usuarios.apellidoP as apellidoP, usuarios.apellidoM as apellidoM 
+            FROM usuarios
+            WHERE id = $idProf";
+            $consulta=mysqli_query($mysqli,$sql); 
+            ?> 
+
+            <div class="form-group col-xs-8">
+            <label class="control-label" for="inputSuccess">Profesor</label>
+            <select class="form-control" id="escuela" name="escuela" onclick="poner(this.form)"> 
+            <?php 
+            while($row=mysqli_fetch_array($consulta)) 
+            {
+
+            echo "<option value='" . $row['identi'] . "'>" . $row['nombre'] . ' ' . $row['apellidoP'] . "</option>"; 
+            } 
+            //mysqli_close($mysqli); 
+
+            ?>
+            </select> 
+            </div>
+            <?php } ?>
+
+
+            <!-- FIN SELECT DE PROFESOR, CAMBIA SI ES ADMIN O PROFESOR -->
+
+
+           
 
 
             
@@ -102,7 +153,7 @@
             $consulta=mysqli_query($mysqli,$sql); 
             ?> 
 
-            <div class="form-group">
+            <div class="form-group col-xs-8">
             <label class="control-label" for="inputSuccess">Escuela</label>
             <select class="form-control" id="escuela" name="escuela" onclick="poner(this.form)"> 
             <?php 
@@ -111,34 +162,41 @@
 
             echo "<option value='" . $row['identi'] . "'>" . $row['nombre'] . "</option>"; 
             } 
-            mysqli_close($mysqli); 
+            //mysqli_close($mysqli); 
 
             ?>
             </select> 
             </div>
-            <?php } ?>
+            <?php 
+            
+            } ?>
 
             <!-- SOLO SE MUESTRA SI ES PROFESOR -->
 
             <?php
+            
             $escuela = $_SESSION["idEscuela"];
             if($_SESSION["id_usuario"] == TRUE && $_SESSION["cargo"] == "profesor"){
-            $sql="SELECT escuela.id as id, escuela.identificador as identi, escuela.nombre 
-            FROM escuela,usuarios where usuarios.idEscuela = $escuela 
+            $sql="SELECT escuela.id as id, escuela.identificador as identi, escuela.nombre as nombre
+            FROM escuela,usuarios 
+            WHERE usuarios.idEscuela = $escuela 
             and escuela.id = usuarios.idEscuela"; 
+            //echo $sql;
             $consulta=mysqli_query($mysqli,$sql); 
             ?> 
 
-            <div class="form-group">
+            <div class="form-group col-xs-8">
             <label class="control-label" for="inputSuccess">Escuela</label>
             <select class="form-control" id="escuela" name="escuela" onclick="poner(this.form)"> 
+
             <?php 
+
             while($row=mysqli_fetch_array($consulta)) 
             {
-
+              echo "<option>IV</option>";
             echo "<option value='" . $row['identi'] . "'>" . $row['nombre'] . "</option>"; 
             } 
-            mysqli_close($mysqli); 
+            //mysqli_close($mysqli); 
 
             ?>
             </select> 
@@ -156,31 +214,43 @@
                 </select>
                 </div>-->
 
-                <div class="form-group">
+                <div class="form-group col-xs-8">
                 <label class="control-label" for="inputSuccess">Grado</label>
-               <input type="text" class="form-control" id="grado" required name="grado" placeholder="Ingresa Grado" onkeyup="poner(this.form)">
+               <input value="3" readonly type="text" class="form-control" id="grado" required name="grado" placeholder="Ingresa Grado" onkeyup="poner(this.form)">
                 </div>
 
-            <div class="form-group">
-                <label class="control-label" for="inputSuccess">Grupo</label>
-               <input type="text" class="form-control" id="grupo" required name="grupo" placeholder="Ingresa Grupo" onkeyup="poner(this.form)">
+            <div class="form-group col-xs-8">
+               
+
+                <label class="control-label" for="inputSuccess">Select list:</label>
+                <select class="form-control" id="grupo" name="grupo" required onclick="poner(this.form)">
+                  <option>A</option>
+                  <option>B</option>
+                  <option>C</option>
+                  <option>D</option>
+                </select>
+
             </div>
+
+            <div class="form-group col-xs-8">
             <h3>
              Datos del login
               <small>Con los siguientes datos, los niños podrán ingresar al sistema.</small>
             </h3>
-
-            <div class="form-group">
+          </div>
+            <div class="form-group col-xs-8">
                 <label class="control-label" for="inputSuccess">Matricula</label>
                <input class="form-control" type="text" id="matricula" name="matricula" readonly style="text-transform:uppercase">
             </div>
 
-            <div class="form-group">
+            <div class="form-group col-xs-8">
                 <label class="control-label" for="inputSuccess">Contraseña</label>
                <input class="form-control" type="text" id="contrasena" required name="contrasena">
             </div>
               <br>
+              <div class="form-group col-xs-8">
                <input type="submit" class="btn btn-success form-control" align="right" value="Registrar" name="add" id="add" />
+             </div>
               </form>
               <br>
       <!-- Main row -->
@@ -211,7 +281,7 @@
 <?php include_once(__DIR__."/bin/scripts.php") ?>
    <script type="text/javascript">
       function poner(frm) {
-         frm.matricula.value = frm.nombreA.value.substr(0,1) + frm.apellidoP.value.substr(0,1) + frm.apellidoM.value.substr(0,1) + frm.escuela.value.substr()+ frm.grado.value.substr()+ frm.grupo.value.substr();
+         frm.matricula.value = frm.apellidoP.value.substr(0,2) + frm.nombreA.value.substr(0,1) +  frm.apellidoM.value.substr(0,1) + frm.escuela.value.substr()+   frm.grado.value.substr()+ frm.grupo.value.substr();
       }
     </script>
 </body>
