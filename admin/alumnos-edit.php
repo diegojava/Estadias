@@ -2,7 +2,7 @@
 ob_start();
   include("bin/conexion.php");
   session_start();
-  if($_SESSION["id_usuario"] == TRUE && $_SESSION["cargo"] == "admin")
+  if($_SESSION["id_usuario"] == TRUE && $_SESSION["cargo"] == "admin" || $_SESSION["cargo"] == "profesor")
   {
 ?>
 <!DOCTYPE html>
@@ -195,6 +195,6 @@ ob_start();
 <?php
 ob_end_flush();
   } else {
-    header("Location: /Estadias/login.php");
+    header("Location: /Estadias/admin/login.php");
   }
  ?>

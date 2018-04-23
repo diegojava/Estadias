@@ -262,7 +262,7 @@
 		<div class="l-page-width  clearfix">
 			<div class="wrapper">
 				<ul class="kids_social">
-					<li>Hola</li>
+					<li><a href="admin">Administración</a></li>
 									<li class="lang_bar">
 						<div id="lang_sel">
 

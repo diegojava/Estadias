@@ -115,6 +115,6 @@
 </html>
 <?php
   } else {
-    header("Location: /Estadias/login.php");
+    header("Location: /Estadias/admin/login.php");
   }
  ?>

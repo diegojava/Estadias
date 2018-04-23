@@ -3,7 +3,7 @@
 
 	session_start();
 
-	if(isset($_SESSION["id_usuario"])){
+	if(isset($_SESSION["id_alumno"])){
 		header("Location: index.php");
 	}
 
@@ -15,21 +15,22 @@
 
 		$sha1_pass = sha1($password);
 
-		$sql = "SELECT * FROM usuarios WHERE usuario = '$usuario' AND contrasena = '$sha1_pass'";
+		$sql = "SELECT * FROM alumno WHERE matricula = '$usuario' AND contrasena = '$sha1_pass'";
 		$result=$mysqli->query($sql);
 		$rows = $result->num_rows;
 
 		if($rows > 0) {
 			$row = $result->fetch_assoc();
-			$_SESSION['id'] = $row['id'];
-			$_SESSION['id_usuario'] = $row['usuario'];
-			$_SESSION['nombre'] = $row['nombre'];
+			$_SESSION['matricula'] = $row['matricula'];
+			$_SESSION['id_alumno'] = $row['nombre'];
+			//$_SESSION['nombre'] = $row['nombre'];
 			$_SESSION['apellidoP'] = $row['apellidoP'];
-			$_SESSION['correo'] = $row['correo'];
-			$_SESSION['cargo'] = $row['cargo'];
+			$_SESSION['apellidoM'] = $row['apellidoM'];
 			$_SESSION['idEscuela'] = $row['idEscuela'];
+			$_SESSION['idProfesor'] = $row['idProfesor'];
 
-			header("location: /Estadias/admin");
+
+			header("location: /Estadias/index.php");
 			} else {
 			$error = "El nombre o contrase&ntildea son incorrectos";
 		}

@@ -50,8 +50,8 @@
 													Buscar diferentes formas de desplazamiento y reconocer las partes del cuerpo que se utilizan.</p>
 
 													
-													<p><center><a href='../wordfind-master/example/sopa.html' class='cws_button '>Ir a la lección completa</a>
-														<a href='../wordfind-master/example/sopa.html' class='cws_button '>Ir a las actividades</a></center>
+													<p><center><a href='MovimientosCuerpo.php' class='cws_button '>Ir a la lección completa</a>
+													</center>
 													
 													</p><hr>
 
@@ -80,6 +80,22 @@
 														<a href='../wordfind-master/example/sopa.html' class='cws_button '>Ir a las actividades</a></center>
 													
 													</p><hr>
+												</section>
+											</section>
+										</div>
+										<div class='grid-col grid-col-6'>
+											<section class='cws-widget'>
+												<section class='cws_widget_content'>
+
+													
+													<p><b>El aparato locomotor:</b></p>
+													<p>En tu vida diaria realizas un gran numero de actividades que involucran movimiento corporal, por ejemplo: jugar un partido de fútbol con tus amigos.</p>
+													<p><b>El aparato óseo:</b></p>
+													<p>El esqueleto forma parte del cuerpo de los humanos y algunos animales, está formado por huesos, y son las estructuras más duras de nuestro cuerpo.</p>
+													<p>El esqueleto de un adulto tiene 206 huesos y el de un recién nacido 270.</p>
+													<p><b>Nuestros puntos flexibles: las articulaciones</b></p>
+													<p>Los puntos donde se unen los huesos se conocen como articulaciones. En ellas encontramos los ligamentos. Los huesos, articulaciones, cartílagos y ligamentos forman lo que conocemos como sistema o aparato óseo.</p>
+													
 												</section>
 											</section>
 										</div>

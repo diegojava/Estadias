@@ -14,8 +14,11 @@
               if ($conn->connect_error) {
                   die("Connection failed: " . $conn->connect_error);
               }
-
-              $sql = "SELECT count(*) as total FROM alumno WHERE estatus = 1";
+              $idProff = $_SESSION['id'];
+              if($_SESSION["cargo"] == "admin"){ 
+              $sql = "SELECT count(*) as total FROM alumno WHERE estatus = 1";}
+              if($_SESSION["cargo"] == "profesor"){ 
+              $sql = "SELECT count(*) as total FROM alumno WHERE estatus = 1 AND idProfesor = $idProff";}
               $result = $conn->query($sql);
 
               if ($result->num_rows > 0) {
@@ -35,5 +38,5 @@
             <div class="icon">
               <i class="ion ion-person-stalker"></i>
             </div>
-            <a href="#" class="small-box-footer">Más información <i class="fa fa-arrow-circle-right"></i></a>
+            <a href="alumnos.php" class="small-box-footer">Más información <i class="fa fa-arrow-circle-right"></i></a>
 </div>

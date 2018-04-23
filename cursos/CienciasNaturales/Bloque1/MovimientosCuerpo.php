@@ -18,49 +18,82 @@
 					</div>
 				</div>
 			</div>
+
 			<!-- .kids_top_content_middle -->
 		</div>
 		<div class="bg-level-2-full-width-container kids_bottom_content">
 			<div class="bg-level-2-page-width-container no-padding">
+
 				<section class="kids_bottom_content_container">
+
 					<!-- ***************** - START Image floating - *************** -->
 					<div class="page-content">
+
 						<div class="bg-level-2 first-part"></div>
 						<div class="container l-page-width">
 							<div class="entry-container ">
 								<main>
+									<p><b>Tema #1 Movimientos del Cuerpo y Prevención de lesiones</b></p>
 									<div class='grid-row clearfix' style='margin-bottom:0px;'>
 										<div class='grid-col grid-col-6'>
 											<section class='cws-widget'>
 												<section class='cws_widget_content'>
 													<p>
-														<img width="400px" height="250px" src="/Estadias/images/cn/1.jpg">
+														Movimientos del cuerpo
+														<video width="100%" height="100%" controls>
+														    <source src="material/bloque1-tema1.mp4" type="video/mp4">
+														</video>
+
 													</p>
 												</section>
 											</section>
 										</div>
+
+
 										<div class='grid-col grid-col-6'>
 											<section class='cws-widget'>
 												<section class='cws_widget_content'>
-													<p><b><a href="/Estadias/cursos/CienciasNaturales/cn-bloque1.html">Bloque #1 ¿Cómo mantener la salud?</a></b></p>
-													<p>Cras suscipit varius felis sed viverra. Nunc id dui sit amet augue facilisis lobortis ac sed sapien. Curabitur eu facilisis risus. Fusce purus dolor, ornare vitae scelerisque at, interdum ut odio. Fusce magna nunc, ullamcorper quis imperdiet nec, commodo in erat.</p>
-													<p><i>Vivamus consectetur ligula sed quam adipiscing adipiscing. Aliquam molestie iaculis urna, et vestibulum arcu dignissim sit amet. Praesent ultricies tellus non nisi rutrum ut eleifend turpis fermentum. Proin scelerisque ante et lectus volutpat vel vestibulum nulla adipiscing. Donec ac vehicula purus. Nulla ut nisl elit, vel fringilla eros. Quisque diam urna.</i></p>
+
+													
+													<p><b>El aparato locomotor:</b></p>
+													<p>En tu vida diaria realizas un gran numero de actividades que involucran movimiento corporal, por ejemplo: jugar un partido de fútbol con tus amigos.</p>
+													<p><b>El aparato óseo:</b></p>
+													<p>El esqueleto forma parte del cuerpo de los humanos y algunos animales, está formado por huesos, y son las estructuras más duras de nuestro cuerpo.</p>
+													<p>El esqueleto de un adulto tiene 206 huesos y el de un recién nacido 270.</p>
+													<p><b>Nuestros puntos flexibles: las articulaciones</b></p>
+													<p>Los puntos donde se unen los huesos se conocen como articulaciones. En ellas encontramos los ligamentos. Los huesos, articulaciones, cartílagos y ligamentos forman lo que conocemos como sistema o aparato óseo.</p>
+													
 												</section>
 											</section>
 										</div>
 									</div>
-									<div class='grid-row clearfix' style='margin-top:0px;'>
-										<div class='grid-col grid-col-12'>
+									<hr>
+									<div class='grid-col grid-col-6'>
 											<section class='cws-widget'>
 												<section class='cws_widget_content'>
+													<p>
+														Prevención de lesiones
+														<video width="100%" height="100%" controls>
+														    <source src="material/bloque1-tema1.2.mp4" type="video/mp4">
+														</video>
+													</p>
+												</section>
+											</section>
+										</div>
+									
+										<div class='grid-col grid-col-6'>
+											<section class='cws-widget'>
+												<section class='cws_widget_content'>
+													
 													<p>Ut blandit pharetra velit ut congue. Fusce elementum, ante ac ultricies fringilla, augue metus tincidunt velit, sit amet venenatis elit orci quis enim. Mauris auctor sapien orci. Aliquam ornare quam eu nunc accumsan laoreet. Vivamus aliquet nibh in erat ornare eget luctus sem feugiat. Vivamus ut ligula lectus. Fusce dapibus, libero in tempor condimentum, ligula tellus adipiscing risus, vitae lacinia mi lectus sit amet ante.</p>
 													<p>
 														<iframe src="//player.vimeo.com/video/46630282" width="896" height="504" frameborder="0" title="The Visionaries HD Trailer" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 													</p>
 												</section>
 											</section>
+											<center><a href='examen-tema1.php' class='cws_button '>Ir a las actividades</a></center>
 										</div>
-									</div>
+									
 									<!-- comments block -->
 									<!-- //end comments block -->
 								</main>

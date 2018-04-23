@@ -190,6 +190,6 @@ ob_start();
 <?php
 ob_end_flush();
   } else {
-    header("Location: /Estadias/login.php");
+    header("Location: /Estadias/admin/login.php");
   }
  ?>

@@ -145,8 +145,10 @@
               <td> '.$row['nombre']. ' ' .$row['apellidoP']. ' ' .$row['apellidoM'].'</td>
                            
                             <td>'.$row['escuela'].'</td>
-                            <td>'.$row['grado'].'</td>
                             <td>'.$row['grupo'].'</td>
+                            <td>'.$row['grado'].'</td>
+                            
+
               <td>';
               if($row['estatus'] == '1'){
                 echo '<span class="label label-success">Activo</span>';
@@ -199,6 +201,6 @@
 </html>
 <?php
   } else {
-    header("Location: /Estadias/login.php");
+    header("Location: /Estadias/admin/login.php");
   }
  ?>

@@ -83,9 +83,9 @@
         </tr>
         <?php
         if($filter){
-          $sql = mysqli_query($mysqli, "SELECT * FROM escuela WHERE id='$filter' ORDER BY nombre ASC");
+          $sql = mysqli_query($mysqli, "SELECT * FROM escuela WHERE id='$filter' ORDER BY ID ASC");
         }else{
-          $sql = mysqli_query($mysqli, "SELECT * FROM escuela ORDER BY nombre ASC");
+          $sql = mysqli_query($mysqli, "SELECT * FROM escuela ORDER BY ID ASC");
         }
         if(mysqli_num_rows($sql) == 0){
           echo '<tr><td colspan="8">No hay datos.</td></tr>';
@@ -149,6 +149,6 @@
 </html>
 <?php
   } else {
-    header("Location: /Estadias/login.php");
+    header("Location: /Estadias/admin/login.php");
   }
  ?>
