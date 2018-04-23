@@ -122,11 +122,24 @@ function Nivel () {
         if (score <= 2) {
                 alert("Intenta repasar con ayuda de tus padres o profesor");
                 
-                mysql_update_query("INSERT INTO avance VALUES (3, '"+ matriculajs + "', 1,0,"+ score +")");
-
-                }
+               	
+				
 				
 }
+
+function enviar()
+					{
+						// Esta es la variable que vamos a pasar
+						var miVariableJS=$("#texto").val();
+				 
+						// Enviamos la variable de javascript a archivo.php
+						$.post("/Estadias/cursos/proceso.php",{"texto":miVariableJS},function(respuesta){
+							alert(respuesta);
+						});
+					}
+	
+
+                }
 
 </script>
 </head>
@@ -214,6 +227,8 @@ function Nivel () {
             <p></p>
             <p> 
               <input name=Resulta onClick=Nivel() type=button value=Resultados>
+             <input type="text" id="texto">
+		<input type="button" value="Enviar variable a PHP" onclick="enviar()">
               <input type="button" name="repose" value="Respuestas Correctas"
 	             onClick="alert('reposes Correctas \n\n 1A  6A  11B\n\n 2B  7B  12A\n\n 3B  8A  13B\n\n 4C  9A  14C\n\n 5B 10C  15C')">
               <input type="reset" value="Borrar resultados" name="reset">
