@@ -71,7 +71,7 @@
 echo '<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children"><a href="/Estadias/admin">Bienvenido, '.$_SESSION['id_alumno']. '</a>';
 echo '<ul class="sub-menu">';
 echo '<li class="menu-item"><a href="/Estadias/admin">Administración</a></li>';
-echo '<li class="menu-item"><a href="logout.php">Cerrar sesión</a></li>';
+echo '<li class="menu-item"><a href="/Estadias/logout.php">Cerrar sesión</a></li>';
 echo '</ul>';
 echo '</li>';
 } else{

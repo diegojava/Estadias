@@ -145,8 +145,8 @@
               <td> '.$row['nombre']. ' ' .$row['apellidoP']. ' ' .$row['apellidoM'].'</td>
                            
                             <td>'.$row['escuela'].'</td>
-                            <td>'.$row['grupo'].'</td>
                             <td>'.$row['grado'].'</td>
+                            <td>'.$row['grupo'].'</td>
                             
 
               <td>';

@@ -1,6 +1,15 @@
 <?php
   include("bin/conexion.php");
   session_start();
+ $nik = mysqli_real_escape_string($mysqli,(strip_tags($_GET["nik"],ENT_QUOTES)));
+   include_once("$_SERVER[DOCUMENT_ROOT]/Estadias/admin/bin/conexion.php");
+  $sql = "SELECT idMateria, matricula, modulo, max(puntuacion) as puntuacion
+                          FROM avance
+                          Where matricula = '$nik' and idmateria =3
+                          group by modulo
+                          order by  modulo asc";
+  $query = $mysqli->query($sql);
+
   if($_SESSION["id_usuario"] == TRUE && $_SESSION["cargo"] == "admin" || $_SESSION["cargo"] == "profesor")
 
     
@@ -109,38 +118,50 @@
       <a href="alumnos-edit.php?nik=<?php echo $row['matricula']; ?>" class="btn btn-sm btn-success"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Editar datos</a>
       <a href="alumnos-perfil.php?aksi=delete&nik=<?php echo $row['matricula']; ?>" class="btn btn-sm btn-danger" onclick="return confirm('Esta seguro de borrar los datos <?php echo $row['nombreA']; ?>')"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span> Eliminar</a></p>
       <br><br>
-
-                <script type="text/javascript">
-                 google.load("visualization", "1", {packages:["corechart"]});
-                 google.setOnLoadCallback(drawChart);
-                 function drawChart() {
-                 var data = google.visualization.arrayToDataTable([
-           
-                ['Escuela','Numero'],
-                <?php 
-                $query = "SELECT nombreA, sum(horas) as suma FROM alumnos Where matricula = '".$row['matricula']."'";
-           
-                 $exec = mysqli_query($mysqli,$query);
-                 while($row = mysqli_fetch_array($exec)){
-           
-                 echo "['".$row['nombreA']."',".$row['suma']."],";
-                 }
-                 ?> 
-           
-                  ]);
+                <?php $nik = mysqli_real_escape_string($mysqli,(strip_tags($_GET["nik"],ENT_QUOTES))); ?>
+                
+                            <!-- this is where we show our chart -->
+<div id="chart" style="width: 900px; height: 500px;"></div>
  
-                 var options = {
-                 title: 'Horas empleadas por el alumno en cada módulo',
-                  pieHole: 0.5,
-                          pieSliceTextStyle: {
-                            color: 'black',
-                          },
-                          legend: 'none'
-                 };
-                 var chart = new google.visualization.ColumnChart(document.getElementById("columnchart"));
-                 chart.draw(data,options);
-                 }
-                 </script>
+<!-- Load our Scripts -->
+
+<script type="text/javascript">  
+  google.charts.load('current', {'packages':['corechart']});  
+  google.charts.setOnLoadCallback(drawChart);  
+  function drawChart(){  
+    var data = google.visualization.arrayToDataTable([  
+                ['Modulo', 'Puntuacion'],  
+                <?php  
+                  while($row = $query->fetch_assoc()){  
+                    echo "['".$row["modulo"]."', ".$row["puntuacion"]."],";  
+                  }  
+                ?>  
+          ]);  
+    var options = {  
+              title: 'Puntajes para el bloque de Ciencias Naturales',  
+              is3D:true,  
+              pieHole: 0.4,  
+              gridlines: {count: 8},
+              intervals: { 'style':'line' },
+              vAxis: {
+      minValue: 3,
+      maxValue: 7,
+      direction: 1
+    },
+    hAxis: {
+      slantedTextAngle: 70,
+      maxTextLines: 100,
+      textStyle: {
+
+        fontSize: 12,
+      } // or the number you want}
+    },
+
+          };  
+    var chart = new google.visualization.ColumnChart(document.getElementById('chart'));  
+    chart.draw(data, options);  
+}  
+</script>
 
       <div class="container-fluid">
       <div id="columnchart" style="width: 100%; height: 500px;"></div>
@@ -148,12 +169,7 @@
       
 
       <!-- Main row -->
-      <div class="row">
-
-        <!-- Left col -->
-      
-        <!-- /.Left col -->
-      </div>
+    
       <!-- /.row (main row) -->
 
     </section>

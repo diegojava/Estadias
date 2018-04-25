@@ -1,20 +1,34 @@
-<?php
+
+	<?php
 		session_start();
-?>
-<?php include_once("$_SERVER[DOCUMENT_ROOT]/Estadias/header.php") ?>
+		 
+    ?>
+    <?php include_once("$_SERVER[DOCUMENT_ROOT]/Estadias/header.php") ?>
+	<title>Ciencias Naturales</title>
 	</div>
 	<!-- .bg-level-1 -->
 	<div id="kids_middle_container">
+		<div class="menun">
+   <input id="toggle" type="checkbox"/>
+   <label for="toggle" class="drop">
+      <svg width="36px" height="36px" viewBox="0 0 48 48"><path d="M6 36h36v-4H6v4zm0-10h36v-4H6v4zm0-14v4h36v-4H6z"></path></svg>
+   </label>
+   <center><nav>
+      <a href="">Bloque 1</a>
+      <a href="../Bloque2">Bloque 2</a>
+      <a href="../Bloque3">Bloque 3</a>
+      <a href="../Bloque4">Bloque 4</a>
+      <a href="../Bloque5">Bloque 5</a>
+   </nav></center>  
+</div>
 		<!-- .content -->
 		<div class="kids_top_content">
 			<div class="kids_top_content_middle ">
 				<div class="header_container ">
 					<div class="l-page-width">
-						<h1>Ciencias Naturales - 3er Grado de Primaria</h1>
-						<ul id="breadcrumbs">
-							<li><a href="index.html" title="Home">Inicio</a></li> <span class="delimiter">&gt;</span>
-							<li><span class="current_crumb">Ciencias Naturales</span></li>
-						</ul>
+						<center>
+						<h4>Ejercicios de reforzamiento</h4></center>
+						
 					</div>
 				</div>
 			</div>
@@ -33,89 +47,70 @@
 										<div class='grid-col grid-col-6'>
 											<section class='cws-widget'>
 												<section class='cws_widget_content'>
-													
-												</section>
-											</section>
-										</div>
-										<div class='grid-col grid-col-8'>
-											<section class='cws-widget'>
-												<section class='cws_widget_content'>
-													<p><b><a href="/Estadias/cursos/CienciasNaturales/Bloque1">Bloque #1 ¿Cómo mantener la salud?</a></b></p>
-													<p>En el primer bloque del libro de Ciencias Naturales de tercer grado podremos conocer mucho más de nuestro propio cuerpo.</p><hr>
-													<h4>Tema #1 - Movimientos del cuerpo y prevención de lesiones</h4>
-													<img src="/Estadias/cursos/CienciasNaturales/img/cuerpoymovimiento.jpeg">
-													<p>¡A mover el esqueleto!
-													El cuerpo humano contiene huesos y músculos que ayudan a movernos, desplazarnos y protegen otras partes del cuerpo que no se ven.
-													Proponer a los niños que toquen sus brazos y piernas, de modo de sentir los huesos y músculos.
-													Buscar diferentes formas de desplazamiento y reconocer las partes del cuerpo que se utilizan.</p>
-
-													
-													<p><center><a href='MovimientosCuerpo.php' class='cws_button '>Ir a la lección completa</a>
-													</center>
-													
-													</p><hr>
-
-																										<h4>Tema #2 - La alimentación como parte de la nutrición</h4>
-													<img src="/Estadias/cursos/CienciasNaturales/img/nutricion.jpg" width="100%">
-													<p>¡A mover el esqueleto!
-													El cuerpo humano contiene huesos y músculos que ayudan a movernos, desplazarnos y protegen otras partes del cuerpo que no se ven.
-													Proponer a los niños que toquen sus brazos y piernas, de modo de sentir los huesos y músculos.
-													Buscar diferentes formas de desplazamiento y reconocer las partes del cuerpo que se utilizan.</p>
-
-													
-													<p><center><a href='../wordfind-master/example/sopa.html' class='cws_button '>Ir a la lección completa</a>
-														<a href='../wordfind-master/example/sopa.html' class='cws_button '>Ir a las actividades</a></center>
-													
-													</p><hr>
-
-																										<h4>Tema #3 - Dieta: los grupos de alimentos</h4>
-													<img src="/Estadias/cursos/CienciasNaturales/img/cuerpoymovimiento.jpeg" width="100%">
-													<p>¡A mover el esqueleto!
-													El cuerpo humano contiene huesos y músculos que ayudan a movernos, desplazarnos y protegen otras partes del cuerpo que no se ven.
-													Proponer a los niños que toquen sus brazos y piernas, de modo de sentir los huesos y músculos.
-													Buscar diferentes formas de desplazamiento y reconocer las partes del cuerpo que se utilizan.</p>
-
-													
-													<p><center><a href='../wordfind-master/example/sopa.html' class='cws_button '>Ir a la lección completa</a>
-														<a href='../wordfind-master/example/sopa.html' class='cws_button '>Ir a las actividades</a></center>
-													
-													</p><hr>
+ 
 												</section>
 											</section>
 										</div>
 										<div class='grid-col grid-col-6'>
 											<section class='cws-widget'>
 												<section class='cws_widget_content'>
-
-													
-													<p><b>El aparato locomotor:</b></p>
-													<p>En tu vida diaria realizas un gran numero de actividades que involucran movimiento corporal, por ejemplo: jugar un partido de fútbol con tus amigos.</p>
-													<p><b>El aparato óseo:</b></p>
-													<p>El esqueleto forma parte del cuerpo de los humanos y algunos animales, está formado por huesos, y son las estructuras más duras de nuestro cuerpo.</p>
-													<p>El esqueleto de un adulto tiene 206 huesos y el de un recién nacido 270.</p>
-													<p><b>Nuestros puntos flexibles: las articulaciones</b></p>
-													<p>Los puntos donde se unen los huesos se conocen como articulaciones. En ellas encontramos los ligamentos. Los huesos, articulaciones, cartílagos y ligamentos forman lo que conocemos como sistema o aparato óseo.</p>
 													
 												</section>
 											</section>
 										</div>
 									</div>
-									<div class='grid-row clearfix' style='margin-top:0px;'>
-										<div class='grid-col grid-col-12'>
+									<div class='grid-row clearfix' style='margin:0px;'>
+										<div class='grid-col-12 grid-col-12'>
 											<section class='cws-widget'>
 												<section class='cws_widget_content'>
-													<p>Ut blandit pharetra velit ut congue. Fusce elementum, ante ac ultricies fringilla, augue metus tincidunt velit, sit amet venenatis elit orci quis enim. Mauris auctor sapien orci. Aliquam ornare quam eu nunc accumsan laoreet. Vivamus aliquet nibh in erat ornare eget luctus sem feugiat. Vivamus ut ligula lectus. Fusce dapibus, libero in tempor condimentum, ligula tellus adipiscing risus, vitae lacinia mi lectus sit amet ante.</p>
-													<p>
-														<iframe src="//player.vimeo.com/video/46630282" width="896" height="504" frameborder="0" title="The Visionaries HD Trailer" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-													</p>
-												</section>
-											</section>
-										</div>
-									</div>
-									<!-- comments block -->
+							<div class="widget widget_cws_latest_posts">
+								<div class="latest-posts-widget">
+								<h3 class="widget-title">¿Cómo mantener la salud?</h3>
+								<div class="widget-content" style="margin: 0 auto;">
+									<ul>
+										<li>									
+
+								<div class="view view-tenth">
+			                    	<img width="100%" height="100%" src="img/cuerpoymovimiento.jpg" />
+			                   		 <div class="mask">
+			                        	<h2>Movimientos del cuerpo y prevención de lesiones</h2>
+			                       		<br>
+			                        	<a href="MovimientosCuerpo.php" class="info">Entrar</a>
+                   			 	 	</div>
+                				</div>
+
+                 				<div class="view view-tenth">
+                   					 <img src="img/nutricion.jpg" />
+                    				 <div class="mask">
+                        				<h2>La alimentación como parte de la nutrición</h2>
+                       					<br>
+                       					<a href="Alimentacion.php" class="info">Entrar</a>
+                    				 </div>
+               					</div>
+
+				                <div class="view view-tenth">
+				                    <img src="img/dieta.jpg" />
+				                    <div class="mask">
+				                        <h2>Dieta: los grupos de alimentos</h2>
+				                        <br>
+				                        <a href="Dieta.php" class="info">Entrar</a>
+				                    </div>
+				                </div>
+                
+										</li>
+									</ul>
+
+								</div>
+							</div>
+						</div>
+					</section>
+				</section>
+				</div>
+			</div>
+						<!-- comments block -->
 									<!-- //end comments block -->
-								</main>
-								<div class="kids_clear"></div>
+			</main>
+			<div class="kids_clear"></div>
 							</div>
 							<!-- .entry-container -->
 						</div>
@@ -141,8 +136,8 @@
 									<ul>
 										<li>
 											<div class="kids_image_wrapper ">
-												<a href="/Estadias/pic/HappyFeet_1st4.jpg" class="prettyPhoto kids_mini_picture" data-rel="prettyPhoto[rpwt]">
-													<img src="/Estadias/pic/70x70-img-1.jpg" width="70" height="70" alt=""></a>
+												<a href="../pic/HappyFeet_1st4.jpg" class="prettyPhoto kids_mini_picture" data-rel="prettyPhoto[rpwt]">
+													<img src="../pic/70x70-img-1.jpg" width="70" height="70" alt=""></a>
 											</div>
 											<div class="kids_post_content">
 												<h4><a href="#">Bloque I</a></h4>
@@ -152,8 +147,8 @@
 										</li>
 										<li>
 											<div class="kids_image_wrapper ">
-												<a href="/Estadias/pic/LegoMovie_3rd4.jpg" class="prettyPhoto kids_mini_picture" data-rel="prettyPhoto[rpwt]">
-													<img src="/Estadias/pic/70x70-img-2.jpg" width="70" height="70" alt=""></a>
+												<a href="../pic/LegoMovie_3rd4.jpg" class="prettyPhoto kids_mini_picture" data-rel="prettyPhoto[rpwt]">
+													<img src="../pic/70x70-img-2.jpg" width="70" height="70" alt=""></a>
 											</div>
 											<div class="kids_post_content">
 												<h4><a href="#">Bloque II</a></h4>
@@ -163,8 +158,8 @@
 										</li>
 										<li>
 											<div class="kids_image_wrapper ">
-												<a href="/Estadias/pic/Tangled_3rd5.jpg" class="prettyPhoto kids_mini_picture" data-rel="prettyPhoto[rpwt]">
-													<img src="/Estadias/pic/70x70-img-3.jpg" width="70" height="70" alt="">
+												<a href="../pic/Tangled_3rd5.jpg" class="prettyPhoto kids_mini_picture" data-rel="prettyPhoto[rpwt]">
+													<img src="../pic/70x70-img-3.jpg" width="70" height="70" alt="">
 												</a>
 											</div>
 											<div class="kids_post_content">
@@ -185,8 +180,8 @@
 							<ul>
 								<li>
 									<div class="kids_image_wrapper ">
-										<a href="/Estadias/pic/HappyFeet_1st4.jpg" class="prettyPhoto kids_mini_picture" data-rel="prettyPhoto[rpwt]">
-											<img src="/Estadias/pic/70x70-img-1.jpg" width="70" height="70" alt=""></a>
+										<a href="../pic/HappyFeet_1st4.jpg" class="prettyPhoto kids_mini_picture" data-rel="prettyPhoto[rpwt]">
+											<img src="../pic/70x70-img-1.jpg" width="70" height="70" alt=""></a>
 									</div>
 									<div class="kids_post_content">
 										<h4><a href="#">Bloque I</a></h4>
@@ -196,8 +191,8 @@
 								</li>
 								<li>
 									<div class="kids_image_wrapper ">
-										<a href="/Estadias/pic/LegoMovie_3rd4.jpg" class="prettyPhoto kids_mini_picture" data-rel="prettyPhoto[rpwt]">
-											<img src="/Estadias/pic/70x70-img-2.jpg" width="70" height="70" alt=""></a>
+										<a href="../pic/LegoMovie_3rd4.jpg" class="prettyPhoto kids_mini_picture" data-rel="prettyPhoto[rpwt]">
+											<img src="../pic/70x70-img-2.jpg" width="70" height="70" alt=""></a>
 									</div>
 									<div class="kids_post_content">
 										<h4><a href="#">Bloque II</a></h4>
@@ -207,8 +202,8 @@
 								</li>
 								<li>
 									<div class="kids_image_wrapper ">
-										<a href="/Estadias/pic/Tangled_3rd5.jpg" class="prettyPhoto kids_mini_picture" data-rel="prettyPhoto[rpwt]">
-											<img src="/Estadias/pic/70x70-img-3.jpg" width="70" height="70" alt="">
+										<a href="../pic/Tangled_3rd5.jpg" class="prettyPhoto kids_mini_picture" data-rel="prettyPhoto[rpwt]">
+											<img src="../pic/70x70-img-3.jpg" width="70" height="70" alt="">
 										</a>
 									</div>
 									<div class="kids_post_content">
@@ -228,8 +223,8 @@
 							<ul>
 								<li>
 									<div class="kids_image_wrapper ">
-										<a href="/Estadias/pic/HappyFeet_1st4.jpg" class="prettyPhoto kids_mini_picture" data-rel="prettyPhoto[rpwt]">
-											<img src="/Estadias/pic/70x70-img-1.jpg" width="70" height="70" alt=""></a>
+										<a href="../pic/HappyFeet_1st4.jpg" class="prettyPhoto kids_mini_picture" data-rel="prettyPhoto[rpwt]">
+											<img src="../pic/70x70-img-1.jpg" width="70" height="70" alt=""></a>
 									</div>
 									<div class="kids_post_content">
 										<h4><a href="./cursos/ciencias-n.html">Bloque I</h4>
@@ -272,15 +267,24 @@
 		</div>
 		<div class="dark-mask"></div>
 	</div>
-	<script type='text/javascript' src='/Estadias/js/jquery.min.js'></script>
-	<script type="text/javascript" src='/Estadias/js/jquery-ui.min.js'></script>
-	<script type='text/javascript' src='/Estadias/js/scripts.js'></script>
-	<script type='text/javascript' src='/Estadias/js/retina.min.js'></script>
-	<script type='text/javascript' src='/Estadias/js/jquery.tweet.js'></script>
-	<script type='text/javascript' src='/Estadias/js/jquery.easing-1.3.min.js'></script>
-	<script type='text/javascript' src='/Estadias/js/owl.carousel.js'></script>
-	<script type='text/javascript' src='/Estadias/js/jquery.isotope.min.js'></script>
-	<script type='text/javascript' src='/Estadias/js/jquery.flexnav.min.js'></script>
-	<script type='text/javascript' src='/Estadias/js/jquery.prettyPhoto.js'></script>
+	<script type='text/javascript' src='../estilos/js/jquery.min.js'></script>
+	<script type="text/javascript" src='../estilos/js/jquery-ui.min.js'></script>
+	<script type='text/javascript' src='../estilos/js/scripts.js'></script>
+	<script type='text/javascript' src='../estilos/js/retina.min.js'></script>
+	<script type='text/javascript' src='../estilos/js/jquery.tweet.js'></script>
+	<script type='text/javascript' src='../estilos/js/jquery.easing-1.3.min.js'></script>
+	<script type='text/javascript' src='../estilos/js/owl.carousel.js'></script>
+	<script type='text/javascript' src='../estilos/js/jquery.isotope.min.js'></script>
+	<script type='text/javascript' src='../estilos/js/jquery.flexnav.min.js'></script>
+	<script type='text/javascript' src='../estilos/js/jquery.prettyPhoto.js'></script>
+		<link rel="shortcut icon" href="../estilos/images/favicon.png">
+	<link rel="stylesheet" href="../estilos/css/font-awesome.css">
+	<link rel="stylesheet" type="text/css" href="../estilos/css/styles.css" />
+	<link rel="stylesheet" type="text/css" href="../estilos/css/flexnav.css" />
+	<link rel="stylesheet" type="text/css" href="../estilos/css/prettyPhoto.css" />
+	<link rel="stylesheet" type="text/css" href="../estilos/css/Menu.css">
+	<link rel="stylesheet" type="text/css" href="../estilos/css/demo.css">
+    <link rel="stylesheet" type="text/css" href="../estilos/css/style_common.css" />
+    <link rel="stylesheet" type="text/css" href="../estilos/css/style10.css" />
 </body>
 </html>

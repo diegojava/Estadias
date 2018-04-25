@@ -91,7 +91,7 @@
 													</p>
 												</section>
 											</section>
-											<center><a href='examen-tema1.php' class='cws_button '>Ir a las actividades</a></center>
+											<center><a href='examen-1.php' class='cws_button '>Ir a las actividades</a></center>
 										</div>
 									
 									<!-- comments block -->

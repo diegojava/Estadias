@@ -1,239 +1,118 @@
 <?php
-		session_start();
+        session_start();
+        header("Location:Bloque1");
 ?>
 <?php include_once("$_SERVER[DOCUMENT_ROOT]/Estadias/header.php") ?>
-	</div>
-	<!-- .bg-level-1 -->
-	<div id="kids_middle_container">
-		<!-- .content -->
-		<div class="kids_top_content">
-			<div class="kids_top_content_middle ">
-				<div class="header_container ">
-					<div class="l-page-width">
-						<h1>Ciencias Naturales - 3er Grado de Primaria</h1>
-						<ul id="breadcrumbs">
-							<li><a href="index.html" title="Home">Inicio</a></li> <span class="delimiter">&gt;</span>
-							<li><span class="current_crumb">Ciencias Naturales</span></li>
-						</ul>
-					</div>
-				</div>
-			</div>
-			<!-- .kids_top_content_middle -->
-		</div>
-		<div class="bg-level-2-full-width-container kids_bottom_content">
-			<div class="bg-level-2-page-width-container no-padding">
-				<section class="kids_bottom_content_container">
-					<!-- ***************** - START Image floating - *************** -->
-					<div class="page-content">
-						<div class="bg-level-2 first-part"></div>
-						<div class="container l-page-width">
-							<div class="entry-container ">
-								<main>
-									<div class='grid-row clearfix' style='margin-bottom:0px;'>
-										<div class='grid-col grid-col-6'>
-											<section class='cws-widget'>
-												<section class='cws_widget_content'>
-													<p>
-														<img width="400px" height="250px" src="/Estadias/images/cn/1.jpg">
-													</p>
-												</section>
-											</section>
-										</div>
-										<div class='grid-col grid-col-6'>
-											<section class='cws-widget'>
-												<section class='cws_widget_content'>
-													<p><b><a href="/Estadias/cursos/CienciasNaturales/Bloque1">Bloque #1 ¿Cómo mantener la salud?</a></b></p>
-													<p>Cras suscipit varius felis sed viverra. Nunc id dui sit amet augue facilisis lobortis ac sed sapien. Curabitur eu facilisis risus. Fusce purus dolor, ornare vitae scelerisque at, interdum ut odio. Fusce magna nunc, ullamcorper quis imperdiet nec, commodo in erat.</p>
-													<p>Tema #1 - Movimiento del cuerpo y prevención de lesiones</p>
-													<p>¡A mover el esqueleto!
-El cuerpo humano contiene huesos y músculos que ayudan a movernos, desplazarnos y protegen otras partes del cuerpo que no se ven.
-Proponer a los niños que toquen sus brazos y piernas, de modo de sentir los huesos y músculos.
-Buscar diferentes formas de desplazamiento y reconocer las partes del cuerpo que se utilizan.</p>
-												</section>
-											</section>
-										</div>
-									</div>
-									<div class='grid-row clearfix' style='margin-top:0px;'>
-										<div class='grid-col grid-col-12'>
-											<section class='cws-widget'>
-												<section class='cws_widget_content'>
-													<p>Ut blandit pharetra velit ut congue. Fusce elementum, ante ac ultricies fringilla, augue metus tincidunt velit, sit amet venenatis elit orci quis enim. Mauris auctor sapien orci. Aliquam ornare quam eu nunc accumsan laoreet. Vivamus aliquet nibh in erat ornare eget luctus sem feugiat. Vivamus ut ligula lectus. Fusce dapibus, libero in tempor condimentum, ligula tellus adipiscing risus, vitae lacinia mi lectus sit amet ante.</p>
-													<p>
-														<iframe src="//player.vimeo.com/video/46630282" width="896" height="504" frameborder="0" title="The Visionaries HD Trailer" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-													</p>
-												</section>
-											</section>
-										</div>
-									</div>
-									<!-- comments block -->
-									<!-- //end comments block -->
-								</main>
-								<div class="kids_clear"></div>
-							</div>
-							<!-- .entry-container -->
-						</div>
-						<div class="bg-level-2 second-part"></div>
-					</div>
-					<!-- ***************** - END Image floating - *************** -->
-				</section>
-				<!-- .bottom_content_container -->
-			</div>
-			<div class="content_bottom_bg"></div>
-		</div>
-	</div>
-	<!-- .end_content -->
-	<!-- FOOTER BEGIN -->
-	<div class="kids_bottom_container footer">
-		<div class="l-page-width">
-			<div class="wrapper">
+<!DOCTYPE html>
 
-						<div class="widget widget_cws_latest_posts">
-							<div class="latest-posts-widget">
-								<h3 class="widget-title">Español</h3>
-								<div class="widget-content">
-									<ul>
-										<li>
-											<div class="kids_image_wrapper ">
-												<a href="/Estadias/pic/HappyFeet_1st4.jpg" class="prettyPhoto kids_mini_picture" data-rel="prettyPhoto[rpwt]">
-													<img src="/Estadias/pic/70x70-img-1.jpg" width="70" height="70" alt=""></a>
-											</div>
-											<div class="kids_post_content">
-												<h4><a href="#">Bloque I</a></h4>
-												<p>Nombre bloque 1</p>
-												<p class="time-post">Leer acerca del bloque</p>
-											</div>
-										</li>
-										<li>
-											<div class="kids_image_wrapper ">
-												<a href="/Estadias/pic/LegoMovie_3rd4.jpg" class="prettyPhoto kids_mini_picture" data-rel="prettyPhoto[rpwt]">
-													<img src="/Estadias/pic/70x70-img-2.jpg" width="70" height="70" alt=""></a>
-											</div>
-											<div class="kids_post_content">
-												<h4><a href="#">Bloque II</a></h4>
-												<p>Lorem ipsum dolor ...</p>
-												<p class="time-post">January 2, 2015</p>
-											</div>
-										</li>
-										<li>
-											<div class="kids_image_wrapper ">
-												<a href="/Estadias/pic/Tangled_3rd5.jpg" class="prettyPhoto kids_mini_picture" data-rel="prettyPhoto[rpwt]">
-													<img src="/Estadias/pic/70x70-img-3.jpg" width="70" height="70" alt="">
-												</a>
-											</div>
-											<div class="kids_post_content">
-												<h4><a href="#">Bloque III</a></h4>
-												<p>Lorem ipsum dolor ...</p>
-												<p class="time-post">January 1, 2015</p>
-											</div>
-										</li>
-									</ul>
-								</div>
-							</div>
-						</div>
+<!--[if lte IE 8]><html class="ie8 no-js" lang="en"><![endif]-->
+<!--[if IE 9]><html class="ie9 no-js" lang="en"><![endif]-->
+<html class="no-ie">
 
-				<div class="widget widget_cws_latest_posts">
-					<div class="latest-posts-widget">
-						<h3 class="widget-title">Desafíos matemáticos</h3>
-						<div class="widget-content">
-							<ul>
-								<li>
-									<div class="kids_image_wrapper ">
-										<a href="/Estadias/pic/HappyFeet_1st4.jpg" class="prettyPhoto kids_mini_picture" data-rel="prettyPhoto[rpwt]">
-											<img src="/Estadias/pic/70x70-img-1.jpg" width="70" height="70" alt=""></a>
-									</div>
-									<div class="kids_post_content">
-										<h4><a href="#">Bloque I</a></h4>
-										<p>Lorem ipsum dolor ...</p>
-										<p class="time-post">January 3, 2015</p>
-									</div>
-								</li>
-								<li>
-									<div class="kids_image_wrapper ">
-										<a href="/Estadias/pic/LegoMovie_3rd4.jpg" class="prettyPhoto kids_mini_picture" data-rel="prettyPhoto[rpwt]">
-											<img src="/Estadias/pic/70x70-img-2.jpg" width="70" height="70" alt=""></a>
-									</div>
-									<div class="kids_post_content">
-										<h4><a href="#">Bloque II</a></h4>
-										<p>Lorem ipsum dolor ...</p>
-										<p class="time-post">January 2, 2015</p>
-									</div>
-								</li>
-								<li>
-									<div class="kids_image_wrapper ">
-										<a href="/Estadias/pic/Tangled_3rd5.jpg" class="prettyPhoto kids_mini_picture" data-rel="prettyPhoto[rpwt]">
-											<img src="/Estadias/pic/70x70-img-3.jpg" width="70" height="70" alt="">
-										</a>
-									</div>
-									<div class="kids_post_content">
-										<h4><a href="#">Bloque III</a></h4>
-										<p>Lorem ipsum dolor ...</p>
-										<p class="time-post">January 1, 2015</p>
-									</div>
-								</li>
-							</ul>
-						</div>
-					</div>
-				</div>
-				<div class="widget widget_cws_latest_posts">
-					<div class="latest-posts-widget">
-						<h3 class="widget-title">Ciencias Naturales</h3>
-						<div class="widget-content">
-							<ul>
-								<li>
-									<div class="kids_image_wrapper ">
-										<a href="/Estadias/pic/HappyFeet_1st4.jpg" class="prettyPhoto kids_mini_picture" data-rel="prettyPhoto[rpwt]">
-											<img src="/Estadias/pic/70x70-img-1.jpg" width="70" height="70" alt=""></a>
-									</div>
-									<div class="kids_post_content">
-										<h4><a href="./cursos/ciencias-n.html">Bloque I</h4>
-										<p>¿Cómo mantener la salud?</p>
-										<p class="time-post">Acceder al bloque</p></a>
-									</div>
-								</li>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>Matematicas</title>
+    <link rel="alternate" type="application/rss+xml" title=" &raquo; Comments Feed" href="#" />
+    <link rel="shortcut icon" href="estilos/images/favicon.png">
+    <link rel="stylesheet" href="estilos/css/font-awesome.css">
+    <link rel="stylesheet" type="text/css" href="estilos/css/styles.css" />
+    <link rel="stylesheet" type="text/css" href="estilos/css/flexnav.css" />
+    <link rel="stylesheet" type="text/css" href="estilos/css/prettyPhoto.css" />
+    <link rel="stylesheet" type="text/css" href="estilos/css/demo.css">
+    <link rel="stylesheet" type="text/css" href="estilos/css/style_common.css" />
+    <link rel="stylesheet" type="text/css" href="estilos/css/style10.css" />
+    <link rel="stylesheet" type="text/css" href="estilos/css/Menu.css">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           
+   
 
-							</ul>
-						</div>
-					</div>
-				</div>
-				<div class="widget widget_calendar">
-					<h3 class="widget-title">Calendario</h3>
-					<div id="calendar_wrap">
+</head>
 
-					</div>
-				</div>
-			</div>
-			<!-- /wrapper -->
-		</div>
-		<!--/ l-page-width-->
-	</div>
-	<!-- .kids_bottom_container -->
-	<div class="kids-footer-copyrights footer">
-		<div class="l-page-width  clearfix">
-			<div class="wrapper">
-				<ul class="kids_social">
-					<li>Hola</li>
-									<li class="lang_bar">
-						<div id="lang_sel">
 
-						</div>
-					</li>
-				</ul>
-				<div class="widget widget_text">
-					<div class="textwidget">Derechos Reservados @2018: Universidad Tecnológica de la Región Norte de Guerrero</div>
-				</div>
-			</div>
-		</div>
-		<div class="dark-mask"></div>
-	</div>
-	<script type='text/javascript' src='/Estadias/js/jquery.min.js'></script>
-	<script type="text/javascript" src='/Estadias/js/jquery-ui.min.js'></script>
-	<script type='text/javascript' src='/Estadias/js/scripts.js'></script>
-	<script type='text/javascript' src='/Estadias/js/retina.min.js'></script>
-	<script type='text/javascript' src='/Estadias/js/jquery.tweet.js'></script>
-	<script type='text/javascript' src='/Estadias/js/jquery.easing-1.3.min.js'></script>
-	<script type='text/javascript' src='/Estadias/js/owl.carousel.js'></script>
-	<script type='text/javascript' src='/Estadias/js/jquery.isotope.min.js'></script>
-	<script type='text/javascript' src='/Estadias/js/jquery.flexnav.min.js'></script>
-	<script type='text/javascript' src='/Estadias/js/jquery.prettyPhoto.js'></script>
+<body data-type-of-widget="2" class="page secondary-page t-pattern-1">
+    <!-- HEADER BEGIN -->
+    <div class="top-panel">
+        <div class="l-page-width clearfix">
+            <div class="wrapper">
+                <div class="widget widget_cws_tweets">
+                    <div class='cws-widget-content '>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--/ .top-panel-->
+
+        <!--/ #kids_hea}der-->
+        <!-- HEADER END -->
+        
+    </div>
+  
+    <header>
+        <div class="menun">
+   <input id="toggle" type="checkbox"/>
+   <label for="toggle" class="drop">
+      <svg width="36px" height="36px" viewBox="0 0 48 48"><path d="M6 36h36v-4H6v4zm0-10h36v-4H6v4zm0-14v4h36v-4H6z"></path></svg>
+   </label >
+   <center><nav>
+      <a href="Bloque1">Bloque 1</a>
+      <a href="Bloque2">Bloque 2</a>
+      <a href="Bloque3">Bloque 3</a>
+      <a href="Bloque4">Bloque 4</a>
+      <a href="Bloque5">Bloque 5</a>
+   </nav>  </center>
+</div>
+        <div class="square">
+           <div class="view view-tenth">
+                    <img src="images/7.jpg" />
+                    <div class="mask">
+                        <h2>Hover Style #10</h2>
+                        <p>A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with my whole heart.</p>
+                        <a href="#" class="info">Read More</a>
+                    </div>
+                </div>
+            <div class="view view-tenth">
+                    <img src="images/7.jpg" />
+                    <div class="mask">
+                        <h2>Hover Style #10</h2>
+                        <p>A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with my whole heart.</p>
+                        <a href="#" class="info">Read More</a>
+                    </div>
+                </div>
+           <div class="view view-tenth">
+                    <img src="images/7.jpg" />
+                    <div class="mask">
+                        <h2>Hover Style #10</h2>
+                        <p>A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with my whole heart.</p>
+                        <a href="#" class="info">Read More</a>
+                    </div>
+                </div>
+
+            </div>
+
+  </header>
+
+<footer class="footer">
+
+            <span class="footer_msg"> Este es el pie de página - codigoprogramacion.com</span>
+
+        </footer>
+
+  
+
+
+    <!-- .kids_bottom_container -->
+   
+        <script type='text/javascript' src='estilos/js/jquery.min.js'></script>
+    <script type="text/javascript" src='estilos/js/jquery-ui.min.js'></script>
+    <script type='text/javascript' src='estilos/js/scripts.js'></script>
+    <script type='text/javascript' src='estilos/js/retina.min.js'></script>
+    <script type='text/javascript' src='estilos/js/jquery.tweet.js'></script>
+    <script type='text/javascript' src='estilos/js/jquery.easing-1.3.min.js'></script>
+    <script type='text/javascript' src='estilos/js/owl.carousel.js'></script>
+    <script type='text/javascript' src='estilos/js/jquery.isotope.min.js'></script>
+    <script type='text/javascript' src='estilos/js/jquery.flexnav.min.js'></script>
+    <script type='text/javascript' src='estilos/js/jquery.prettyPhoto.js'></script>
 </body>
 </html>

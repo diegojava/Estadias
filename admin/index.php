@@ -1,11 +1,24 @@
 <?php
   session_start();
+  include_once("$_SERVER[DOCUMENT_ROOT]/Estadias/admin/bin/conexion.php");
+  $sql = "SELECT escuela.nombre as nombreescuela, count(matricula) as suma
+from alumno, escuela
+where escuela.id = alumno.idescuela
+group by idescuela";
+  $query = $mysqli->query($sql);
+
+
   if($_SESSION["id_usuario"] == TRUE && $_SESSION["cargo"] == "admin" || $_SESSION["cargo"] == "profesor")
   {
 ?>
 <!DOCTYPE html>
 <html>
 <head>
+  
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+  
+
   <!-- LLAMAMOS A TRAER EL HEADER -->
   <?php include_once(__DIR__."/bin/header.php"); ?>
   <title>Inicio | Administración</title>
@@ -65,6 +78,40 @@
         <section class="col-lg-12 connectedSortable">
           <!-- Custom tabs (Charts with tabs)-->
           <div class="nav-tabs-custom">
+<ul class="nav nav-tabs pull-right">
+              <li class="pull-left header"><i class="fa fa-inbox"></i> Gráfica</li>
+            </ul>
+            <!-- this is where we show our chart -->
+<div id="chart" style="width: 900px; height: 500px;"></div>
+ 
+<!-- Load our Scripts -->
+
+<script type="text/javascript">  
+  google.charts.load('current', {'packages':['corechart']});  
+  google.charts.setOnLoadCallback(drawChart);  
+  function drawChart(){  
+    var data = google.visualization.arrayToDataTable([  
+                ['Nombre de la Escuela', 'Total de alumnos'],  
+                <?php  
+                  while($row = $query->fetch_assoc()){  
+                    echo "['".$row["nombreescuela"]."', ".$row["suma"]."],";  
+                  }  
+                ?>  
+          ]);  
+    var options = {  
+              title: 'Número de alumnos por escuela',  
+              //is3D:true,  
+              pieHole: 0.4  
+              
+          };  
+    var chart = new google.visualization.ColumnChart(document.getElementById('chart'));  
+    chart.draw(data, options);  
+}  
+</script>
+
+</body>
+
+
             <!-- Tabs within a box -->
             <ul class="nav nav-tabs pull-right">
               <li class="active"><a href="#revenue-chart" data-toggle="tab">Area</a></li>

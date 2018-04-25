@@ -6,4 +6,5 @@
 		echo 'Conexion Fallida : ', mysqli_connect_error();
 		exit();
 	}
+
 ?>

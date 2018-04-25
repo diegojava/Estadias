@@ -1,0 +1,402 @@
+	
+<!--<script>
+	(function (B) {
+		var myscrollCreate = false;
+		var helpSearchTool = false;
+		var contextualSearchTool = false;
+		var _helpSearchCourseID = 506209;
+
+		var $panel, $zeroResults, $resultsPanel, $contentPanel, $loadingPanel,
+			$searchPanel, $errorPanel, $goBackButton, $searchText, $questionButton, $bookButton;
+
+		var close = function () {
+			$loadingPanel.hideBlink();
+			var ancho = $('#help-panel').width() + 100;
+			$panel.animate({'left': '-'+ancho+'px'}, 500, 'easeInOutQuart').removeClass('active');
+			$searchText.val('');
+			$resultsPanel.html('');
+			jwplayer().stop && jwplayer().stop();
+		};
+
+		var goBack = function () {
+			$('#help-panel-question, #help-panel-content').hideBlink();
+			$('#help-panel-search').append($contactPanel);
+
+			($errorPanel.hasClass('hidden')) ? $searchPanel.showBlink() : $searchPanel.hideBlink();
+
+			$(this).hideBlink();
+
+
+
+	<div id="t2left" class="slide_main layout-panel left js-highlighter-root" style="width: 766px;">
+		<div class="short-answer fillblanks" id="t2_saq">
+
+	<div class="pregunta">
+		<div class="texto_curso" spellcheck="false">
+	<ol class="bck-ol">
+	<li>
+	<h4 class="bck-actividad bck-t-align-left" data-index="a"><strong>Las fracciones están presentes en tu vida cotidiana (música, libros, mercado, comida…).</strong></h4>
+	</li>
+</ol>
+
+<p class="bck-t-align-left">De forma individual, utilizando la cámara del iPad, <strong>recoge o</strong> <strong>realiza </strong>fotografías de objetos o situaciones donde aparecen las fracciones.</p>
+
+<p class="bck-t-align-left">En clase, por grupo <strong>seleccionad </strong>las más interesantes y cread una presentación en Keynote con las imágenes, explicando su relación con las matemáticas (fracciones).</p>-->
+
+<p>&nbsp;</p>
+
+<p class="bck-img-align-center"><span class="bck-i-fullscreen-wrapper "><span class="zoom_flag" style="display: none;"><a href="javascript:void(0)" class="js-zoom-flag zoom_flag_img"></a></span><img alt="" class="bck-i-fullscreen bck-i-fullscreen-enabled" src="../estilos/imagene/FRACCIONES_ LECTURA, ESCRITURA Y REPRESENTACIÓN - Matemáticas 5º Primaria_files/imagen-3.4.jpg"></span></p>
+
+<!--</div>
+
+	</div>
+
+	<div class="js-multimedia-column multimedia-column"></div>
+
+	<div class="caja_curso">
+		<div class="contenido_rellena" style="padding-left:0px;">
+			<div class="texto_curso" spellcheck="false">
+	<div class="shortanswer-container"><div class="textarea-container"><div class="textarea-answer" data-caracteres="3" data-text-caracter="caracteres" maxlength="320"><textarea cols="74" rows="2" maxlength="320" class="keyboardInput form-control wrapped" style="min-height: 42px; overflow: hidden; resize: none; height: 54px;" name="t2v0" id="t2v0" vki_attached="true" tabindex="" disabled="disabled"></textarea></div><div class="nota" id="t2nota0" onclick="cambiaNota(&#39;t2&#39;, 0)"></div></div></div>
+</div>
+
+		</div>
+	</div>
+
+</div>
+
+<script>
+	t2_slide.tienePistas = false;        
+</script>
+
+	</div><div id="t2right" class="slide_aux layout-panel right hidden" style="width: 0px;">
+		
+<div class="slide_img floating photo">
+
+
+	
+</div>
+
+
+
+	</div>
+
+	<div class="clearfix"></div>
+
+</div>
+
+	<div id="t2-corrector" class="review repetible">
+
+	<button type="button" id="t2-btn-send-to-correct" class="btn btn-send-to-correct btn-primary hidden" disabled="">Submit</button>
+
+	<button type="button" id="t2-btn-correct" class="btn btn-correct btn-danger hidden js-correct" disabled="">Corregir</button>
+
+	<button type="button" id="t2-btn-save" class="btn-save btn btn-primary js-save" disabled="">Respuesta enviada</button>
+
+	<button type="button" id="t2-btn-next" class="btn-next btn btn-primary hidden js-btn-next" disabled="">Proxima Respuesta</button>
+
+	<button type="button" id="t2-btn-solution" class="btn btn-solution hidden js-show-solution" disabled="">Solución</button>
+
+	<button type="button" id="t2-btn-reset" class="btn-reset btn btn-primary js-reset">Reiniciar Ejercicio</button>
+
+	<div id="t2-attempts" class="attemps">
+		<div class="remain">
+			Quedan
+			<span id="t2-remain-attempts">0</span>
+			intentos
+		</div>
+
+		<div class="current" style="display: none">
+			 Hecho
+			<span id="t2-used-attempts"></span>
+			intentos
+		</div>
+	</div>
+
+	<input type="hidden" name="t2_clasificacion" value="0.00" disabled="disabled">
+
+</div>
+
+<div class="modal fade slideModal" id="slideModal" tabindex="-1" role="dialog" aria-labelledby="slideModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title"></h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">×</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary"></button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal"></button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+				</div>
+
+									</div>
+				
+																				<div class="slide-concatenate">
+				
+				<input type="hidden" id="transpid3" name="transpid3" value="12798119">
+
+				<div id="transp3" class="js-slide-wrapper class_slide slide_content_type_13" data-type="13" data-slide-index="3" data-id="12798119">
+					<div class="header empty">
+
+	<div id="t3_errorTransparencia" class="alert hidden"></div>
+
+	
+
+			<div class="chapter">
+							<div class="subtitulo">FRACCIONES: LECTURA, ESCRITURA Y REPRESENTACIÓN</div>
+										<div class="tema">PROYECTO 2: FRACCIONES Y OPERACIONES CON FRACCIONES</div>
+					</div>-->
+
+
+
+
+
+
+
+
+	
+	<!--<div class="categoria hidden">
+		<div class="categories">
+							<select class="form-control" onchange="marcarHaCambiado();">
+											<option value="0" title="(Competencia sin definir)" selected="">(Competencia sin definir)</option>
+									</select>
+					</div>
+		<input type="hidden" name="t3_snd1v" value="">
+
+<span id="t3_snd1v_info" class="sound-name">
+	Sin sonido de fondo
+</span>-->
+
+
+
+		<div class="clearfix"></div>
+
+	</div>
+
+	<div class="title hidden">
+							
+		<input type="hidden" class="js-slide-category-hidden" name="t3_tipoejercicio" id="t3_tipoejercicio" value="0">
+		<input type="hidden" class="js-slide-section-hidden" name="t3_seccion" id="t3_seccion" value="">
+
+									<h3 class="empty">&nbsp;</h3>
+												</div>
+	<input type="hidden" id="t3_img_bg" name="t3_img_bg" value="">
+
+
+	</div>
+
+
+	
+		<input type="hidden" name="t3_type" value="13">
+
+		<script>
+			t3_slide = new Slide_classify();
+							t3_slide.numMaxIntentos = numMaxIntentos;
+				t3_slide.eje_categoria = 0;
+				t3_slide.respuestas = new Array();
+				t3_slide.resultados = new Array();
+						t3_slide.title = "";
+			t3_slide.useExamples = false;
+			t3_slide.uid = "12798119";
+			t3_slide.uidOrig = "0";
+			t3_slide.prefijo = "t3";
+			t3_slide.tipo = 13;
+			t3_slide.isConcatenate = !!1;
+			t3_slide.seccion ="";
+			t3_slide.imgAuxPosition ="0";
+			
+			t3_slide.play = function() {
+									habilitarBoton('boton_repetirsonidofondo', false);
+							}
+			// Si es contenido HTML, se elimina la pastilla de corrección de notas.
+			$(function () {
+				$('.html-book').closest('.slide_main ').find('.revision-budget').hideBlink();
+			})
+		</script>
+
+
+		<!-- <div class="row"> -->
+
+	<div id="t3pg" class="slide_main slide-wrapper layout1x1-wrapper" data-prefix="t3">
+		<div id="t3_revision-budget" class="revision-budget">
+	<div class="js-nota-budget nota-budget" data-title="No hay comentarios" data-grade="5" data-content="" style="" data-original-title="" title="">
+		<span>     </span>
+	</div>
+</div>
+
+		<div id="t3left" class="js-highlighter-root"><div class="pregunta">
+	<div class="texto_curso" spellcheck="false">
+	<ol class="bck-ol" start="2" style="counter-reset: bck-li-counter 1;">
+	<li class="bck-t-align-left">
+	<h4 class="bck-actividad" data-index="a"><strong>Relaciona </strong>cada ejemplo con el tipo de fracción que representen.&nbsp;</h4>
+	</li>
+</ol>
+
+</div>
+
+</div>
+
+<div class="js-multimedia-column multimedia-column"></div>
+
+<div class="workspace clasificar gr-3">
+
+	<div id="t3izq" class="clasificar_lista">
+		<ul id="t3_lista_conceptos" class="" style="opacity: 1; visibility: visible;"><li id="t3v1" class="classify-item ui-draggable ui-draggable-handle" style="position: relative; height: 27px;">
+		<p>23/23</p>
+	</li><li id="t3v2" class="classify-item ui-draggable ui-draggable-handle" style="position: relative; height: 27px;">
+		<p>5/6</p>
+	</li><li id="t3v4" class="classify-item ui-draggable ui-draggable-handle" style="position: relative; height: 27px;">
+		<p>8/6</p>
+	</li></ul>
+	</div>
+
+	<div id="t3der" class="clasificar_conjuntos">
+
+	
+		
+				
+			
+
+	
+			<div id="row0" class="row">
+													<div id="t3g0" class="col-md-4 col-xs-12 conjunto col-centered ui-droppable" data-index="0">
+					<div class="group-box">
+						<p class="group-name-top" style="height: 22px;">
+							<span class="group-name-title">Igual que la unidad</span>
+						</p>
+
+						<ul id="t3_lista_grupo0" class="clasify-group"><li id="t3v0" class="classify-item ui-draggable ui-draggable-handle disabled" style="position: relative;">
+		<span id="t3caja0" class="respuesta_ok">11/11</span>
+	</li></ul>
+
+						<p id="t3nombreg0" class="group-name-bottom">
+							Igual que la unidad
+						</p>
+					</div>
+				</div>
+							<div id="t3g1" class="col-md-4 col-xs-12 conjunto col-centered ui-droppable" data-index="1">
+					<div class="group-box">
+						<p class="group-name-top" style="height: 22px;">
+							<span class="group-name-title">Menor que la unidad</span>
+						</p>
+
+						<ul id="t3_lista_grupo1" class="clasify-group"><li id="t3v3" class="classify-item ui-draggable ui-draggable-handle disabled" style="position: relative;">
+		<span id="t3caja3" class="respuesta_ok">6/10</span>
+	</li></ul>
+
+						<p id="t3nombreg1" class="group-name-bottom">
+							Menor que la unidad
+						</p>
+					</div>
+				</div>
+							<div id="t3g2" class="col-md-4 col-xs-12 conjunto col-centered ui-droppable" data-index="2">
+					<div class="group-box">
+						<p class="group-name-top" style="height: 22px;">
+							<span class="group-name-title">Mayor que la unidad</span>
+						</p>
+
+						<ul id="t3_lista_grupo2" class="clasify-group"><li id="t3v5" class="classify-item ui-draggable ui-draggable-handle disabled" style="position: relative;">
+		<span id="t3caja5" class="respuesta_ok">14/11</span>
+	</li></ul>
+
+						<p id="t3nombreg2" class="group-name-bottom">
+							Mayor que la unidad
+						</p>
+					</div>
+				</div>
+						<div class="clearfix"></div>
+		</div>
+			<div id="row1" class="row">
+												<div class="clearfix"></div>
+		</div>
+	
+		<div class="clearfix"></div>
+	</div>
+</div>
+
+<ul style="display: none;">
+	<li id="t3-mock" class="classify-item">
+		<p></p>
+	</li>
+
+	<li id="t3-suit-mock" class="classify-item">
+		<span></span>
+	</li>
+</ul>
+
+<script>
+	var t3_preguntas = ["11\/11","23\/23","5\/6","6\/10","8\/6","14\/11"];
+	var t3_resp = 'b6589fc6ab0dc82cf12099d1c2d40ab994e8410c,b6589fc6ab0dc82cf12099d1c2d40ab994e8410c,356a192b7913b04c54574d18c28d46e6395428ab,356a192b7913b04c54574d18c28d46e6395428ab,da4b9237bacccdf19c0760cab7aec4a8359010b0,da4b9237bacccdf19c0760cab7aec4a8359010b0'.split(',');
+
+			var t3_sol = 'MA==,MA==,MQ==,MQ==,Mg==,Mg=='.split(',');
+	</script>
+</div>
+		<div class="clearfix"></div>
+	</div>
+
+		<div id="t3-corrector" class="review repetible">
+
+	<button type="button" id="t3-btn-send-to-correct" class="btn btn-send-to-correct btn-primary hidden" disabled="">Submit</button>
+
+	<button type="button" id="t3-btn-correct" class="btn btn-correct btn-danger js-correct" tabindex="">Corregir</button>
+
+	<button type="button" id="t3-btn-save" class="btn-save btn btn-primary hidden js-save" disabled="">Enviar respuesta</button>
+
+	<button type="button" id="t3-btn-next" class="btn-next btn btn-primary hidden js-btn-next" disabled="">Proxima Respuesta</button>
+
+	<button type="button" id="t3-btn-solution" class="btn btn-solution hidden js-show-solution" disabled="">Solución</button>
+
+	<button type="button" id="t3-btn-reset" class="btn-reset btn btn-primary js-reset">Reiniciar Ejercicio</button>
+
+	<div id="t3-attempts" class="attemps">
+		<div class="remain">
+			Quedan
+			<span id="t3-remain-attempts">1</span>
+			intentos
+		</div>
+
+		<div class="current" style="display: none">
+			 Hecho
+			<span id="t3-used-attempts"></span>
+			intentos
+		</div>
+	</div>
+
+	<input type="hidden" name="t3_clasificacion" value="0.50">
+
+</div>
+
+<div class="modal fade slideModal" id="slideModal" tabindex="-1" role="dialog" aria-labelledby="slideModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title"></h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">×</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary"></button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal"></button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- </div> -->
+
+				</div>
+
+									</div>
