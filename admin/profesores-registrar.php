@@ -24,7 +24,7 @@
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
-      <h2>Datos del alumno &raquo; Agregar datos</h2>
+      <h2>Datos del profesor &raquo; Agregar datos</h2>
       
       <?php
       if(isset($_POST['add'])){
@@ -37,6 +37,7 @@
         $correo    = mysqli_real_escape_string($mysqli,(strip_tags($_POST["correo"],ENT_QUOTES)));//Escanpando caracteres 
         $contrasena = mysqli_real_escape_string($mysqli,(strip_tags($_POST["contrasena"],ENT_QUOTES)));//Escanpando caracteres 
         $idEscuela    = mysqli_real_escape_string($mysqli,(strip_tags($_POST["escuela"],ENT_QUOTES)));//Escanpando caracteres 
+        $grupo = mysqli_real_escape_string($mysqli,(strip_tags($_POST["escuela"],ENT_QUOTES)));//Escanpando caracteres 
         
         //$rol      = mysqli_real_escape_string($con,(strip_tags($_POST["estado"],ENT_QUOTES)));//Escanpando caracteres 
         
@@ -44,8 +45,8 @@
 
         if(mysqli_num_rows($cek) == 0){
             $insert = mysqli_query($mysqli, "
-              INSERT INTO usuarios(usuario, nombre, apellidoP, apellidoM, telefono, direccion, correo, contrasena, idEscuela, cargo) 
-                          VALUES('$usuario','$nombre', '$apellidoP', '$apellidoM', '$telefono', '$direccion', '$correo', sha1('$contrasena'), (Select id from escuela where identificador = '$idEscuela'),'profesor')") or die(mysqli_error($mysqli));
+              INSERT INTO usuarios(usuario, nombre, apellidoP, apellidoM, telefono, direccion, correo, contrasena, idEscuela, cargo,grupo) 
+                          VALUES('$usuario','$nombre', '$apellidoP', '$apellidoM', '$telefono', '$direccion', '$correo', sha1('$contrasena'), (Select id from escuela where identificador = '$idEscuela'),'profesor',$grupo)") or die(mysqli_error($mysqli));
 
             if($insert){
               echo '<div class="alert alert-success alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>Bien hecho! Los datos han sido guardados con éxito.</div>';
@@ -111,6 +112,19 @@
 
             ?>
             </select> 
+            </div>
+
+             <div class="form-group">
+               
+
+                <label class="control-label" for="inputSuccess">Grupo</label>
+                <select class="form-control" id="grupo" name="grupo" required onclick="poner(this.form)">
+                  <option>A</option>
+                  <option>B</option>
+                  <option>C</option>
+                  <option>D</option>
+                </select>
+
             </div>
             <!--<div class="form-group">
                 <label class="control-label" for="inputSuccess">Escuela</label>

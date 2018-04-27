@@ -32,6 +32,7 @@
       $_SESSION['correo'] = $row['correo'];
       $_SESSION['cargo'] = $row['cargo'];
       $_SESSION['idEscuela'] = $row['idEscuela'];
+      $_SESSION['grupo'] = $row['grupo'];
 
       header("location: /Estadias/admin");
       } else {

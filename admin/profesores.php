@@ -27,7 +27,7 @@
     <section class="content-header">
       <h1>
         Panel de administración
-        <small>sección: alumnos</small>
+        <small>sección: profesores</small>
       </h1>
       <ol class="breadcrumb">
         <li><a href="/Estadias/admin/"><i class="fa fa-dashboard"></i> Inicio</a></li>

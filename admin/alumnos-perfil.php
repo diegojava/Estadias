@@ -60,7 +60,7 @@
       
       $sql = mysqli_query($mysqli, "
         SELECT alumno.matricula as matricula, alumno.nombre as nombreA, alumno.apellidoP as apellidoP, alumno.apellidoM as apellidoM, alumno.grado as grado, alumno.grupo as grupo, alumno.estatus as estatus, 
-        (select escuela.nombre from alumno,escuela where alumno.matricula = '$nik'  and escuela.id = alumno.idescuela) as nombreescuela
+        (select escuela.nombre from alumno,escuela where alumno.matricula = '$nik'  and escuela.id = alumno.idescuela) as nombreescuela, alumno.direccion as direccion, alumno.telefono as telefono
         FROM alumno,escuela 
         WHERE alumno.matricula='$nik'");
       //echo $sql;
@@ -75,7 +75,7 @@
         if($delete){
           echo '<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>Registro eliminado con éxito.</div>';
         }else{
-          echo '<div class="alert alert-info alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>Data gagal dihapus.</div>';
+          echo '<div class="alert alert-info alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>Hubo un error al eliminar los datos.</div>';
         }
       }
       ?>
@@ -90,13 +90,21 @@
           <td><?php echo strtoupper($row['nombreA']) . " " . strtoupper($row['apellidoP']) . " " . strtoupper($row['apellidoM']); ?></td>
         </tr>
         <tr>
-          <th width="20%">Matricula</th>
+          <th width="20%">Escuela</th>
           <td><?php echo strtoupper($row['nombreescuela']); ?></td>
         </tr>
         <tr>
         <tr>
           <th>Grado y grupo</th>
           <td><?php echo $row['grado'] . " " . $row['grupo']; ?></td>
+        </tr>
+         <tr>
+          <th width="20%">Direccion</th>
+          <td><?php echo strtoupper($row['direccion']); ?></td>
+        </tr>
+         <tr>
+          <th width="20%">Telefono</th>
+          <td><?php echo strtoupper($row['telefono']); ?></td>
         </tr>
         <tr>
           <th>Estado</th>
@@ -117,8 +125,90 @@
       <p style="float:right"><a href="alumnos.php" class="btn btn-sm btn-info"><span class="glyphicon glyphicon-refresh" aria-hidden="true"></span> Regresar</a>
       <a href="alumnos-edit.php?nik=<?php echo $row['matricula']; ?>" class="btn btn-sm btn-success"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Editar datos</a>
       <a href="alumnos-perfil.php?aksi=delete&nik=<?php echo $row['matricula']; ?>" class="btn btn-sm btn-danger" onclick="return confirm('Esta seguro de borrar los datos <?php echo $row['nombreA']; ?>')"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span> Eliminar</a></p>
-      <br><br>
-                <?php $nik = mysqli_real_escape_string($mysqli,(strip_tags($_GET["nik"],ENT_QUOTES))); ?>
+      <br>
+        
+
+        
+            <?php
+      // escaping, additionally removing everything that could be (html/javascript-) code
+            $nik = mysqli_real_escape_string($mysqli,(strip_tags($_GET["nik"],ENT_QUOTES)));
+            
+              $sqlcn1 = mysqli_query($mysqli, "
+              select round(avg(max(puntuacion)),2) as p1
+              from avance
+              where matricula = '$nik'
+              and idMateria = 3 and modulo = 1");
+                          //echo $sql;
+            if(mysqli_num_rows($sqlcn1) == 0){
+              //header("Location: index.php");
+            }else{
+              $rowcn1 = mysqli_fetch_assoc($sqlcn1);
+            }
+
+
+             $sqlcn2 = mysqli_query($mysqli, "
+              select max(puntuacion) as p1
+              from avance
+              where matricula = '$nik'
+              and idMateria = 3 and modulo = 2");
+                          //echo $sql;
+            if(mysqli_num_rows($sqlcn2) == 0){
+              //header("Location: index.php");
+            }else{
+              $rowcn2 = mysqli_fetch_assoc($sqlcn2);
+            }
+
+
+             $sqlcn3 = mysqli_query($mysqli, "
+              select max(puntuacion) as p1
+              from avance
+              where matricula = '$nik'
+              and idMateria = 3 and modulo = 3");
+                          //echo $sql;
+            if(mysqli_num_rows($sqlcn3) == 0){
+              //header("Location: index.php");
+            }else{
+              $rowcn3 = mysqli_fetch_assoc($sqlcn3);
+            }
+            ?>
+
+
+
+       <table class="table table-striped table-condensed">
+        <tr>
+          <th width="20%">Historial de Avances</th>
+          <td>Matricula : <?php echo strtoupper($row['matricula']); ?></td>
+        </tr>
+        
+         <tr>
+          <th width="20%">Espanol</th>
+          <td>Bloque 1 : <?php echo strtoupper($row1['matricula']); ?></td>
+          <td>Bloque 2 : <?php echo strtoupper($row1['matricula']); ?></td>
+          <td>Bloque 3 : <?php echo strtoupper($row1['matricula']); ?></td>
+          <td>Bloque 4 : <?php echo strtoupper($row1['matricula']); ?></td>
+          <td>Bloque 5 : <?php echo strtoupper($row1['matricula']); ?></td>
+        </tr>
+
+         <tr>
+          <th width="20%">Matemáticas</th>
+          <td>Bloque 1 : <?php echo strtoupper($row1['matricula']); ?></td>
+          <td>Bloque 2 : <?php echo strtoupper($row1['matricula']); ?></td>
+          <td>Bloque 3 : <?php echo strtoupper($row1['matricula']); ?></td>
+          <td>Bloque 4 : <?php echo strtoupper($row1['matricula']); ?></td>
+          <td>Bloque 5 : <?php echo strtoupper($row1['matricula']); ?></td>
+        </tr>
+
+         <tr>
+          <th width="20%">Ciencias Naturales</th>
+           <td>Bloque 1 : <?php echo strtoupper($rowcn1['p1']); ?></td>
+        </tr>
+
+      </table>
+
+      <br>
+
+
+<?php $nik = mysqli_real_escape_string($mysqli,(strip_tags($_GET["nik"],ENT_QUOTES))); ?>
                 
                             <!-- this is where we show our chart -->
 <div id="chart" style="width: 900px; height: 500px;"></div>

@@ -271,13 +271,50 @@
             <div class="form-group col-xs-8">
                
 
-                <label class="control-label" for="inputSuccess">Selecciona un grupo:</label>
+                
+
+                <!-- 
+                  HEEEEYYY 
+                --> 
+
+                <?php  
+                $grupo = $_SESSION["grupo"];
+                if($_SESSION["cargo"] == "profesor"){
+                //$sql="SELECT grupo FROM usuarios where usuario = $grupo"; 
+                $consulta=mysqli_query($mysqli,$sql); 
+                ?> 
+
+                <div class="form-group">
+                <label class="control-label" for="inputSuccess">Grupo</label>
+
+                <select class="form-control" id="grupo" name="grupo" onclick="poner(this.form)"> 
+                <?php 
+                while($row=mysqli_fetch_array($consulta)) 
+                {
+
+                 
+                echo "<option value='" . $grupo . "'>" . $grupo . "</option>"; 
+                } 
+                //mysqli_close($mysqli); 
+
+                ?>
+                </select>
+                </div>
+                <?php 
+                
+                } ?>
+
+
+                <!-- 
+                  HEEEEYYY 
+                --> 
+                <!--<label class="control-label" for="inputSuccess">Selecciona un grupo:</label>
                 <select class="form-control" id="grupo" name="grupo" required onclick="poner(this.form)">
                   <option>A</option>
                   <option>B</option>
                   <option>C</option>
                   <option>D</option>
-                </select>
+                </select>-->
 
             </div>
 

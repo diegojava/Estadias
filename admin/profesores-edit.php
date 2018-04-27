@@ -118,7 +118,7 @@ ob_start();
 					
 		    <?php  
 
-            $sql="SELECT id, nombre FROM escuela"; 
+            $sql="SELECT escuela.id, escuela.nombre FROM escuela, usuarios Where usuarios.usuario = '$nik' and escuela.id = usuarios.idescuela"; 
             $consulta=mysqli_query($mysqli,$sql); 
 
             ?> 
@@ -126,10 +126,10 @@ ob_start();
             <label class="col-sm-3 control-label">Escuela</label>
             <div class="col-sm-3">
             <select class="form-control" id="escuela" name="escuela"> 
-            <?php 
-            while($row=mysqli_fetch_array($consulta)) 
-            { 
-            echo "<option selected value='" . $row['id'] . "'>" . $row['nombre'] . "</option>"; 
+            
+            <?php  while($row=mysqli_fetch_array($consulta)) { 
+
+            echo "<option value='" . $row['id'] . "'>" . $row['nombre'] . "</option>"; 
             } 
             mysqli_close($mysqli); 
 

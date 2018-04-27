@@ -52,13 +52,15 @@ ob_start();
 				$nombre		     = mysqli_real_escape_string($mysqli,(strip_tags($_POST["nombreA"],ENT_QUOTES)));//Escanpando caracteres 
 				$apellidoP	 = mysqli_real_escape_string($mysqli,(strip_tags($_POST["apellidoP"],ENT_QUOTES)));//Escanpando caracteres 
 				$apellidoM	 = mysqli_real_escape_string($mysqli,(strip_tags($_POST["apellidoM"],ENT_QUOTES)));//Escanpando caracteres 
-				$grado	     = mysqli_real_escape_string($mysqli,(strip_tags($_POST["grado"],ENT_QUOTES)));//Escanpando caracteres 
-				$grupo		 = mysqli_real_escape_string($mysqli,(strip_tags($_POST["grupo"],ENT_QUOTES)));//Escanpando caracteres 
+				//$grado	     = mysqli_real_escape_string($mysqli,(strip_tags($_POST["grado"],ENT_QUOTES)));//Escanpando caracteres 
+				//$grupo		 = mysqli_real_escape_string($mysqli,(strip_tags($_POST["grupo"],ENT_QUOTES)));//Escanpando caracteres 
 				//$puesto		 = mysqli_real_escape_string($mysqli,(strip_tags($_POST["isActivo"],ENT_QUOTES)));//Escanpando caracteres 
 				$estado			 = mysqli_real_escape_string($mysqli,(strip_tags($_POST["estado"],ENT_QUOTES)));//Escanpando caracteres  
-				$escuela			 = mysqli_real_escape_string($mysqli,(strip_tags($_POST["escuela"],ENT_QUOTES)));//Escanpando caracteres
+				$telefono			 = mysqli_real_escape_string($mysqli,(strip_tags($_POST["telefono"],ENT_QUOTES)));//Escanpando 
+				$direccion			 = mysqli_real_escape_string($mysqli,(strip_tags($_POST["direccion"],ENT_QUOTES)));//Escanpando 
+				//$escuela			 = mysqli_real_escape_string($mysqli,(strip_tags($_POST["escuela"],ENT_QUOTES)));//Escanpando caracteres
 
-				$update = mysqli_query($mysqli, "UPDATE alumno SET nombre='$nombre', apellidoP='$apellidoP', apellidoM='$apellidoM', grado='$grado', grupo='$grupo', estatus='$estado', idescuela='$escuela' WHERE matricula='$nik'") or die(mysqli_error($mysqli));
+				$update = mysqli_query($mysqli, "UPDATE alumno SET nombre='$nombre', apellidoP='$apellidoP', apellidoM='$apellidoM', estatus='$estado',telefono='$telefono', direccion = '$direccion' WHERE matricula='$nik'") or die(mysqli_error($mysqli));
 				if($update){
 					header("Location: alumnos-edit.php?nik=".$nik."&pesan=sukses");
 				}else{
@@ -96,18 +98,30 @@ ob_start();
 						<input type="text" name="apellidoM" value="<?php echo $row ['apellidoM']; ?>" class="form-control" placeholder="Lugar de nacimiento" required>
 					</div>
 				</div>
-			<div class="form-group">
+				<div class="form-group">
+					<label class="col-sm-3 control-label">Direccion</label>
+					<div class="col-sm-4">
+						<input type="text" name="direccion" value="<?php echo $row ['direccion']; ?>" class="form-control" placeholder="Direccion" required>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-sm-3 control-label">Telefono</label>
+					<div class="col-sm-4">
+						<input type="text" name="telefono" value="<?php echo $row ['telefono']; ?>" class="form-control" placeholder="(000) 000 0000" required>
+					</div>
+				</div>
+			<!--<div class="form-group">
 					<label class="col-sm-3 control-label">Grado</label>
 					<div class="col-sm-3">
 						<input type="text" name="grado" value="<?php echo $row['grado']; ?>" class="form-control" placeholder="Grado" required>
 				</div>
-				</div>
-				<div class="form-group">
+				</div>-->
+				<!--<div class="form-group">
 					<label class="col-sm-3 control-label">Grupo</label>
 					<div class="col-sm-3">
 						<input type="text" name="grupo" value="<?php echo $row['grupo']; ?>" class="form-control" placeholder="Grupo" required>
 					</div>
-				</div>
+				</div>-->
 
 					<div class="form-group">
 					<label class="col-sm-3 control-label">Estado</label>
@@ -128,18 +142,18 @@ ob_start();
 
             ?> 
             <div class="form-group">
-            <label class="col-sm-3 control-label">Escuela</label>
+            <!--<label class="col-sm-3 control-label">Escuela</label>-->
             <div class="col-sm-3">
-            <select class="form-control" id="escuela" name="escuela"> 
+            <!--<select class="form-control" id="escuela" name="escuela"> -->
             <?php 
             while($row=mysqli_fetch_array($consulta)) 
             { 
-            echo "<option selected value='" . $row['id'] . "'>" . $row['nombre'] . "</option>"; 
+            //echo "<option selected value='" . $row['id'] . "'>" . $row['nombre'] . "</option>"; 
             } 
             mysqli_close($mysqli); 
 
             ?>
-            </select> 
+            <!--</select> -->
             </div></div>
 
 
