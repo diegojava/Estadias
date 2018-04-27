@@ -2,6 +2,8 @@
 		session_start();
 ?>
 <?php include_once("$_SERVER[DOCUMENT_ROOT]/Estadias/header.php") ?>
+<title>Movimiento del Cuerpo y Prevención de lesiones - Aprende Jugando</title>
+
 	</div>
 	<!-- .bg-level-1 -->
 	<div id="kids_middle_container">
@@ -39,7 +41,7 @@
 											<section class='cws-widget'>
 												<section class='cws_widget_content'>
 													<p>
-														Movimientos del cuerpo
+														<h2>Movimientos del cuerpo</h2>
 														<video width="100%" height="100%" controls>
 														    <source src="material/bloque1-tema1.mp4" type="video/mp4">
 														</video>
@@ -72,7 +74,7 @@
 											<section class='cws-widget'>
 												<section class='cws_widget_content'>
 													<p>
-														Prevención de lesiones
+														<h2>Prevención de lesiones</h2>
 														<video width="100%" height="100%" controls>
 														    <source src="material/bloque1-tema1.2.mp4" type="video/mp4">
 														</video>
@@ -85,13 +87,31 @@
 											<section class='cws-widget'>
 												<section class='cws_widget_content'>
 													
-													<p>Ut blandit pharetra velit ut congue. Fusce elementum, ante ac ultricies fringilla, augue metus tincidunt velit, sit amet venenatis elit orci quis enim. Mauris auctor sapien orci. Aliquam ornare quam eu nunc accumsan laoreet. Vivamus aliquet nibh in erat ornare eget luctus sem feugiat. Vivamus ut ligula lectus. Fusce dapibus, libero in tempor condimentum, ligula tellus adipiscing risus, vitae lacinia mi lectus sit amet ante.</p>
-													<p>
-														<iframe src="//player.vimeo.com/video/46630282" width="896" height="504" frameborder="0" title="The Visionaries HD Trailer" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-													</p>
+											<p>Las lesiones en el aparato locomotor pueden incluir 
+											desde una torcedura hasta una fractura, es decir, el 	
+											rompimiento de un hueso. Para prevenirlas, antes de 
+											hacer ejercicio debes calentar los músculos, evitar 
+											ejercicios extenuantes por tiempos prolongados e 
+											hidratarte antes, durante y después de la actividad física 
+											tomando suﬁciente agua simple potable.</p>
+											<p>Debes ser cuidadoso al realizar cualquier tipo de 
+											ejercicio físico y hacerlo como te indique alguien con 
+											experiencia en acondicionamiento físico, especialmente 
+											si tienes sobrepeso u obesidad, ya que estos trastornos 
+											provocan que el esqueleto y los músculos realicen más 
+											esfuerzo que el normal. 
+											También debes tener precaución para evitar accidentes
+											como caídas de bicicleta, patineta, patines o accidentes 
+											de tránsito.</p> 
+											<p>Los golpes en los huesos pueden ocasionar
+											fracturas que son especialmente peligrosas cuando 
+											suceden en el cráneo, las costillas o en los brazos y 
+											piernas. No camines sobre bardas, azoteas ni lugares que 
+											puedan resultar peligrosos. Usar casco y protecciones
+											El calentamiento de los músculos, antes de hacer ejercicio, evita lesiones.
 												</section>
-											</section>
-											<center><a href='examen-1.php' class='cws_button '>Ir a las actividades</a></center>
+											</section><br><br><br>
+											<center><a href='examen-1.php' class='cws_button '>Ir a la evaluación</a></center>
 										</div>
 									
 									<!-- comments block -->

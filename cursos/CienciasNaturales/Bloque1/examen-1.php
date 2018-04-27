@@ -6,6 +6,11 @@
 		$matricula = $_SESSION['matricula'];
 		$nombre = $_SESSION['id_alumno'];
 		$apellidoP = $_SESSION['apellidoP'];
+
+
+		if($_SESSION["matricula"] == TRUE)
+  {
+
 ?>
 <?php include_once("$_SERVER[DOCUMENT_ROOT]/Estadias/header.php") ?>
 	</div>
@@ -316,7 +321,7 @@
 	<script type='text/javascript' src='../estilos/js/jquery.prettyPhoto.js'></script>
 	<script src="../estilos/js/jquery-2.2.0.min.js"></script>
     <script src="../estilos/js/underscore-1.8.3.min.js"></script>
-    <script type="text/javascript" src="../estilos/js/quizzer.js"></script>
+    <script type="text/javascript" src="../estilos/js/quizzer-cn.js"></script>
     	<link rel="alternate" type="application/rss+xml" title=" &raquo; Comments Feed" href="#" />
 	<link rel="shortcut icon" href="../estilos/images/favicon.png">
 	<link rel="stylesheet" href="../estilos/css/font-awesome.css">
@@ -327,3 +332,4 @@
 	<link href="../estilos/css/quizzer.css" type="text/css" rel="stylesheet">
 </body>
 </html>
+<?php }  else { ?> <script>javascript:history.back(alert("Por favor, inicia sesión."));</script> <?php } ?>
