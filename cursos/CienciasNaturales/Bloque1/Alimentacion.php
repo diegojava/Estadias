@@ -55,6 +55,7 @@
 										<div class='grid-col grid-col-6'>
 											<section class='cws-widget'>
 												<section class='cws_widget_content'>
+													
 
 													
 													<p>Es muy importante que tengamos una buena alimentación, para que nuestro cuerpo y organismos funcionen como se debe, y a su vez para evitar tantas enfermedades que se verían relacionadas con este tema.</p>
@@ -95,6 +96,11 @@
 
 							</div>
 							<div class='grid-col grid-col-12'>
+								<iframe src='https://es.educaplay.com/es/recursoseducativos/3641432/html5/sistema_digestivo.htm?rel=0' width='795' height='690' frameborder='0'></iframe>
+
+								<iframe src='https://es.educaplay.com/es/recursoseducativos/3645659/html5/2p_cn5%C2%B0_el_aparato_digestivo.htm?rel=0' width='795' height='690' frameborder='0'></iframe>
+
+								
 							En el plato del bien comer se muestran los grupos alimenticios.
 							Los grupos alimenticios
 							Es un esquema que ilustra los tres tipos de alimentos y establece recomendaciones acerca de su consumo:
@@ -130,125 +136,7 @@
 	</div>
 	<!-- .end_content -->
 	<!-- FOOTER BEGIN -->
-	<div class="kids_bottom_container footer">
-		<div class="l-page-width">
-			<div class="wrapper">
-
-						<div class="widget widget_cws_latest_posts">
-							<div class="latest-posts-widget">
-								<h3 class="widget-title">Español</h3>
-								<div class="widget-content">
-									<ul>
-										<li>
-											<div class="kids_image_wrapper ">
-												<a href="/Estadias/pic/HappyFeet_1st4.jpg" class="prettyPhoto kids_mini_picture" data-rel="prettyPhoto[rpwt]">
-													<img src="/Estadias/pic/70x70-img-1.jpg" width="70" height="70" alt=""></a>
-											</div>
-											<div class="kids_post_content">
-												<h4><a href="#">Bloque I</a></h4>
-												<p>Nombre bloque 1</p>
-												<p class="time-post">Leer acerca del bloque</p>
-											</div>
-										</li>
-										<li>
-											<div class="kids_image_wrapper ">
-												<a href="/Estadias/pic/LegoMovie_3rd4.jpg" class="prettyPhoto kids_mini_picture" data-rel="prettyPhoto[rpwt]">
-													<img src="/Estadias/pic/70x70-img-2.jpg" width="70" height="70" alt=""></a>
-											</div>
-											<div class="kids_post_content">
-												<h4><a href="#">Bloque II</a></h4>
-												<p>Lorem ipsum dolor ...</p>
-												<p class="time-post">January 2, 2015</p>
-											</div>
-										</li>
-										<li>
-											<div class="kids_image_wrapper ">
-												<a href="/Estadias/pic/Tangled_3rd5.jpg" class="prettyPhoto kids_mini_picture" data-rel="prettyPhoto[rpwt]">
-													<img src="/Estadias/pic/70x70-img-3.jpg" width="70" height="70" alt="">
-												</a>
-											</div>
-											<div class="kids_post_content">
-												<h4><a href="#">Bloque III</a></h4>
-												<p>Lorem ipsum dolor ...</p>
-												<p class="time-post">January 1, 2015</p>
-											</div>
-										</li>
-									</ul>
-								</div>
-							</div>
-						</div>
-
-				<div class="widget widget_cws_latest_posts">
-					<div class="latest-posts-widget">
-						<h3 class="widget-title">Desafíos matemáticos</h3>
-						<div class="widget-content">
-							<ul>
-								<li>
-									<div class="kids_image_wrapper ">
-										<a href="/Estadias/pic/HappyFeet_1st4.jpg" class="prettyPhoto kids_mini_picture" data-rel="prettyPhoto[rpwt]">
-											<img src="/Estadias/pic/70x70-img-1.jpg" width="70" height="70" alt=""></a>
-									</div>
-									<div class="kids_post_content">
-										<h4><a href="#">Bloque I</a></h4>
-										<p>Lorem ipsum dolor ...</p>
-										<p class="time-post">January 3, 2015</p>
-									</div>
-								</li>
-								<li>
-									<div class="kids_image_wrapper ">
-										<a href="/Estadias/pic/LegoMovie_3rd4.jpg" class="prettyPhoto kids_mini_picture" data-rel="prettyPhoto[rpwt]">
-											<img src="/Estadias/pic/70x70-img-2.jpg" width="70" height="70" alt=""></a>
-									</div>
-									<div class="kids_post_content">
-										<h4><a href="#">Bloque II</a></h4>
-										<p>Lorem ipsum dolor ...</p>
-										<p class="time-post">January 2, 2015</p>
-									</div>
-								</li>
-								<li>
-									<div class="kids_image_wrapper ">
-										<a href="/Estadias/pic/Tangled_3rd5.jpg" class="prettyPhoto kids_mini_picture" data-rel="prettyPhoto[rpwt]">
-											<img src="/Estadias/pic/70x70-img-3.jpg" width="70" height="70" alt="">
-										</a>
-									</div>
-									<div class="kids_post_content">
-										<h4><a href="#">Bloque III</a></h4>
-										<p>Lorem ipsum dolor ...</p>
-										<p class="time-post">January 1, 2015</p>
-									</div>
-								</li>
-							</ul>
-						</div>
-					</div>
-				</div>
-				<div class="widget widget_cws_latest_posts">
-					<div class="latest-posts-widget">
-						<h3 class="widget-title">Ciencias Naturales</h3>
-						<div class="widget-content">
-							<ul>
-								<li>
-									<div class="kids_image_wrapper ">
-										<a href="/Estadias/pic/HappyFeet_1st4.jpg" class="prettyPhoto kids_mini_picture" data-rel="prettyPhoto[rpwt]">
-											<img src="/Estadias/pic/70x70-img-1.jpg" width="70" height="70" alt=""></a>
-									</div>
-									<div class="kids_post_content">
-										<h4><a href="./cursos/ciencias-n.html">Bloque I</h4>
-										<p>¿Cómo mantener la salud?</p>
-										<p class="time-post">Acceder al bloque</p></a>
-									</div>
-								</li>
-
-							</ul>
-						</div>
-					</div>
-				</div>
-				<div class="widget widget_calendar">
-					<h3 class="widget-title">Calendario</h3>
-					<div id="calendar_wrap">
-
-					</div>
-				</div>
-			</div>
+	
 			<!-- /wrapper -->
 		</div>
 		<!--/ l-page-width-->

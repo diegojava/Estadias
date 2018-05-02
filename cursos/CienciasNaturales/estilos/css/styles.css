@@ -8630,7 +8630,7 @@ input[type="radio"]:checked:before,
 .woocommerce-page .added_to_cart,
 .woocommerce .button,
 .woocommerce [type="submit"],
-.woocommerce [type="button"]:not(.plus):not(.minus),
+
 .woocommerce .added_to_cart,
 #kids-back-top span,
 .gl_cat .backLava,

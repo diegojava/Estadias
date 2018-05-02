@@ -98,7 +98,7 @@ var points,
 	pointsPerQuestion,
 	currentQuestion,
 	questionTimer,
-	timeForQuestion = 20, // seconds
+	timeForQuestion = 100, // seconds
 	timeLeftForQuestion; 
 
 // 4

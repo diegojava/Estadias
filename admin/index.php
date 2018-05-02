@@ -78,65 +78,39 @@ group by idescuela";
         <section class="col-lg-12 connectedSortable">
           <!-- Custom tabs (Charts with tabs)-->
           <div class="nav-tabs-custom">
-<ul class="nav nav-tabs pull-right">
+            <ul class="nav nav-tabs pull-right">
               <li class="pull-left header"><i class="fa fa-inbox"></i> Gráfica</li>
             </ul>
             <!-- this is where we show our chart -->
-<div id="chart" style="width: 900px; height: 500px;"></div>
- 
-<!-- Load our Scripts -->
+            <div id="chart" style="width: 900px; height: 500px;"></div>
+             
+            <!-- Load our Scripts -->
 
-<script type="text/javascript">  
-  google.charts.load('current', {'packages':['corechart']});  
-  google.charts.setOnLoadCallback(drawChart);  
-  function drawChart(){  
-    var data = google.visualization.arrayToDataTable([  
-                ['Nombre de la Escuela', 'Total de alumnos'],  
-                <?php  
-                  while($row = $query->fetch_assoc()){  
-                    echo "['".$row["nombreescuela"]."', ".$row["suma"]."],";  
-                  }  
-                ?>  
-          ]);  
-    var options = {  
-              title: 'Número de alumnos por escuela',  
-              //is3D:true,  
-              pieHole: 0.4  
-              
-          };  
-    var chart = new google.visualization.ColumnChart(document.getElementById('chart'));  
-    chart.draw(data, options);  
-}  
-</script>
-
-</body>
-
-
-            <!-- Tabs within a box -->
-            <ul class="nav nav-tabs pull-right">
-              <li class="active"><a href="#revenue-chart" data-toggle="tab">Area</a></li>
-              <li><a href="#sales-chart" data-toggle="tab">Donut</a></li>
-              <li class="pull-left header"><i class="fa fa-inbox"></i> Gráfica</li>
-            </ul>
-            <div class="tab-content no-padding">
-              <!-- Morris chart - Sales -->
-              <div class="chart tab-pane active" id="revenue-chart" style="position: relative; height: 300px;"></div>
-              <div class="chart tab-pane" id="sales-chart" style="position: relative; height: 300px;"></div>
-            </div>
+            <script type="text/javascript">  
+              google.charts.load('current', {'packages':['corechart']});  
+              google.charts.setOnLoadCallback(drawChart);  
+              function drawChart(){  
+                var data = google.visualization.arrayToDataTable([  
+                            ['Nombre de la Escuela', 'Total de alumnos'],  
+                            <?php  
+                              while($row = $query->fetch_assoc()){  
+                                echo "['".$row["nombreescuela"]."', ".$row["suma"]."],";  
+                              }  
+                            ?>  
+                      ]);  
+                var options = {  
+                          title: 'Número de alumnos por escuela',  
+                          //is3D:true,  
+                          pieHole: 0.4  
+                          
+                      };  
+                var chart = new google.visualization.ColumnChart(document.getElementById('chart'));  
+                chart.draw(data, options);  
+            }  
+            </script>
+            </body>
           </div>
-          <!-- /.nav-tabs-custom -->
-
-          <!-- Chat box -->
-         
-          <!-- /.box (chat box) -->
-
-          <!-- TO DO List -->
-         
-          <!-- /.box -->
-
-          <!-- quick email widget -->
-          
-
+        
         </section>
         <!-- /.Left col -->
       </div>

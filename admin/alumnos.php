@@ -33,6 +33,10 @@
         <li><a href="/Estadias/admin/"><i class="fa fa-dashboard"></i> Inicio</a></li>
         <li class="active">Alumnos</li>
       </ol>
+
+       <p  class="hidden-print" style="float:right">
+        <a href="javascript:window.print();" class="btn btn-sm btn-default"><span class="glyphicon glyphicon-print" aria-hidden="true"></span> Imprimir</a>
+      </p>
     </section>
 
     <!-- Main content -->
@@ -92,8 +96,18 @@
                     <th>Grado</th>
                     <th>Grupo</th>
                     <th>Estado</th>
-                    <th>Acciones</th>
+                    <th class="hidden-print">Acciones</th>
         </tr>
+
+        <style type="text/css" media="print">
+        
+        @media print {
+        a[href]:after {
+          content: none !important;
+        }
+      }
+        </style>
+
         <?php
         
         if($_SESSION["id_usuario"] == TRUE && $_SESSION["cargo"] == "admin"){
@@ -130,10 +144,6 @@
         }else{
           $no = 1;
           while($row = mysqli_fetch_assoc($sql)){
-            
-           
-
-
 
             //$sqlnombre = mysqli_query($mysqli, "SELECT escuela.nombre FROM alumno,escuela WHERE escuela.id = $nombreEscuela and escuela.id = alumno.idescuela) as nombreescuela");
             //mysqli_result($sqlnombre);
@@ -159,8 +169,8 @@
                      
             echo '
               </td>
-              <td>
- 
+              <td class="hidden-print">
+                
                 <a href="alumnos-edit.php?nik='.$row['matricula'].'" title="Editar datos" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a>
                 <a href="alumnos.php?aksi=delete&nik='.$row['matricula'].'" title="Eliminar" onclick="return confirm(\'Esta seguro de borrar los datos '.$row['nombre'].'?\')" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
               </td>

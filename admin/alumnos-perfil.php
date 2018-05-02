@@ -3,11 +3,25 @@
   session_start();
  $nik = mysqli_real_escape_string($mysqli,(strip_tags($_GET["nik"],ENT_QUOTES)));
    include_once("$_SERVER[DOCUMENT_ROOT]/Estadias/admin/bin/conexion.php");
-  $sql = "SELECT idMateria, matricula, modulo, max(puntuacion) as puntuacion
-                          FROM avance
-                          Where matricula = '$nik' and idmateria =3
-                          group by modulo
-                          order by  modulo asc";
+  $sql = 
+  "SELECT (SELECT materia.nombre FROM materia where id = 3) as materia, matricula, modulo as modulo, max(puntuacion) as puntuacion
+  FROM avance
+  Where matricula = 'TAAL04IV3C' and idmateria =3 and modulo = 1
+
+  UNION all
+
+  SELECT (SELECT materia.nombre FROM materia where id = 3) as materia, matricula, modulo as modulo, max(puntuacion) as puntuacion
+  FROM avance
+  Where matricula = 'TAAL04IV3C' and idmateria =3 and modulo = 2
+
+  UNION all
+
+  SELECT (SELECT materia.nombre FROM materia where id = 3) as materia, matricula, modulo as modulo, max(puntuacion) as puntuacion
+  FROM avance
+  Where matricula = 'TAAL04IV3C' and idmateria =3 and modulo = 3
+
+  group by materia
+  order by  modulo asc";
   $query = $mysqli->query($sql);
 
   if($_SESSION["id_usuario"] == TRUE && $_SESSION["cargo"] == "admin" || $_SESSION["cargo"] == "profesor")
@@ -122,9 +136,13 @@
         
       </table>
       
-      <p style="float:right"><a href="alumnos.php" class="btn btn-sm btn-info"><span class="glyphicon glyphicon-refresh" aria-hidden="true"></span> Regresar</a>
+      <p  class="hidden-print" style="float:right">
+        
+        <a href="javascript:window.print();" class="btn btn-sm btn-default"><span class="glyphicon glyphicon-print" aria-hidden="true"></span> Imprimir</a>
+        <a href="alumnos.php" class="btn btn-sm btn-info"><span class="glyphicon glyphicon-refresh" aria-hidden="true"></span> Regresar</a>
       <a href="alumnos-edit.php?nik=<?php echo $row['matricula']; ?>" class="btn btn-sm btn-success"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Editar datos</a>
-      <a href="alumnos-perfil.php?aksi=delete&nik=<?php echo $row['matricula']; ?>" class="btn btn-sm btn-danger" onclick="return confirm('Esta seguro de borrar los datos <?php echo $row['nombreA']; ?>')"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span> Eliminar</a></p>
+      <a href="alumnos-perfil.php?aksi=delete&nik=<?php echo $row['matricula']; ?>" class="btn btn-sm btn-danger" onclick="return confirm('Esta seguro de borrar los datos <?php echo $row['nombreA']; ?>')"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span> Eliminar</a>
+    </p>
       <br>
         
 
@@ -134,10 +152,10 @@
             $nik = mysqli_real_escape_string($mysqli,(strip_tags($_GET["nik"],ENT_QUOTES)));
             
               $sqlcn1 = mysqli_query($mysqli, "
-              select round(avg(max(puntuacion)),2) as p1
-              from avance
-              where matricula = '$nik'
-              and idMateria = 3 and modulo = 1");
+              SELECT  MAX(CASE WHEN matricula='$nik' and modulo = 1 and idmateria = 3 THEN puntuacion ELSE NULL END) modulo1,
+            MAX(CASE WHEN matricula='$nik' and modulo = 2 and idmateria = 3 THEN puntuacion ELSE NULL END) modulo2,
+            MAX(CASE WHEN matricula='$nik' and modulo = 3 and idmateria = 3 THEN puntuacion ELSE NULL END) modulo3
+            FROM avance;");
                           //echo $sql;
             if(mysqli_num_rows($sqlcn1) == 0){
               //header("Location: index.php");
@@ -174,34 +192,64 @@
 
 
 
-       <table class="table table-striped table-condensed">
+       <table class="table table-condensed">
+        <thead>
+       <thead>
         <tr>
-          <th width="20%">Historial de Avances</th>
-          <td>Matricula : <?php echo strtoupper($row['matricula']); ?></td>
+            <th></th>
+            <th>Unidad 1</th>
+            <th>Unidad 2</th>
+            <th>Unidad 3</th>
+            <th>Unidad 4</th>
+            <th>Unidad 5</th>
+        </tr>
+    </thead>
+  <!--Table head-->
+
+    <!--Table body-->
+    <tbody>
+        <tr class="success">
+            <th scope="row">Espanol<br>   <p style="float:right">Modulo 1: <br> Modulo 2: <br> Modulo 3: <br> Modulo 4: <br> Modulo 5: </p></th>
+            
+             <td><br><?php echo $rowcn1['modulo1'] ?><br>
+                <?php echo $rowcn1['modulo2'] ?><br>
+                <?php echo $rowcn1['modulo3'] ?><br>
+                 <?php echo $rowcn1['modulo1'] ?><br>
+                <?php echo $rowcn1['modulo1'] ?></td>
+            <td><br>###</td>
+            <td><br>###</td>
+            <td><br>###</td>
+            <td><br>###</td>
+        </tr>
+        <tr class="warning">
+                       <th scope="row">Matematicas<br>   <p style="float:right">Modulo 1: <br> Modulo 2: <br> Modulo 3: <br> Modulo 4: <br> Modulo 5: </p></th>
+            
+             <td><br><?php echo $rowcn1['modulo1'] ?><br>
+                <?php echo $rowcn1['modulo2'] ?><br>
+                <?php echo $rowcn1['modulo3'] ?><br>
+                 <?php echo $rowcn1['modulo1'] ?><br>
+                <?php echo $rowcn1['modulo1'] ?></td>
+            <td><br>###</td>
+            <td><br>###</td>
+            <td><br>###</td>
+            <td><br>###</td>
+        </tr>
+        <tr class="info">
+                    <th scope="row">Ciencias N.<br>   <p style="float:right">Modulo 1: <br> Modulo 2: <br> Modulo 3: <br> Modulo 4: <br> Modulo 5: <br></p> </th>
+            
+             <td><br><?php echo $rowcn1['modulo1']?><br>
+                <?php echo $rowcn1['modulo2'] ?><br>
+                <?php echo  $rowcn1['modulo3'] ?><br>
+                 ###<br> ###
+                </td>
+            <td><br>###</td>
+            <td><br>###</td>
+            <td><br>###</td>
+            <td><br>###</td>
         </tr>
         
-         <tr>
-          <th width="20%">Espanol</th>
-          <td>Bloque 1 : <?php echo strtoupper($row1['matricula']); ?></td>
-          <td>Bloque 2 : <?php echo strtoupper($row1['matricula']); ?></td>
-          <td>Bloque 3 : <?php echo strtoupper($row1['matricula']); ?></td>
-          <td>Bloque 4 : <?php echo strtoupper($row1['matricula']); ?></td>
-          <td>Bloque 5 : <?php echo strtoupper($row1['matricula']); ?></td>
-        </tr>
-
-         <tr>
-          <th width="20%">Matemáticas</th>
-          <td>Bloque 1 : <?php echo strtoupper($row1['matricula']); ?></td>
-          <td>Bloque 2 : <?php echo strtoupper($row1['matricula']); ?></td>
-          <td>Bloque 3 : <?php echo strtoupper($row1['matricula']); ?></td>
-          <td>Bloque 4 : <?php echo strtoupper($row1['matricula']); ?></td>
-          <td>Bloque 5 : <?php echo strtoupper($row1['matricula']); ?></td>
-        </tr>
-
-         <tr>
-          <th width="20%">Ciencias Naturales</th>
-           <td>Bloque 1 : <?php echo strtoupper($rowcn1['p1']); ?></td>
-        </tr>
+       
+    </tbody>
 
       </table>
 
@@ -223,25 +271,25 @@
                 ['Modulo', 'Puntuacion'],  
                 <?php  
                   while($row = $query->fetch_assoc()){  
-                    echo "['".$row["modulo"]."', ".$row["puntuacion"]."],";  
+                    echo "['".$row["materia"]."', ".$row["puntuacion"]."],";  
                   }  
                 ?>  
           ]);  
     var options = {  
-              title: 'Puntajes para el bloque de Ciencias Naturales',  
-              is3D:true,  
+              title: 'Puntajes del alumno por materias',  
+              //is3D:true,  
               pieHole: 0.4,  
               gridlines: {count: 8},
               intervals: { 'style':'line' },
               vAxis: {
-      minValue: 3,
-      maxValue: 7,
-      direction: 1
-    },
-    hAxis: {
-      slantedTextAngle: 70,
-      maxTextLines: 100,
-      textStyle: {
+              minValue: 3,
+              maxValue: 7,
+              direction: 1
+            },
+            hAxis: {
+              slantedTextAngle: 70,
+              maxTextLines: 100,
+              textStyle: {
 
         fontSize: 12,
       } // or the number you want}

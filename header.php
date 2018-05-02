@@ -75,7 +75,7 @@ echo '<li class="menu-item"><a href="/Estadias/logout.php">Cerrar sesión</a></l
 echo '</ul>';
 echo '</li>';
 } else{
-echo '<li class="menu-item"><a href="login.php">Iniciar sesión</a></li>';
+echo '<li class="menu-item"><a href="/Estadias/login.php">Iniciar sesión</a></li>';
 }
 ?>
             <!--<li class="menu-item"><a href="login.php">Iniciar sesión</a></li>-->
