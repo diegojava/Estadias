@@ -254,11 +254,12 @@ $(function() {
 
 		$('.question.card:visible').hide();
 		if($('.finish.card').show())
+
 		var puntuacion = points;
 		//$.post('examen-1.php', {puntuaciontotal: puntuacion});
   		//setTimeout(window.location.href = "examen-1.php?puntuacion=" + puntuacion,2000);
   		setTimeout(function() {
-  		window.location.href = "examen-1.php?puntuacion="+puntuacion;
+  		window.location.href = "examen.php?puntuacion="+puntuacion;
 		}, 5000);
 
 		$('.terminar').show();

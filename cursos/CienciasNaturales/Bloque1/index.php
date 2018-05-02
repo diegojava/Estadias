@@ -27,6 +27,7 @@
 				<div class="header_container ">
 					<div class="l-page-width">
 						<center>
+							<br>
 						<h4>Ejercicios de reforzamiento</h4></center>
 						
 					</div>
@@ -71,7 +72,7 @@
 										<li>									
 
 								<div class="view view-tenth">
-			                    	<img width="100%" height="100%" src="img/cuerpoymovimiento.jpg" />
+			                    	<img src="img/cuerpoymovimiento.jpg" />
 			                   		 <div class="mask">
 			                        	<h2>Movimientos del cuerpo y prevención de lesiones</h2>
 			                       		<br>
@@ -94,6 +95,14 @@
 				                        <h2>Dieta: los grupos de alimentos</h2>
 				                        <br>
 				                        <a href="Dieta.php" class="info">Entrar</a>
+				                    </div>
+				                </div>
+				                  <div class="view view-tenth">
+				                    <img width="100%" src="img/examen-cienciasn.jpg" />
+				                    <div class="mask">
+				                        <h2>Evaluación</h2>
+				                        <p>Veamos que tanto aprendiste sobre tu cuerpo!</p>
+				                        <a href="examen.php" class="info">Entrar</a>
 				                    </div>
 				                </div>
                 

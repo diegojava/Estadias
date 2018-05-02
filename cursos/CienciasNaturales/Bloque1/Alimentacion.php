@@ -96,21 +96,12 @@
 
 							</div>
 							<div class='grid-col grid-col-12'>
-								<iframe src='https://es.educaplay.com/es/recursoseducativos/3641432/html5/sistema_digestivo.htm?rel=0' width='795' height='690' frameborder='0'></iframe>
 
-								<iframe src='https://es.educaplay.com/es/recursoseducativos/3645659/html5/2p_cn5%C2%B0_el_aparato_digestivo.htm?rel=0' width='795' height='690' frameborder='0'></iframe>
+								<a href="https://es.educaplay.com/es/recursoseducativos/3641432/html5/sistema_digestivo.htm?rel=0" target="_blank" onClick="window.open(this.href, this.target, 'width=700,height=650'); return false;">Actividad 1</a>
 
-								
-							En el plato del bien comer se muestran los grupos alimenticios.
-							Los grupos alimenticios
-							Es un esquema que ilustra los tres tipos de alimentos y establece recomendaciones acerca de su consumo:
+								<a href="https://es.educaplay.com/es/recursoseducativos/3645659/html5/2p_cn5%C2%B0_el_aparato_digestivo.htm?rel=0" target="_blank" onClick="window.open(this.href, this.target, 'width=700,height=650'); return false;">Actividad 1</a>
 
-							El Plato del Bien Comer
-							Esta para recomendar que tanto de agua debes de tomar y de preferencia que tipo de bebidas debes de consumir.
-							La Jarra del Buen Beber
-							Cuando existen problemas para encontrar alimentos nutritivos en la localidad donde vivimos, una opción es cultivar nuestras propias hortalizas. 
-							Cultivo lo que consumo.
-							Tener una buena alimentación nos ayuda a no sufrir de enfermedades en algunos aparatos como los son el respiratorio, el circulatorio, el digestivo, entre otros y así nos mantenemos fuertes.</div>
+						</div>
 							
 											
 											<br><center><a href='examen-2.php' class='cws_button '>Ir a la evaluación</a></center>

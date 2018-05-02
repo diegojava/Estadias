@@ -35,15 +35,15 @@
 						<div class="container l-page-width">
 							<div class="entry-container ">
 								<main>
-									<p><b>Tema #1 Movimientos del Cuerpo y Prevención de lesiones</b></p>
+									<p><b>Tema #3 Dieta - Los grupos de alimentos</b></p>
 									<div class='grid-row clearfix' style='margin-bottom:0px;'>
 										<div class='grid-col grid-col-6'>
 											<section class='cws-widget'>
 												<section class='cws_widget_content'>
 													<p>
-														<h2>Movimientos del cuerpo</h2>
+														
 														<video width="100%" height="100%" controls>
-														    <source src="material/bloque1-tema1.mp4" type="video/mp4">
+														    <source src="material/bloque1-tema3.mp4" type="video/mp4">
 														</video>
 
 													</p>
@@ -56,14 +56,41 @@
 											<section class='cws-widget'>
 												<section class='cws_widget_content'>
 
-													
-													<p><b>El aparato locomotor:</b></p>
-													<p>En tu vida diaria realizas un gran numero de actividades que involucran movimiento corporal, por ejemplo: jugar un partido de fútbol con tus amigos.</p>
-													<p><b>El aparato óseo:</b></p>
-													<p>El esqueleto forma parte del cuerpo de los humanos y algunos animales, está formado por huesos, y son las estructuras más duras de nuestro cuerpo.</p>
-													<p>El esqueleto de un adulto tiene 206 huesos y el de un recién nacido 270.</p>
-													<p><b>Nuestros puntos flexibles: las articulaciones</b></p>
-													<p>Los puntos donde se unen los huesos se conocen como articulaciones. En ellas encontramos los ligamentos. Los huesos, articulaciones, cartílagos y ligamentos forman lo que conocemos como sistema o aparato óseo.</p>
+							<p align="justify"><b>¿Qué son los alimentos?</b><br>
+							Son aquellos productos  sólidos o líquidos, naturales o transformados que sirven para la nutrición humana.</p>
+
+							<p align="justify">¿Sabías que?<br>
+							Se llama dieta alimenticia a la variedad y cantidad de alimentos que se consumen diario.
+							El sobrepeso y la obesidad es consecuensia del desorden alimenticio que consiste en comer en exceso.
+							El grupo de alimentos que debes de comer en mayor cantidad es frutas y verduras.
+							La energia necesaria para que nuestro cuerpo lleve a cabo todas sus funciones proviene de los alimentos.<br></p>
+							<img align="left" src="img/foto_piramide.jpg">
+							<br>
+							<table class="table">
+								<thead>Grupo <br> Nutrimentos</thead>
+								<th>Grupo <br> Nutrimentos</th>
+								<th>Grupo nutrientes</th>
+								<th>Grupo nutrientes</th>
+								<th>Grupo nutrientes</th>
+								<tr>
+									<td>Carbohidratos</td>
+									<td>Grasas</td>
+									<td>Vitaminas</td>
+									<td>Minerales</td>
+									<td>Proteinas</td>
+									<td></td>
+								</tr>
+							</table>
+							<p align="justify">En el plato del bien comer se muestran los grupos alimenticios.<br></p>
+							<p align="justify">Los grupos alimenticios
+							Es un esquema que ilustra los tres tipos de alimentos y establece recomendaciones acerca de su consumo:
+							
+							El Plato del Bien Comer
+							Esta para recomendar que tanto de agua debes de tomar y de preferencia que tipo de bebidas debes de consumir.
+							La Jarra del Buen Beber
+							Cuando existen problemas para encontrar alimentos nutritivos en la localidad donde vivimos, una opción es cultivar nuestras propias hortalizas. 
+							Cultivo lo que consumo.
+							Tener una buena alimentación nos ayuda a no sufrir de enfermedades en algunos aparatos como los son el respiratorio, el circulatorio, el digestivo, entre otros y así nos mantenemos fuertes.</p>
 													
 												</section>
 											</section>
