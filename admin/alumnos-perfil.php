@@ -4,24 +4,24 @@
  $nik = mysqli_real_escape_string($mysqli,(strip_tags($_GET["nik"],ENT_QUOTES)));
    include_once("$_SERVER[DOCUMENT_ROOT]/Estadias/admin/bin/conexion.php");
   $sql = 
-  "SELECT (SELECT materia.nombre FROM materia where id = 3) as materia, matricula, modulo as modulo, max(puntuacion) as puntuacion
+  "SELECT (SELECT materia.nombre FROM materia where id = 1) as materia, idmateria, matricula, max(puntuacion) as puntuacion
   FROM avance
-  Where matricula = 'TAAL04IV3C' and idmateria =3 and modulo = 1
+  Where matricula = 'TAAL04IV3C' and idmateria =1
 
   UNION all
 
-  SELECT (SELECT materia.nombre FROM materia where id = 3) as materia, matricula, modulo as modulo, max(puntuacion) as puntuacion
+  SELECT (SELECT materia.nombre FROM materia where id = 2) as materia, idmateria, matricula, max(puntuacion) as puntuacion
   FROM avance
-  Where matricula = 'TAAL04IV3C' and idmateria =3 and modulo = 2
+  Where matricula = 'TAAL04IV3C' and idmateria =2 
 
   UNION all
 
-  SELECT (SELECT materia.nombre FROM materia where id = 3) as materia, matricula, modulo as modulo, max(puntuacion) as puntuacion
+  SELECT (SELECT materia.nombre FROM materia where id = 3) as materia, idmateria, matricula, max(puntuacion) as puntuacion
   FROM avance
-  Where matricula = 'TAAL04IV3C' and idmateria =3 and modulo = 3
+  Where matricula = 'TAAL04IV3C' and idmateria =3
 
   group by materia
-  order by  modulo asc";
+  order by  idmateria asc";
   $query = $mysqli->query($sql);
 
   if($_SESSION["id_usuario"] == TRUE && $_SESSION["cargo"] == "admin" || $_SESSION["cargo"] == "profesor")
@@ -152,9 +152,9 @@
             $nik = mysqli_real_escape_string($mysqli,(strip_tags($_GET["nik"],ENT_QUOTES)));
             
               $sqlcn1 = mysqli_query($mysqli, "
-              SELECT  MAX(CASE WHEN matricula='$nik' and modulo = 1 and idmateria = 3 THEN puntuacion ELSE NULL END) modulo1,
-            MAX(CASE WHEN matricula='$nik' and modulo = 2 and idmateria = 3 THEN puntuacion ELSE NULL END) modulo2,
-            MAX(CASE WHEN matricula='$nik' and modulo = 3 and idmateria = 3 THEN puntuacion ELSE NULL END) modulo3
+              SELECT  MAX(CASE WHEN matricula='$nik' and bloque = 1 and idmateria = 3 THEN puntuacion ELSE NULL END) bloque1,
+            MAX(CASE WHEN matricula='$nik' and bloque = 2 and idmateria = 3 THEN puntuacion ELSE NULL END) modulo2,
+            MAX(CASE WHEN matricula='$nik' and bloque = 3 and idmateria = 3 THEN puntuacion ELSE NULL END) modulo3
             FROM avance;");
                           //echo $sql;
             if(mysqli_num_rows($sqlcn1) == 0){
@@ -164,36 +164,36 @@
             }
 
 
-             $sqlcn2 = mysqli_query($mysqli, "
+             $sqlesp = mysqli_query($mysqli, "
               select max(puntuacion) as p1
               from avance
               where matricula = '$nik'
-              and idMateria = 3 and modulo = 2");
+              and idMateria = 1 and bloque = 1");
                           //echo $sql;
-            if(mysqli_num_rows($sqlcn2) == 0){
+            if(mysqli_num_rows($sqlesp) == 0){
               //header("Location: index.php");
             }else{
-              $rowcn2 = mysqli_fetch_assoc($sqlcn2);
+              $rowesp = mysqli_fetch_assoc($sqlesp);
             }
 
 
-             $sqlcn3 = mysqli_query($mysqli, "
+             $sqlmat = mysqli_query($mysqli, "
               select max(puntuacion) as p1
               from avance
               where matricula = '$nik'
-              and idMateria = 3 and modulo = 3");
+              and idMateria = 2 and bloque = 1");
                           //echo $sql;
-            if(mysqli_num_rows($sqlcn3) == 0){
+            if(mysqli_num_rows($sqlmat) == 0){
               //header("Location: index.php");
             }else{
-              $rowcn3 = mysqli_fetch_assoc($sqlcn3);
+              $rowmat = mysqli_fetch_assoc($sqlmat);
             }
             ?>
 
 
 
        <table class="table table-condensed">
-        <thead>
+       
        <thead>
         <tr>
             <th></th>
@@ -209,39 +209,27 @@
     <!--Table body-->
     <tbody>
         <tr class="success">
-            <th scope="row">Espanol<br>   <p style="float:right">Modulo 1: <br> Modulo 2: <br> Modulo 3: <br> Modulo 4: <br> Modulo 5: </p></th>
+            <th scope="row">Espanol</th>
             
-             <td><br><?php echo $rowcn1['modulo1'] ?><br>
-                <?php echo $rowcn1['modulo2'] ?><br>
-                <?php echo $rowcn1['modulo3'] ?><br>
-                 <?php echo $rowcn1['modulo1'] ?><br>
-                <?php echo $rowcn1['modulo1'] ?></td>
+             <td><?php echo $rowesp['p1'] ?></td>
             <td><br>###</td>
             <td><br>###</td>
             <td><br>###</td>
             <td><br>###</td>
         </tr>
         <tr class="warning">
-                       <th scope="row">Matematicas<br>   <p style="float:right">Modulo 1: <br> Modulo 2: <br> Modulo 3: <br> Modulo 4: <br> Modulo 5: </p></th>
+                       <th scope="row">Matematicas</th>
             
-             <td><br><?php echo $rowcn1['modulo1'] ?><br>
-                <?php echo $rowcn1['modulo2'] ?><br>
-                <?php echo $rowcn1['modulo3'] ?><br>
-                 <?php echo $rowcn1['modulo1'] ?><br>
-                <?php echo $rowcn1['modulo1'] ?></td>
+             <td><?php echo $rowmat['p1'] ?></td>
             <td><br>###</td>
             <td><br>###</td>
             <td><br>###</td>
             <td><br>###</td>
         </tr>
         <tr class="info">
-                    <th scope="row">Ciencias N.<br>   <p style="float:right">Modulo 1: <br> Modulo 2: <br> Modulo 3: <br> Modulo 4: <br> Modulo 5: <br></p> </th>
+                    <th scope="row">Ciencias N.</th>
             
-             <td><br><?php echo $rowcn1['modulo1']?><br>
-                <?php echo $rowcn1['modulo2'] ?><br>
-                <?php echo  $rowcn1['modulo3'] ?><br>
-                 ###<br> ###
-                </td>
+             <td><?php echo $rowcn1['bloque1']?></td>
             <td><br>###</td>
             <td><br>###</td>
             <td><br>###</td>

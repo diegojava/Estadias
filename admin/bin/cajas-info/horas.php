@@ -15,7 +15,7 @@
                     die("Connection failed: " . $conn->connect_error);
                 }
 
-                $sql = "SELECT sum(tiempo) as total FROM avance;";
+                $sql = "SELECT count(*) as total FROM avance;";
                 $result = $conn->query($sql);
 
                 if ($result->num_rows > 0) {
@@ -31,7 +31,7 @@
 
               </h3>
 
-              <p>horas utilizadas</p>
+              <p>evaluaciones realizadas</p>
             </div>
             <div class="icon">
               <i class="ion ion-ios-timer-outline"></i>
